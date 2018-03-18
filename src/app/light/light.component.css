@@ -1,0 +1,23 @@
+.icon {
+  margin: .3em;
+}
+
+.light i {
+  color: yellow;
+}
+
+:host>div {
+  border: solid 1px #699fae;
+  border-radius: 5px;
+}
+
+.main-button {
+  padding: 1.2em;
+}
+
+.more {
+  padding: 2em;
+  background-color: rgba(21, 31, 37, .5);
+  border: solid 1px #11181a; 
+  border-radius: 0px 5px 5px 0px;
+}

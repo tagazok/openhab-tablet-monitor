@@ -1,0 +1,30 @@
+<toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+<div fxLayout="column" class="container">
+  <mat-toolbar>
+    <mat-toolbar-row fxLayoutAlign="center center">
+      <span class="button-home">
+        <i class="fas fa-home" routerLink="/"></i>
+      </span>
+      <span>{{date |date:'HH:mm'}}</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div fxFlex [@routerTransition]="getState(o)" class="body">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
+  <mat-toolbar>
+    <mat-toolbar-row fxLayoutAlign="center center" class="footer">
+      <button mat-button (click)="viewConfig = !viewConfig">
+          <i class="fas fa-code fa-2x"></i>
+      </button>
+      <button mat-button (click)="toggleLiteMode()">
+          <i class="fas fa-ellipsis-h"></i>
+      </button>
+      <button mat-button (click)="nightMode()">
+          <i class="fas fa-moon fa-2x"></i>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div *ngIf="viewConfig" class="config">
+  <pre [innerHtml]="cs.config | prettyjson:3"></pre>
+</div>

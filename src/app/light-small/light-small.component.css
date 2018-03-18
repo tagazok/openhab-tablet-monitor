@@ -1,0 +1,13 @@
+:host {
+  width: 100%;
+}
+
+.light i {
+  color: yellow;
+}
+
+.btn {
+  padding: .5em;
+  border: solid 1px #699fae;
+  border-radius: 4px;
+}

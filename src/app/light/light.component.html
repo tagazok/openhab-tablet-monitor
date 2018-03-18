@@ -1,0 +1,9 @@
+<div fxLayout="row" [class.light]="isOn()">
+  <div (click)="toggleOnOff()" (dblclick)="toggleFullWhite()" fxLayout="column" fxLayoutAlign="center center" class="main-button">
+    <i class="fas fa-lightbulb fa-3x icon"></i>
+    <div class="label">{{device.label}}</div>
+  </div>
+  <div fxLayoutAlign="center center" fxLayout="column" class="more" *ngIf="device.properties.Color || device.properties.Brightness" (click)="openAdvanced()">
+      More
+  </div>
+</div>
