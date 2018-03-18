@@ -1,6 +1,6 @@
 <div fxLayoutAlign="center start" fxFlex>
     <div fxLayout="row wrap" fxLayoutAlign="space-around" class="rooms">
-      <div *ngFor="let room of getRooms()" fxFlex="33" class="room" fxLayout="column" fxLayoutAlign="center center">
+      <div *ngFor="let room of getRooms()" fxFlex="33" class="room" fxLayout="column" fxLayoutAlign="start center">
         <div class="main" fxLayout="column" fxLayoutAlign="center center" routerLink="/room/{{room.id}}">
           <div class="label">{{room.label}}</div>
           <img src="/assets/images/{{room.icon}}.png" [class.light]="hasLight(room)">

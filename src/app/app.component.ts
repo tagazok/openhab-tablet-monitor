@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
       this.cs.config = config;
 
       this.getIndicatorsStream()
-      // .filter(event => event.topic.includes('LivingRoom'))
+      // .filter(event => event.topic.includes('Motion'))
       .subscribe(message => {
         this.updateData(message);
       }, error => {
