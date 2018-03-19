@@ -1,16 +1,16 @@
 <div fxLayoutAlign="center start" fxFlex>
-    <div fxLayout="row wrap" fxLayoutAlign="space-around" class="rooms">
-      <div *ngFor="let room of getRooms()" fxFlex="33" class="room" fxLayout="column" fxLayoutAlign="start center">
-        <div class="main" fxLayout="column" fxLayoutAlign="center center" routerLink="/room/{{room.id}}">
-          <div class="label">{{room.label}}</div>
-          <img src="/assets/images/{{room.icon}}.png" [class.light]="hasLight(room)">
-          <div *ngIf="room.sensors?.Sensor?.properties?.Temperature" class="temperature" fxLayoutAlign="end center">
-            <img src="/assets/images/icon_temp.png"> {{room.sensors.Sensor.properties.Temperature.value | number:'1.0-0'}} °C
-          </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around" class="rooms">
+    <div *ngFor="let room of getRooms()" fxFlex="33" class="room" fxLayout="column" fxLayoutAlign="start center">
+      <div class="main" fxLayout="column" fxLayoutAlign="center center" routerLink="/room/{{room.id}}">
+        <div class="label">{{room.label}}</div>
+        <img src="/assets/images/{{room.icon}}.png" [class.light]="hasLight(room)">
+        <div *ngIf="room.sensors?.Sensor?.properties?.Temperature" class="temperature" fxLayoutAlign="end center">
+          <img src="/assets/images/icon_temp.png"> {{room.sensors.Sensor.properties.Temperature.value | number:'1.0-0'}} °C
         </div>
-        <div *ngIf="ls.sharedNode.liteMode" class="lite-mode" fxLayout="row" fxLayoutAlign="space-around" [@liteAnimation]>
-          <app-light-small *ngFor="let device of getDevices(room)" [device]="device"></app-light-small>
-        </div>
+      </div>
+      <div *ngIf="ls.sharedNode.liteMode" class="lite-mode" fxLayout="row" fxLayoutAlign="space-around" [@liteAnimation]>
+        <app-light-small *ngFor="let device of getDevices(room)" [device]="device"></app-light-small>
       </div>
     </div>
   </div>
+</div>
