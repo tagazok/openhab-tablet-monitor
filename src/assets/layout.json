@@ -5,74 +5,86 @@
       "label": "Living room",
       "icon": "lounge",
       "layout": {
-        "areaA": [{
-          "widget": "value",
-          "device": "LivingRoom_Sensor",
-          "config": {
-            "label": "Heat",
-            "property": "Temperature",
-            "icon": "fas fa-thermometer-three-quarters",
-            "unit": "°C",
-            "style": {
-              "border": "none"
+        "areaA": [
+          {
+            "widget": "value",
+            "device": "LivingRoom_OpenSensor",
+            "config": {
+              "property": "OpenStatus",
+              "icon": "fas fa-unlock-alt",
+              "style": {
+                "border": "none"
+              }
             }
           }
-        }],
-        "areaB": [{
-          "widget": "value",
-          "device": "LivingRoom_Sensor",
-          "config": {
-            "label": "Humidity",
-            "property": "Humidity",
-            "icon": "fas fa-tint",
-            "unit": "%",
-            "style": {
-              "border": "none"
+        ],
+        "areaB": [
+          {
+            "widget": "value",
+            "device": "LivingRoom_Sensor",
+            "config": {
+              "label": "Heat",
+              "property": "Temperature",
+              "icon": "fas fa-thermometer-three-quarters",
+              "unit": "°C",
+              "style": {
+                "border": "none"
+              }
+            }
+          },
+          {
+            "widget": "value",
+            "device": "LivingRoom_Sensor",
+            "config": {
+              "label": "Humidity",
+              "property": "Humidity",
+              "icon": "fas fa-tint",
+              "unit": "%",
+              "style": {
+                "border": "none"
+              }
             }
           }
-        }],
-        "areaC": [{
-          "widget": "screen-light",
-          "device": "Hallway_Light"
-        }, {
-          "widget": "screen-light",
-          "device": "LivingRoom_MainLight"
-        }, {
-          "widget": "value",
-          "device": "LivingRoom_OpenSensor",
-          "config": {
-            "property": "OpenStatus",
-            "icon": "fas fa-unlock-alt"
+        ],
+        "areaC": [
+          {
+            "widget": "screen-light",
+            "device": "Hallway_Light"
+          },
+          {
+            "widget": "screen-light",
+            "device": "LivingRoom_MainLight"
           }
-        }],
-        "areaD": [{
-          "widget": "button",
-          "device": "LivingRoom_AllLights",
-          "config": {
-            "label": "Turn all lights off",
-            "property": "OnOff",
-            "value": "OFF",
-            "icon": "fas fa-moon"
+        ],
+        "areaD": [
+          {
+            "widget": "button",
+            "device": "LivingRoom_AllLights",
+            "config": {
+              "label": "Turn all lights off",
+              "property": "OnOff",
+              "value": "OFF",
+              "icon": "fas fa-moon"
+            }
+          },
+          {
+            "widget": "button",
+            "device": "LivingRoom_AllLights",
+            "config": {
+              "label": "Turn all lights on",
+              "property": "OnOff",
+              "value": "ON",
+              "icon": "fas fa-moon"
+            }
           }
-        },
-        {
-          "widget": "button",
-          "device": "LivingRoom_AllLights",
-          "config": {
-            "label": "Turn all lights on",
-            "property": "OnOff",
-            "value": "ON",
-            "icon": "fas fa-moon"
-          }
-        }]
+        ]
       }
     },
     "Kitchen": {
       "id": "Kitchen",
       "label": "Kitchen",
       "icon": "kitchen",
-      "layout": {
-      }
+      "layout": {}
     }
   }
 }

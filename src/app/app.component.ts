@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
       this.cs.devices = config[1];
 
       this.getIndicatorsStream()
-      .filter(event => event.topic.includes('OpenSensor'))
+      // .filter(event => event.topic.includes('OpenSensor'))
       .subscribe(message => {
         this.updateData(message);
       }, error => {
