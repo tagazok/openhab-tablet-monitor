@@ -13,11 +13,11 @@ export const topTransition = trigger('topTransition', [
     group([
       query('.header', stagger(100, [
         style({ transform: 'translateY(-100px)' }),
-        animate('.3s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(0px)', opacity: 1})),
+        animate('100s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(0px)', opacity: 1})),
       ])),
       query('.devices', stagger(100, [
         style({ transform: 'translateY(100px)' }),
-        animate('.3s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(0px)', opacity: 1})),
+        animate('100s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(0px)', opacity: 1})),
       ])),
     ])
   ]),

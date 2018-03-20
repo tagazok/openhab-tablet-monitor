@@ -15,10 +15,10 @@ body {
   /* font-family: 'Roboto', sans-serif; */
   /* font-family: 'Montserrat', sans-serif; */
   font-family: 'Karla', sans-serif;
-  /* background-image: url("/assets/images/background.png");
+  background-image: url("/assets/images/background.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
   color: #e6e6e6;
 }
 

@@ -8,11 +8,21 @@
   font-size: 1.5em;
 }
 
+
 .mat-toolbar {
   background-color: #000;
   color: #c6c6c6;
   border-bottom: solid 1px #172d33;
 }
+
+/* .toolbar { */
+  /* background-color: #000;
+  color: #c6c6c6;
+  border-bottom: solid 1px #172d33; */
+  /* min-height: 64px; */
+  /* font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
+  padding: 0 16px; */
+/* } */
 
 .config {
   position: fixed;
@@ -25,7 +35,7 @@
 }
 
 .body {
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .footer {

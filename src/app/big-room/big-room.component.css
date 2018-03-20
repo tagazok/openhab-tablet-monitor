@@ -1,5 +1,5 @@
 :host {
-  height: 100%;
+  height: calc(100vh - 130px);
   display: block;
 }
 
@@ -9,7 +9,10 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
+  height: calc(100vh - 130px);
+  width: 100%;
+
+  transition: background-image 1s ease-in-out;
 }
 
 .row {
