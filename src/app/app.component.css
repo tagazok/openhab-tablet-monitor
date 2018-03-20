@@ -41,10 +41,21 @@
 .footer {
   border-top: solid 1px #42616b;
 }
+
 .footer button {
   height: 100%;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
   border-right: solid 1px #42616b;
   background: rgba(104, 159, 176,.3);
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 36px;
+  color: rgb(198, 198, 198);
+  min-width: 88px;
 }
 
 .footer button:first-child {

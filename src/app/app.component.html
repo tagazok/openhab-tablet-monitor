@@ -19,13 +19,13 @@
   </div>
   <mat-toolbar>
     <mat-toolbar-row fxLayoutAlign="center center" class="footer">
-      <button mat-button (click)="viewConfig = !viewConfig">
+      <button (click)="viewConfig = !viewConfig" fxLayoutAlign="center center">
           <i class="fas fa-code fa-2x"></i>
       </button>
-      <button mat-button (click)="toggleLiteMode()">
+      <button (click)="toggleLiteMode()" fxLayoutAlign="center center">
           <i class="fas fa-ellipsis-h"></i>
       </button>
-      <button mat-button (click)="nightMode()">
+      <button (click)="nightMode()" fxLayoutAlign="center center">
           <i class="fas fa-moon fa-2x"></i>
       </button>
     </mat-toolbar-row>
