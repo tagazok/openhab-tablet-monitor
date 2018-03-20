@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: solid 1px #699fae;
+  padding: .7em;
+  width: 100%;
+  transition: .1s box-shadow linear, .1s background-color linear;
+}
+
+
+.main {
+  font-size: 1.2em;
+}
+
+.main i {
+  padding: 0 .5em;
+}

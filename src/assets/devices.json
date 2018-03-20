@@ -1,0 +1,73 @@
+{
+  "Hallway_Light": {
+    "id": "Hallway_Light",
+    "type": "light",
+    "label": "Hallway Light",
+    "properties": {
+      "Color": {
+        "OHitem": "Hallway_Light_Color",
+        "value": {
+          "h": 0,
+          "s": 0,
+          "b": 0
+        }
+      },
+      "Brightness": {
+        "OHitem": "Hallway_Light_Brightness",
+        "value": 0
+      },
+      "OnOff": {
+        "OHitem": "Hallway_Light_OnOff",
+        "value": ""
+      }
+    }
+  },
+  "LivingRoom_AllLights": {
+    "id": "LivingRoom_AllLights",
+    "type": "light",
+    "label": "All LivingRoom lights",
+    "properties": {
+      "OnOff": {
+        "OHitem": "LivingRoom_AllLights_OnOff",
+        "value": ""
+      }
+    }
+  },
+  "LivingRoom_MainLight": {
+    "id": "LivingRoom_MainLight",
+    "type": "light",
+    "label": "Ceiling",
+    "properties": {
+      "Color": {
+        "OHitem": "LivingRoom_MainLight_Color",
+        "value": {
+          "h": 0,
+          "s": 0,
+          "b": 0
+        }
+      },
+      "Brightness": {
+        "OHitem": "LivingRoom_MainLight_Brightness",
+        "value": 0
+      },
+      "OnOff": {
+        "OHitem": "LivingRoom_MainLight_OnOff",
+        "value": ""
+      }
+    }
+  },
+  "LivingRoom_Sensor": {
+    "id": "LivingRoom_Sensor",
+    "type": "sensor",
+    "label": "Temperature and Humidity",
+    "properties": {
+      "Temperature": {
+        "value": 0
+      },
+      "Humidity": {
+        "value": 0
+      }
+    }
+  }
+}
+

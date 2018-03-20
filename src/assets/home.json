@@ -3,7 +3,7 @@
     "Hallway": {
       "id": "Hallway",
       "label": "Entry Hall",
-      "icon": "room_hall",
+      "icon": "corridor",
       "devices": {
         "Light": {
           "id": "Light",
@@ -33,7 +33,7 @@
     "LivingRoom": {
       "id": "LivingRoom",
       "label": "Living room",
-      "icon": "room_salon",
+      "icon": "lounge",
       "devices": {
         "MainLight": {
           "id": "MainLight",
@@ -99,7 +99,7 @@
     "Kitchen": {
       "id": "Kitchen",
       "label": "Kitchen",
-      "icon": "room_cuisine",
+      "icon": "kitchen",
       "devices": {
         "MainLight": {
           "id": "MainLight",
@@ -129,7 +129,7 @@
     "BedRoom": {
       "id": "BedRoom",
       "label": "Bedroom",
-      "icon": "room_chambre",
+      "icon": "bedroom",
       "sensors": {
         "Sensor": {
           "properties": {
@@ -143,7 +143,7 @@
     "Bathroom": {
       "id": "Bathroom",
       "label": "Bathroom",
-      "icon": "room_sdb",
+      "icon": "bathroom",
       "devices": {
         "MainLight": {
           "id": "MainLight",

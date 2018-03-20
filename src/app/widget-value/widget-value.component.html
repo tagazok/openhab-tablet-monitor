@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+  <div fxFlex class="main">
+    <div>
+      <i class="{{getIcon()}} icon"></i>
+    </div>
+    <div fxFlex>{{config.label || device.label}}</div>
+  </div>
+  <div>
+    {{device.properties[config.property].value}} {{config.unit || ''}}
+  </div>
+</div>

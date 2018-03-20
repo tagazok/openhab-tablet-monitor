@@ -48,10 +48,18 @@ export class AppComponent implements OnInit {
               private ls: LiteService) {
     this.zone = new NgZone({ enableLongStackTrace: false });
 
-    fetch(this.cs.configUrl)
-    .then(response => response.json())
-    .then(config => {
-      this.cs.config = config;
+    Promise.all([
+      fetch(this.cs.configUrl),
+      fetch(this.cs.devicesUrl)
+    ]).then((response: any) => {
+      return Promise.all([
+        response[0].json(),
+        response[1].json()
+      ]);
+    })
+    .then((config: any) => {
+      this.cs.layout = config[0];
+      this.cs.devices = config[1];
 
       this.getIndicatorsStream()
       // .filter(event => event.topic.includes('Motion'))
@@ -108,18 +116,34 @@ export class AppComponent implements OnInit {
     const [room, device, property] = message.topic.split('/')[2].split('_');
     const payload = JSON.parse(message.payload);
     
-    console.log(`${room} ${device} ${property} => ${payload.value}`);
-    const type = device === "Sensor" ? "sensors" : "devices";
 
-    if (!this.cs.config.rooms[room] || 
-        !this.cs.config.rooms[room][type][device].properties[property])
+    console.group(room)
+    console.log(message.topic);
+    console.log(message.payload);
+    console.log(`${room} ${device} ${property} => ${payload.value}`);
+    console.groupEnd();
+    const deviceKey = `${room}_${device}`;
+    if (!this.cs.devices[deviceKey] ||
+        !this.cs.devices[deviceKey].properties[property])
         return;
-    
     let value = payload.value;
     if (payload.type === "HSB") {
       const [h, s, b] = payload.value.split(',');
       value = {h, s, b};
     }
-    this.cs.config.rooms[room][type][device].properties[property].value = value;
+    this.cs.devices[deviceKey].properties[property].value = value;
+
+    // const type = device === "Sensor" ? "sensors" : "devices";
+
+    // if (!this.cs.config.rooms[room] || 
+    //     !this.cs.config.rooms[room][type][device].properties[property])
+    //     return;
+    
+    // let value = payload.value;
+    // if (payload.type === "HSB") {
+    //   const [h, s, b] = payload.value.split(',');
+    //   value = {h, s, b};
+    // }
+    // this.cs.config.rooms[room][type][device].properties[property].value = value;
   }
 }

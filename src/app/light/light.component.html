@@ -1,5 +1,5 @@
-<div fxLayout="row" [class.light]="isOn()" class="main">
-  <div (click)="toggleOnOff()" (dblclick)="toggleFullWhite()" fxLayout="column" fxLayoutAlign="center center" class="main-button">
+<div fxLayout="row" [class.light]="isOn()">
+  <div (click)="toggleOnOff()" fxLayout="column" fxLayoutAlign="center center" class="main-button">
     <i class="fas fa-lightbulb fa-3x icon"></i>
     <div class="label">{{device.label}}</div>
   </div>

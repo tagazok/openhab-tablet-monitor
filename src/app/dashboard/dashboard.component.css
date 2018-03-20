@@ -3,15 +3,25 @@
   display: block;
 }
 
+.rooms {
+  width: 100%;
+
+  background-image: url("/assets/images/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .room {
   position: relative;
   font-size: 20px;
-  padding: 1em 0;
+  padding: 1em 2em;
   margin: 1em 0;
 }
 
 .room img {
   transition: .3s filter linear;
+  max-width: 100%;
 }
 
 .room img.light {

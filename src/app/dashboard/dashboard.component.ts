@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getRooms() {
-    return Object.values(this.cs.config.rooms);
+    return Object.values(this.cs.layout.rooms);
   }
 
   hasLight(room) {

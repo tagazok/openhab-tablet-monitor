@@ -1,0 +1,8 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+  <div fxFlex (click)="click()" class="main">
+    <div>
+      <i  class="{{getIcon()}} icon"></i>
+    </div>
+    <div fxFlex>{{config?.label || device?.label || ''}}</div>
+  </div>
+</div>

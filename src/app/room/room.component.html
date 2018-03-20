@@ -1,16 +1,16 @@
-<div class="container" *ngIf="cs.config.rooms[roomId]" fxLayout="column" fxFlex>
+<div class="container" *ngIf="cs.layout.rooms[roomId]" fxLayout="column" fxFlex>
   <div class="header" fxLayout="row" fxLayoutAlign="space-around center">
-    <div class="sensor" *ngIf="cs.config.rooms[roomId].sensors?.Sensor.properties.Temperature" fxLayout="row" fxLayoutAlign="center center">
+    <div class="sensor" *ngIf="cs.layout.rooms[roomId].sensors?.Sensor.properties.Temperature" fxLayout="row" fxLayoutAlign="center center">
       <i class="fas fa-thermometer-three-quarters"></i>
-      <div class="value">{{cs.config.rooms[roomId].sensors.Sensor.properties.Temperature.value | number:'1.0-1'}} °C</div>
+      <div class="value">{{cs.layout.rooms[roomId].sensors.Sensor.properties.Temperature.value | number:'1.0-1'}} °C</div>
     </div>
-    <div class="sensor" *ngIf="cs.config.rooms[roomId].sensors?.Sensor.properties.Humidity" fxLayout="row" fxLayoutAlign="center center">
+    <div class="sensor" *ngIf="cs.layout.rooms[roomId].sensors?.Sensor.properties.Humidity" fxLayout="row" fxLayoutAlign="center center">
       <i class="fas fa-tint"></i>
-      <div class="value">{{cs.config.rooms[roomId].sensors.Sensor.properties.Humidity.value | number:'1.0-0'}} %</div>
+      <div class="value">{{cs.layout.rooms[roomId].sensors.Sensor.properties.Humidity.value | number:'1.0-0'}} %</div>
     </div>
     <div fxLayout="column" fxLayoutAlign="center center">
-      <div class="label">{{cs.config.rooms[roomId].label}}</div>
-      <img src="/assets/images/{{cs.config.rooms[roomId].icon}}.png">
+      <div class="label">{{cs.layout.rooms[roomId].label}}</div>
+      <img src="/assets/images/rooms/{{cs.layout.rooms[roomId].icon}}.png">
     </div>
   </div>
   <div class="devices" fxLayout="row wrap" fxLayoutAlign="space-around center">

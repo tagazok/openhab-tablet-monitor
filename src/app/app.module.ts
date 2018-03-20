@@ -23,10 +23,17 @@ import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { LightSmallComponent } from './light-small/light-small.component';
 import { LiteService } from './lite.service';
+import { BigRoomComponent } from './big-room/big-room.component';
+import { WidgetComponent } from './widget/widget.component';
+import { ScreenLightComponent } from './screen-light/screen-light.component';
+import { WidgetButtonComponent } from './widget-button/widget-button.component';
+import { WidgetLabelComponent } from './widget-label/widget-label.component';
+import { WidgetValueComponent } from './widget-value/widget-value.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
   { path: "room/:id", component: RoomComponent, data: { state: 'room'} },
+  { path: "bigroom/:id", component: BigRoomComponent, data: { state: 'bigroom'} }
 ];
 
 @NgModule({
@@ -37,7 +44,13 @@ const routes: Routes = [
     OutletComponentComponent,
     LightComponent,
     LightAdvancedComponent,
-    LightSmallComponent
+    LightSmallComponent,
+    BigRoomComponent,
+    WidgetComponent,
+    ScreenLightComponent,
+    WidgetButtonComponent,
+    WidgetLabelComponent,
+    WidgetValueComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +77,10 @@ const routes: Routes = [
   ],
   entryComponents: [
     LightComponent,
-    LightAdvancedComponent
+    LightAdvancedComponent,
+    ScreenLightComponent,
+    WidgetButtonComponent,
+    WidgetValueComponent
   ],
   bootstrap: [AppComponent]
 })

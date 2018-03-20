@@ -11,7 +11,7 @@
   <div fxFlex [@routerTransition]="getState(o)" class="body">
     <router-outlet #o="outlet"></router-outlet>
   </div>
-  <mat-toolbar>
+  <!-- <mat-toolbar>
     <mat-toolbar-row fxLayoutAlign="center center" class="footer">
       <button mat-button (click)="viewConfig = !viewConfig">
           <i class="fas fa-code fa-2x"></i>
@@ -23,7 +23,7 @@
           <i class="fas fa-moon fa-2x"></i>
       </button>
     </mat-toolbar-row>
-  </mat-toolbar>
+  </mat-toolbar> -->
 </div>
 <div *ngIf="viewConfig" class="config">
   <pre [innerHtml]="cs.config | prettyjson:3"></pre>

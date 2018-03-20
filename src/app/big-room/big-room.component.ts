@@ -4,18 +4,23 @@ import { ActivatedRoute } from '@angular/router';
 import {trigger, stagger, animate, style, group, query as q, transition, keyframes} from '@angular/animations';
 const query = (s,a,o={optional:true})=>q(s,a,o);
 
-export const topTransition = trigger('topTransition', [
+export const bigRoomTransition = trigger('bigRoomTransition', [
   transition(':enter', [
     group([
-      query('.header', style({ opacity: 0 })),
-      query('.devices', style({ opacity: 0 })),
+      query('.area-center', style({ opacity: 0 })),
+      query('.area-top', style({ opacity: 0 })),
+      query('.area-bottom', style({ opacity: 0 })),
     ]),
     group([
-      query('.header', stagger(100, [
+      query('.area-center', stagger(100, [
+        style({ transform: 'scale(.7)' }),
+        animate('.3s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'scale(1)', opacity: 1}))
+      ])),
+      query('.area-top', stagger(0, [
         style({ transform: 'translateY(-100px)' }),
         animate('.3s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(0px)', opacity: 1})),
       ])),
-      query('.devices', stagger(100, [
+      query('.area-bottom', stagger(0, [
         style({ transform: 'translateY(100px)' }),
         animate('.3s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(0px)', opacity: 1})),
       ])),
@@ -23,11 +28,15 @@ export const topTransition = trigger('topTransition', [
   ]),
   transition(':leave', [
     group([
-      query('.header', stagger(100, [
+      query('.area-center', stagger(100, [
+        style({ transform: 'scale(1)' }),
+        animate('.3s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'scale(.7)', opacity: 0})),
+      ])),
+      query('.area-top', stagger(0, [
         style({ transform: 'translateY(0px)' }),
         animate('.3s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(-100px)', opacity: 0})),
       ])),
-      query('.devices', stagger(100, [
+      query('.area-bottom', stagger(0, [
         style({ transform: 'translateY(0px)' }),
         animate('.3s cubic-bezier(.75,-0.48,.26,1.52)', style({transform: 'translateY(100px)', opacity: 0})),
       ])),
@@ -36,15 +45,15 @@ export const topTransition = trigger('topTransition', [
 ]);
 
 @Component({
-  selector: 'app-room',
-  templateUrl: './room.component.html',
-  styleUrls: ['./room.component.css'],
-  animations: [ topTransition ],
+  selector: 'app-big-room',
+  templateUrl: './big-room.component.html',
+  styleUrls: ['./big-room.component.css'],
+  animations: [ bigRoomTransition ],
   host: {
-    '[@topTransition]': ''
+    '[@bigRoomTransition]': ''
   }
 })
-export class RoomComponent implements OnInit {
+export class BigRoomComponent implements OnInit {
   room: any;
   roomId: string;
   constructor(public cs: ConfigService,
@@ -52,9 +61,5 @@ export class RoomComponent implements OnInit {
 
   ngOnInit() {
     this.roomId = this.route.snapshot.params['id'];
-  }
-
-  getDevices() {
-    return Object.values(this.cs.layout.rooms[this.roomId].devices || {});
   }
 }
