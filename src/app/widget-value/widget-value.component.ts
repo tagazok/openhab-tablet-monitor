@@ -10,6 +10,6 @@ export class WidgetValueComponent extends WidgetComponent {
 
   getIcon() {
     if (this.config && this.config.icon) return this.config.icon;
-    return 'fas fa-play';
+    return 'fas fa-heart';
   }
 }

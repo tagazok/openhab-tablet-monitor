@@ -37,6 +37,13 @@
         }, {
           "widget": "screen-light",
           "device": "LivingRoom_MainLight"
+        }, {
+          "widget": "value",
+          "device": "LivingRoom_OpenSensor",
+          "config": {
+            "property": "OpenStatus",
+            "icon": "fas fa-unlock-alt"
+          }
         }],
         "areaD": [{
           "widget": "button",

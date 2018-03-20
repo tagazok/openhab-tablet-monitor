@@ -1,4 +1,14 @@
 {
+  "LivingRoom_OpenSensor": {
+    "id": "LivingRoom_OpenSensor",
+    "type": "sensor",
+    "label": "Entry door",
+    "properties": {
+      "OpenStatus": {
+        "value": ""
+      }
+    }
+  },
   "Hallway_Light": {
     "id": "Hallway_Light",
     "type": "light",
