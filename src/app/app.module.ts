@@ -30,9 +30,12 @@ import { WidgetButtonComponent } from './widget-button/widget-button.component';
 import { WidgetLabelComponent } from './widget-label/widget-label.component';
 import { WidgetValueComponent } from './widget-value/widget-value.component';
 import { WidgetComponent } from './widget/widget.component';
+import { HackerComponent } from './hacker/hacker.component';
+import { LogService } from './log.service';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
+  { path: "hacker", component: HackerComponent, data: { state: 'hacker'} },
   { path: "room/:id", component: RoomComponent, data: { state: 'room'} },
   { path: "bigroom/:id", component: BigRoomComponent, data: { state: 'bigroom'} }
 ];
@@ -52,7 +55,8 @@ const routes: Routes = [
     WidgetButtonComponent,
     WidgetLabelComponent,
     WidgetValueComponent,
-    WidgetComponent
+    WidgetComponent,
+    HackerComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,8 @@ const routes: Routes = [
     ToasterService,
     ApiService,
     ConfigService,
-    LiteService
+    LiteService,
+    LogService
   ],
   entryComponents: [
     LightComponent,

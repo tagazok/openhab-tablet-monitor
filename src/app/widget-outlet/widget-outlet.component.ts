@@ -50,12 +50,6 @@ export class WidgetOutletComponent implements OnInit {
 
   ngOnInit() {
     this.createComponent();
-    
-    // if (this.config && this.config.style) {
-    //   for (const [key, value] of Object.entries(this.config.style)) {
-    //     this.renderer.setStyle(this.elementRef.nativeElement, key, value);
-    //   }
-    // }
   }
 
 }

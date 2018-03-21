@@ -1,0 +1,20 @@
+<div class="container" fxLayout="column">
+  <div fxLayout="row" fxFlex="60">
+    <div fxLayout="column" class="box" fxFlex="50">
+      <pre [innerHtml]="cs.layout | prettyjson:1"></pre>
+    </div>
+    <div fxLayout="column" class="box" fxFlex="50">
+      <pre [innerHtml]="cs.devices | prettyjson:1"></pre>
+    </div>
+  </div>
+  <div class="box logs" fxLayout="column" fxFlex>
+    <table>
+      <tr *ngFor="let log of logService.eventSourceLogs">
+        <td>{{log.date}}</td>
+        <td>{{log.item}}</td>
+        <td>{{log.payload.type}}</td>
+        <td>{{log.payload.value}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -8,22 +8,15 @@
       <span>{{date |date:'HH:mm'}}</span>
     </mat-toolbar-row>
   </mat-toolbar>
-  <!-- <div fxLayoutAlign="center center" class="toolbar">
-    <span class="button-home">
-      <i class="fas fa-home" routerLink="/"></i>
-    </span>
-    <span>{{date |date:'HH:mm'}}</span>
-  </div> -->
+
   <div fxFlex [@routerTransition]="getState(o)" class="body">
     <router-outlet #o="outlet"></router-outlet>
   </div>
+
   <mat-toolbar>
     <mat-toolbar-row fxLayoutAlign="center center" class="footer">
-      <button (click)="viewConfig = !viewConfig" fxLayoutAlign="center center">
+      <button fxLayoutAlign="center center" routerLink="/hacker">
           <i class="fas fa-code fa-2x"></i>
-      </button>
-      <button (click)="toggleLiteMode()" fxLayoutAlign="center center">
-          <i class="fas fa-ellipsis-h"></i>
       </button>
       <button (click)="nightMode()" fxLayoutAlign="center center">
           <i class="fas fa-moon fa-2x"></i>
@@ -31,6 +24,6 @@
     </mat-toolbar-row>
   </mat-toolbar>
 </div>
-<div *ngIf="viewConfig" class="config">
+<!-- <div *ngIf="viewConfig" class="config">
   <pre [innerHtml]="cs.config | prettyjson:3"></pre>
-</div>
+</div> -->

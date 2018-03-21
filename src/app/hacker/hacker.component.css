@@ -1,0 +1,29 @@
+:host {
+  height: 100%;
+  display: block;
+}
+.container {
+  height: 100%;
+}
+
+.box {
+  border: solid 1px rgba(105, 159, 174, .5);
+  padding: 1em;
+  border-radius: 4px;
+  background-color: rgba(105, 159, 174, .08);
+  overflow-y: auto;
+  margin: 1.5em;
+  margin-bottom: 0;
+}
+
+.box.logs {
+  margin-bottom: 1.5em;
+}
+
+.box pre {
+  margin: 0 !important;
+}
+
+.box.logs table {
+  width: 100%;
+}

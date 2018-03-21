@@ -8,6 +8,7 @@ import { ToasterConfig } from "angular2-toaster";
 
 import {sequence, trigger, stagger, animate, style, group, query as q, transition, keyframes, animateChild} from '@angular/animations';
 import { LiteService } from "./lite.service";
+import { LogService } from "./log.service";
 const query = (s,a,o={optional:true})=>q(s,a,o);
 
 export const routerTransition = trigger('routerTransition', [
@@ -45,7 +46,8 @@ export class AppComponent implements OnInit {
   constructor(private api: ApiService,
               private snackBar: MatSnackBar,
               private cs: ConfigService,
-              private ls: LiteService) {
+              private ls: LiteService,
+              private logService: LogService) {
     this.zone = new NgZone({ enableLongStackTrace: false });
 
     Promise.all([
@@ -133,15 +135,16 @@ export class AppComponent implements OnInit {
   }
 
   updateData(message) {
-    const [room, device, property] = message.topic.split('/')[2].split('_');
+    const item = message.topic.split('/')[2]
+    const [room, device, property] = item.split('_');
     const payload = JSON.parse(message.payload);
     
-
     console.group(room)
     console.log(message.topic);
     console.log(message.payload);
     console.log(`${room} ${device} ${property} => ${payload.value}`);
     console.groupEnd();
+
     const deviceKey = `${room}_${device}`;
     if (!this.cs.devices[deviceKey] ||
         !this.cs.devices[deviceKey].properties[property])
@@ -151,6 +154,12 @@ export class AppComponent implements OnInit {
       const [h, s, b] = payload.value.split(',');
       value = {h, s, b};
     }
+
+    this.logService.push({
+      date: new Date().toLocaleString(),
+      item: item,
+      payload: payload
+    });
     this.cs.devices[deviceKey].properties[property].value = value;
   }
 }
