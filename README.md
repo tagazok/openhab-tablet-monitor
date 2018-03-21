@@ -148,7 +148,7 @@ You should now see your romm appear on your home screen
 A widget is defined by some mandatory and optional values :
 * widget: The widget template (as of today : light, button, value. More to come :)
 * device: The device used as key in devices.json
-* confif (optional depending on the widget):
+* config (optional depending on the widget):
   * label: The default label is the one defined in the device.json. Can be override here
   * icon: A default icon exists. Can be override here
   * style: To override the widget css style
