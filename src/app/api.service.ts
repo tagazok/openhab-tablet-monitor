@@ -9,6 +9,10 @@ export class ApiService {
   constructor(private http: HttpClient,
   private cs: ConfigService) { }
 
+  getAllItems() {
+    return this.http.get(`${this.cs.serverUrl}${this.endpoint}`);
+  }
+
   send(itemName, payload) {
     return this.http.post(`${this.cs.serverUrl}${this.endpoint}/${itemName}`, payload);
   }

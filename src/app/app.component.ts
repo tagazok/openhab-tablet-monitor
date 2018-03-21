@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
     .then((config: any) => {
       this.cs.layout = config[0];
       this.cs.devices = config[1];
-
+      this.initValues();
       this.getIndicatorsStream()
       // .filter(event => event.topic.includes('OpenSensor'))
       .subscribe(message => {
@@ -77,6 +77,26 @@ export class AppComponent implements OnInit {
 
   getState(outlet) {
     return outlet.activatedRouteData.state;
+  }
+
+  initValues() {
+    this.api.getAllItems().subscribe((items: Array<any>) => {
+      for(let item of items) {
+        const [room, device, property] = item.name.split('_');
+        const deviceKey = `${room}_${device}`;
+
+        console.log(item.name);
+        console.log(this.cs.devices);
+        if (this.cs.devices[deviceKey] && this.cs.devices[deviceKey].properties[property]) {
+          let value = item.state;
+          if (item.type === "Color") {
+            const [h, s, b] = item.state.split(',');
+            value = {h, s, b};
+          }
+          this.cs.devices[deviceKey].properties[property].value = value;
+        }
+      }
+    });
   }
 
   getIndicatorsStream() {
@@ -132,18 +152,5 @@ export class AppComponent implements OnInit {
       value = {h, s, b};
     }
     this.cs.devices[deviceKey].properties[property].value = value;
-
-    // const type = device === "Sensor" ? "sensors" : "devices";
-
-    // if (!this.cs.config.rooms[room] || 
-    //     !this.cs.config.rooms[room][type][device].properties[property])
-    //     return;
-    
-    // let value = payload.value;
-    // if (payload.type === "HSB") {
-    //   const [h, s, b] = payload.value.split(',');
-    //   value = {h, s, b};
-    // }
-    // this.cs.config.rooms[room][type][device].properties[property].value = value;
   }
 }
