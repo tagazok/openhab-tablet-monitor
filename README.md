@@ -161,7 +161,7 @@ Some widgets also have some mandatory and optional values :
   * property (mandatory): The property to display
   * unit (optional): A text displayed right after the value
 
-![Room screen](readme_files/sc_livingroom.png)
+![Room screen](readme_files/sc_livingroom_rules.png)
 
 ## Dashboard
 You can see what your json look like (with live values) and your last updates received by clicking on the </> icon in the footer
