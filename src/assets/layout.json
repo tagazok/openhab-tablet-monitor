@@ -1,5 +1,11 @@
 {
   "rooms": {
+    "EntryHall": {
+      "id": "EntryHall",
+      "label": "Entry Hall",
+      "icon": "corridor",
+      "layout": {}
+    },
     "LivingRoom": {
       "id": "LivingRoom",
       "label": "Living room",
@@ -84,6 +90,18 @@
       "id": "Kitchen",
       "label": "Kitchen",
       "icon": "kitchen",
+      "layout": {}
+    },
+    "Bedroom": {
+      "id": "Bedroom",
+      "label": "Bedroom",
+      "icon": "bedroom",
+      "layout": {}
+    },
+    "Bathroom": {
+      "id": "Bathroom",
+      "label": "Bathroom",
+      "icon": "bathroom",
       "layout": {}
     }
   }
