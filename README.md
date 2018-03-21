@@ -1,3 +1,5 @@
+![Room screen](readme_files/banner.png)
+
 # Disclamer
 This is a work in progress and has only been tested with my openHab installation and my 9" Nexus tablet.
 
@@ -139,7 +141,7 @@ layout.json exemple
 ```
 
 You should now see your romm appear on your home screen
-![Room screen](readme_files/sc_home.png)
+![Home screen](readme_files/sc_home.png)
 
 A widget is defined by some mandatory and optional values :
 * widget: The widget template (as of today : light, button, value. More to come :)
@@ -162,7 +164,7 @@ Some widgets also have some mandatory and optional values :
 ## Dashboard
 You can see what your json look like (with live values) and your last updates received by clicking on the </> icon in the footer
 
-![Room screen](readme_files/sc_dashboard.png)
+![Hacker screen](readme_files/sc_dashboard.png)
 
 ## Inspiration
 
