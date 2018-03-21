@@ -20,6 +20,7 @@
 
 .main i {
   padding: 0 .5em;
+  margin-right: .5em;
   transition: .2s color linear, .2s filter linear;
 }
 

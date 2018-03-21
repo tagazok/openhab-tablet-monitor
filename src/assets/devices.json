@@ -78,6 +78,38 @@
         "value": 0
       }
     }
+  },
+  "LivingRoom_TVAtmosphere": {
+    "id": "LivingRoom_TVAtmosphere",
+    "type": "button",
+    "label": "TV Atmospherer",
+    "properties": {
+      "OnOff": {
+        "value": ""
+      }
+    }
+  },
+  "LivingRoom_SensorLightRule": {
+    "id": "gi",
+    "type": "button",
+    "label": "Light rule",
+    "properties": {
+      "OnOff": {
+        "OHitem": "LivingRoom_SensorLightRule_OnOff",
+        "value": ""
+      }
+    }
+  },
+  "LivingRoom_SensorLightRule2": {
+    "id": "gi",
+    "type": "button",
+    "label": "Television rule",
+    "properties": {
+      "OnOff": {
+        "OHitem": "LivingRoom_SensorLightRule2_OnOff",
+        "value": "OFF"
+      }
+    }
   }
 }
 

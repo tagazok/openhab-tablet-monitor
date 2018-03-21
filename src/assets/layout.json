@@ -22,6 +22,20 @@
                 "border": "none"
               }
             }
+          },
+          {
+            "widget": "switch",
+            "device": "LivingRoom_SensorLightRule",
+            "config": {
+              "property": "OnOff"
+            }
+          },
+          {
+            "widget": "switch",
+            "device": "LivingRoom_SensorLightRule2",
+            "config": {
+              "property": "OnOff"
+            }
           }
         ],
         "areaB": [
@@ -80,7 +94,16 @@
               "label": "Turn all lights on",
               "property": "OnOff",
               "value": "ON",
-              "icon": "fas fa-moon"
+              "icon": "fas fa-sun"
+            }
+          },
+          {
+            "widget": "button",
+            "device": "LivingRoom_TVAtmosphere",
+            "config": {
+              "property": "OnOff",
+              "value": "ON",
+              "icon": "fas fa-tv"
             }
           }
         ]

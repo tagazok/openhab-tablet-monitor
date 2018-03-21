@@ -1,7 +1,7 @@
-![Room screen](readme_files/banner.png)
-
 # Disclamer
 This is a work in progress and has only been tested with my openHab installation and my 9" Nexus tablet.
+
+![Room screen](readme_files/banner.png)
 
 # OpenHab Tablet Monitor
 
@@ -67,6 +67,7 @@ devices.json exemple
 }
 ```
 
+you can find a sample version of devices.json [here](src/assets/devices.json)
 For the binding with OpenHome to work, the items in OpenHome MUST have their names as follow
 
 ```
@@ -139,6 +140,7 @@ layout.json exemple
   ...
 }
 ```
+You can find a sampel version of layout.json file [here](src/assets/layout.json)
 
 You should now see your romm appear on your home screen
 ![Home screen](readme_files/sc_home.png)

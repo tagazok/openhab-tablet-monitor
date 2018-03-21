@@ -32,6 +32,7 @@ import { WidgetValueComponent } from './widget-value/widget-value.component';
 import { WidgetComponent } from './widget/widget.component';
 import { HackerComponent } from './hacker/hacker.component';
 import { LogService } from './log.service';
+import { WidgetSwitchComponent } from './widget-switch/widget-switch.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
@@ -56,7 +57,8 @@ const routes: Routes = [
     WidgetLabelComponent,
     WidgetValueComponent,
     WidgetComponent,
-    HackerComponent
+    HackerComponent,
+    WidgetSwitchComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,8 @@ const routes: Routes = [
     LightAdvancedComponent,
     ScreenLightComponent,
     WidgetButtonComponent,
-    WidgetValueComponent
+    WidgetValueComponent,
+    WidgetSwitchComponent
   ],
   bootstrap: [AppComponent]
 })

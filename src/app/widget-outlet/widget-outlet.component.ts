@@ -3,6 +3,7 @@ import { LightComponent } from "../light/light.component";
 import { ScreenLightComponent } from "../screen-light/screen-light.component";
 import { WidgetButtonComponent } from "../widget-button/widget-button.component";
 import { WidgetValueComponent } from "../widget-value/widget-value.component";
+import { WidgetSwitchComponent } from "../widget-switch/widget-switch.component";
 
 @Component({
   selector: 'app-widget-outlet',
@@ -25,7 +26,8 @@ export class WidgetOutletComponent implements OnInit {
     'light': LightComponent,
     'screen-light': ScreenLightComponent,
     'button': WidgetButtonComponent,
-    'value': WidgetValueComponent
+    'value': WidgetValueComponent,
+    'switch': WidgetSwitchComponent
   };
 
   @ViewChild("container", { read: ViewContainerRef })

@@ -1,0 +1,8 @@
+<div fxLayout="row" fxLayoutAlign="start center" class="{{device.properties.OnOff.value}}">
+  <div fxFlex (click)="toggleOnOff()" class="main">
+    <div>
+      <i class="{{getIcon()}} icon"></i>
+    </div>
+    <div fxFlex>{{config?.label || device?.label || ''}}</div>
+  </div>
+</div>
