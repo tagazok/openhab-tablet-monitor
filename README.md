@@ -1,27 +1,169 @@
+# Disclamer
+This is a work in progress and has only been tested with my openHab installation and my 9" Nexus tablet.
+
 # OpenHab Tablet Monitor
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+The goal of this project is to provide a nice web interface to be used on touchscreen to connect to openHab API.
 
-## Development server
+## Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### openHab
 
-## Code scaffolding
+Enter your openHab url and port in your environment.ts file. You can also defined others layout and devices files locations.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```javascript
+export const environment = {
+  production: false,
+  app: {
+    openHabUrl: 'http://192.168.1.25:8080',
+    layout: '/assets/layout.json',
+    devices: '/assets/devices.json'
+  }
+};
+```
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+The user interface is generated with 2 json files
 
-## Running unit tests
+### Devices list
+devices.json exemple
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```json
+{
+"LivingRoom_OpenSensor": {
+    "id": "LivingRoom_OpenSensor",
+    "type": "sensor",
+    "label": "Entry door",
+    "properties": {
+      "OpenStatus": {
+        "value": ""
+      }
+    }
+  },
+  "Hallway_Light": {
+    "id": "Hallway_Light",
+    "type": "light",
+    "label": "Hallway Light",
+    "properties": {
+      "Color": {
+        "OHitem": "Hallway_Light_Color",
+        "value": {
+          "h": 0,
+          "s": 0,
+          "b": 0
+        }
+      },
+      "Brightness": {
+        "OHitem": "Hallway_Light_Brightness",
+        "value": 0
+      },
+      "OnOff": {
+        "OHitem": "Hallway_Light_OnOff",
+        "value": ""
+      }
+    }
+}
+```
 
-## Running end-to-end tests
+For the binding with OpenHome to work, the items in OpenHome MUST have their names as follow
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+LivingRoom_OpenSensor_OpenStatus
+Hallway_Light_Color
+Hallway_Light_Brightness
+Hallway_Light_OnOff
+```
 
-## Further help
+### Layout
+layout.json exemple
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```json
+{
+  "rooms": {
+    "LivingRoom": {
+      "id": "LivingRoom",
+      "label": "Living room",
+      "icon": "lounge",
+      "layout": {
+        "areaA": [
+          {
+            "widget": "value",
+            "device": "LivingRoom_OpenSensor",
+            "config": {
+              "property": "OpenStatus",
+              "icon": "fas fa-unlock-alt",
+              "style": {
+                "border": "none"
+              }
+            }
+          }
+        ],
+        "areaB": [
+          {
+            "widget": "value",
+            "device": "LivingRoom_Sensor",
+            "config": {
+              "label": "Heat",
+              "property": "Temperature",
+              "icon": "fas fa-thermometer-three-quarters",
+              "unit": "°C",
+              "style": {
+                "border": "none"
+              }
+            }
+          },
+          ...
+        ],
+        "areaC": [
+          {
+            "widget": "screen-light",
+            "device": "LivingRoom_MainLight"
+          },
+          {
+            "widget": "button",
+            "device": "LivingRoom_AllLights",
+            "config": {
+              "label": "Turn all lights off",
+              "property": "OnOff",
+              "value": "OFF",
+              "icon": "fas fa-moon"
+            }
+          }
+        ],
+        "areaD": []
+      }
+    }
+  }
+  ...
+}
+```
+
+You should now see your romm appear on your home screen
+![Room screen](readme_files/sc_home.png)
+
+A widget is defined by some mandatory and optional values :
+* widget: The widget template (as of today : light, button, value. More to come :)
+* device: The device used as key in devices.json
+* confif (optional depending on the widget):
+  * label: The default label is the one defined in the device.json. Can be override here
+  * icon: A default icon exists. Can be override here
+  * style: To override the widget css style
+
+Some widgets also have some mandatory and optional values :
+* button
+  * property (mandatory): The property to bind
+  * value (mandatory): The value to send when the button in clicked
+* value
+  * property (mandatory): The property to display
+  * unit (optional): A text displayed right after the value
+
+![Room screen](readme_files/sc_livingroom.png)
+
+## Dashboard
+You can see what your json look like (with live values) and your last updates received by clicking on the </> icon in the footer
+
+![Room screen](readme_files/sc_dashboard.png)
+
+## Inspiration
+
+The user interface was inspired by [Calaos](https://calaos.fr/en/). The background and room images are also from the Calaos project.
