@@ -2,9 +2,9 @@
 <div fxLayout="column" class="container">
   <mat-toolbar>
     <mat-toolbar-row fxLayoutAlign="center center">
-      <span class="button-home">
+      <!-- <span class="button-home">
         <i class="fas fa-home" routerLink="/"></i>
-      </span>
+      </span> -->
       <span>{{date |date:'HH:mm'}}</span>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -15,6 +15,9 @@
 
   <mat-toolbar>
     <mat-toolbar-row fxLayoutAlign="center center" class="footer">
+      <button fxLayoutAlign="center center" routerLink="/">
+        <i class="fas fa-home fa-2x"></i>
+      </button>
       <button fxLayoutAlign="center center" routerLink="/hacker">
           <i class="fas fa-code fa-2x"></i>
       </button>
