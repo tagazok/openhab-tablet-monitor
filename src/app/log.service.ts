@@ -2,11 +2,11 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class LogService {
-  public eventSourceLogs: Array<any>;
+  public eventSourceLogs: Array<any> = new Array<any>();
+  public alertsLogs: Array<any> = new Array<any>();
   private eventSourceLogsSize: number = 100;
 
   constructor() {
-    this.eventSourceLogs = new Array<any>();
   }
 
   push(log) {
@@ -15,4 +15,10 @@ export class LogService {
       this.eventSourceLogs.shift();
     }
   }
+
+  // createAlert(key, log) {
+  //   if (!this.alertsLogs[key])
+  //     this.alertsLogs[key] = [];
+  //   this.alertsLogs[key].push(log);
+  // }
 }

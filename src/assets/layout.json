@@ -29,19 +29,12 @@
             "config": {
               "property": "OnOff"
             }
-          },
-          {
-            "widget": "switch",
-            "device": "LivingRoom_SensorLightRule2",
-            "config": {
-              "property": "OnOff"
-            }
           }
         ],
         "areaB": [
           {
             "widget": "value",
-            "device": "LivingRoom_Sensor",
+            "device": "LivingRoom_TemperatureHumidityAndPressureSensor",
             "config": {
               "label": "Heat",
               "property": "Temperature",
@@ -54,7 +47,7 @@
           },
           {
             "widget": "value",
-            "device": "LivingRoom_Sensor",
+            "device": "LivingRoom_TemperatureHumidityAndPressureSensor",
             "config": {
               "label": "Humidity",
               "property": "Humidity",

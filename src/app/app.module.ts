@@ -33,10 +33,13 @@ import { WidgetComponent } from './widget/widget.component';
 import { HackerComponent } from './hacker/hacker.component';
 import { LogService } from './log.service';
 import { WidgetSwitchComponent } from './widget-switch/widget-switch.component';
+import { WidgetMusicControlsComponent } from './widget-music-controls/widget-music-controls.component';
+import { AlertsComponent } from './alerts/alerts.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
   { path: "hacker", component: HackerComponent, data: { state: 'hacker'} },
+  { path: "alerts", component: AlertsComponent, data: { state: 'alerts'} },
   { path: "room/:id", component: RoomComponent, data: { state: 'room'} },
   { path: "bigroom/:id", component: BigRoomComponent, data: { state: 'bigroom'} }
 ];
@@ -58,7 +61,9 @@ const routes: Routes = [
     WidgetValueComponent,
     WidgetComponent,
     HackerComponent,
-    WidgetSwitchComponent
+    WidgetSwitchComponent,
+    WidgetMusicControlsComponent,
+    AlertsComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +95,8 @@ const routes: Routes = [
     ScreenLightComponent,
     WidgetButtonComponent,
     WidgetValueComponent,
-    WidgetSwitchComponent
+    WidgetSwitchComponent,
+    WidgetMusicControlsComponent
   ],
   bootstrap: [AppComponent]
 })

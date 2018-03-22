@@ -87,8 +87,19 @@ export class AppComponent implements OnInit {
         const [room, device, property] = item.name.split('_');
         const deviceKey = `${room}_${device}`;
 
+        if (property === "BatteryLevel" && item.state < this.cs.batteryLevelAlert) {
+          this.logService.alertsLogs.push({
+            type: "battery-empty",
+            date: new Date().toLocaleString(),
+            device: deviceKey,
+            property: property,
+            value: `${item.state}%`
+          });
+        }
+
         console.log(item.name);
         console.log(this.cs.devices);
+
         if (this.cs.devices[deviceKey] && this.cs.devices[deviceKey].properties[property]) {
           let value = item.state;
           if (item.type === "Color") {
@@ -145,7 +156,25 @@ export class AppComponent implements OnInit {
     console.log(`${room} ${device} ${property} => ${payload.value}`);
     console.groupEnd();
 
+    const log = {
+      date: new Date().toLocaleString(),
+      item: item,
+      payload: payload
+    };
+
+    this.logService.push(log);
     const deviceKey = `${room}_${device}`;
+
+    if (property === "BatteryLevel" && payload.value < this.cs.batteryLevelAlert) {
+      this.logService.alertsLogs.push({
+        type: "battery-empty",
+        date: log.date,
+        device: deviceKey,
+        property: property,
+        value: `${payload.value}%`
+      });
+    }
+
     if (!this.cs.devices[deviceKey] ||
         !this.cs.devices[deviceKey].properties[property])
         return;
@@ -155,11 +184,6 @@ export class AppComponent implements OnInit {
       value = {h, s, b};
     }
 
-    this.logService.push({
-      date: new Date().toLocaleString(),
-      item: item,
-      payload: payload
-    });
     this.cs.devices[deviceKey].properties[property].value = value;
   }
 }

@@ -72,8 +72,8 @@
       }
     }
   },
-  "LivingRoom_Sensor": {
-    "id": "LivingRoom_Sensor",
+  "LivingRoom_TemperatureHumidityAndPressureSensor": {
+    "id": "LivingRoom_TemperatureHumidityAndPressureSensor",
     "type": "sensor",
     "label": "Temperature and Humidity",
     "properties": {
@@ -84,9 +84,6 @@
         "value": 0
       },
       "BatteryLevel": {
-        "value": ""
-      },
-      "LowBattery": {
         "value": ""
       }
     }
@@ -112,17 +109,6 @@
       }
     }
   },
-  "LivingRoom_SensorLightRule2": {
-    "id": "gi",
-    "type": "button",
-    "label": "Television rule",
-    "properties": {
-      "OnOff": {
-        "OHitem": "LivingRoom_SensorLightRule2_OnOff",
-        "value": "OFF"
-      }
-    }
-  },
   "LivingRoom_GoogleHome": {
     "id": "LivingRoom_GoogleHome",
     "type": "controls",
@@ -134,6 +120,61 @@
       },
       "Volume": {
         "OHitem": "LivingRoom_GoogleHome_Volume",
+        "value": ""
+      }
+    }
+  },
+  "LivingRoom_MotionSensor": {
+    "id": "LivingRoom_MotionSensor",
+    "type": "sensor",
+    "label": "LivingRoom motion Sensor",
+    "properties": {
+      "MotionStatus": {
+        "value": ""
+      },
+      "BatteryLevel": {
+        "value": ""
+      }
+    }
+  },
+  "Kitchen_MotionSensor": {
+    "id": "Kitchen_MotionSensor",
+    "type": "sensor",
+    "label": "Kitchen motion Sensor",
+    "properties": {
+      "MotionStatus": {
+        "value": ""
+      },
+      "BatteryLevel": {
+        "value": ""
+      }
+    }
+  },
+  "BathRoom_TemperatureHumidityAndPressureSensor": {
+    "id": "Bathroom_TemperatureHumidityAndPressureSensor",
+    "type": "sensor",
+    "label": "Temperature and Humidity",
+    "properties": {
+      "Temperature": {
+        "value": ""
+      },
+      "Humidity": {
+        "value": ""
+      },
+      "BatteryLevel": {
+        "value": ""
+      }
+    }
+  },
+  "BedRoom_TemperatureHumidityAndPressureSensor": {
+    "id": "BedRoom_TemperatureHumidityAndPressureSensor",
+    "type": "sensor",
+    "label": "Temperature and Humidity",
+    "properties": {
+      "Temperature": {
+        "value": ""
+      },
+      "BatteryLevel": {
         "value": ""
       }
     }
