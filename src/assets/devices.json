@@ -6,6 +6,12 @@
     "properties": {
       "OpenStatus": {
         "value": ""
+      },
+      "BatteryLevel": {
+        "value": ""
+      },
+      "LowBattery": {
+        "value": ""
       }
     }
   },
@@ -76,6 +82,12 @@
       },
       "Humidity": {
         "value": 0
+      },
+      "BatteryLevel": {
+        "value": ""
+      },
+      "LowBattery": {
+        "value": ""
       }
     }
   },
@@ -108,6 +120,21 @@
       "OnOff": {
         "OHitem": "LivingRoom_SensorLightRule2_OnOff",
         "value": "OFF"
+      }
+    }
+  },
+  "LivingRoom_GoogleHome": {
+    "id": "LivingRoom_GoogleHome",
+    "type": "controls",
+    "label": "Google Home",
+    "properties": {
+      "Control" : {
+        "OHitem": "LivingRoom_GoogleHome_Control",
+        "value": ""
+      },
+      "Volume": {
+        "OHitem": "LivingRoom_GoogleHome_Volume",
+        "value": ""
       }
     }
   }

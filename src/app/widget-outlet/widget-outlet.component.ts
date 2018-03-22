@@ -4,6 +4,7 @@ import { ScreenLightComponent } from "../screen-light/screen-light.component";
 import { WidgetButtonComponent } from "../widget-button/widget-button.component";
 import { WidgetValueComponent } from "../widget-value/widget-value.component";
 import { WidgetSwitchComponent } from "../widget-switch/widget-switch.component";
+import { WidgetMusicControlsComponent } from "../widget-music-controls/widget-music-controls.component";
 
 @Component({
   selector: 'app-widget-outlet',
@@ -27,7 +28,8 @@ export class WidgetOutletComponent implements OnInit {
     'screen-light': ScreenLightComponent,
     'button': WidgetButtonComponent,
     'value': WidgetValueComponent,
-    'switch': WidgetSwitchComponent
+    'switch': WidgetSwitchComponent,
+    'music-controls': WidgetMusicControlsComponent
   };
 
   @ViewChild("container", { read: ViewContainerRef })
@@ -38,6 +40,7 @@ export class WidgetOutletComponent implements OnInit {
 
   createComponent() {
     this.container.clear();
+    if (!this.components[this.widget]) return;
     const factory: ComponentFactory<any> = 
       this.resolver.resolveComponentFactory(
         this.components[this.widget]

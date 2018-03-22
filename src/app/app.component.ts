@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
       this.cs.devices = config[1];
       this.initValues();
       this.getIndicatorsStream()
-      // .filter(event => event.topic.includes('OpenSensor'))
+      // .filter(event => event.topic.includes('LivingRoom_GoogleHome_Control'))
       .subscribe(message => {
         this.updateData(message);
       }, error => {

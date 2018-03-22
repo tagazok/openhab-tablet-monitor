@@ -26,6 +26,11 @@ body {
   outline: none !important;
 }
 
+button {
+  background: transparent;
+  border: none;
+}
+
 pre span {white-space: normal; }
   .string { color: #ba8c78; }
   .number { color: #b0bf84; }

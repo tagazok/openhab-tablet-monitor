@@ -9,8 +9,6 @@ import { WidgetComponent } from "../widget/widget.component";
   styleUrls: ["./widget-button.component.css"]
 })
 export class WidgetButtonComponent extends WidgetComponent {
-  // @Input() device: any;
-  // @Input() config: any;
 
   constructor(private api: ApiService,
     private toasterService: ToasterService,
