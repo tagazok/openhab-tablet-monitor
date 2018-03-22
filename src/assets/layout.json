@@ -67,22 +67,6 @@
           {
             "widget": "screen-light",
             "device": "LivingRoom_MainLight"
-          },
-          {
-            "widget": "music-controls",
-            "device": "LivingRoom_GoogleHome"
-          },
-          {
-            "widget": "music-controls",
-            "device": "LivingRoom_GoogleHome"
-          },
-          {
-            "widget": "screen-light",
-            "device": "Hallway_Light"
-          },
-          {
-            "widget": "screen-light",
-            "device": "LivingRoom_MainLight"
           }
         ],
         "areaD": [
@@ -134,24 +118,6 @@
       "id": "Bathroom",
       "label": "Bathroom",
       "icon": "bathroom",
-      "layout": {}
-    },
-    "BedRoom2": {
-      "id": "BedRoom2",
-      "label": "Bathroom 2",
-      "icon": "bathroom",
-      "layout": {}
-    },
-    "Bathroom2": {
-      "id": "Bathroom2",
-      "label": "Bathroom 2",
-      "icon": "bathroom",
-      "layout": {}
-    },
-    "Garage": {
-      "id": "Garage",
-      "label": "Garage",
-      "icon": "garage",
       "layout": {}
     }
   }
