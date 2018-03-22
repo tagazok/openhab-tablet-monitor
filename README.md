@@ -171,3 +171,13 @@ You can see what your json look like (with live values) and your last updates re
 ## Inspiration
 
 The user interface was inspired by [Calaos](https://calaos.fr/en/). The background and room images are also from the Calaos project.
+
+
+# Waht to test it ?
+Clone or download
+```
+cd openhab-tablet-monitor
+npm install
+ng serve
+```
+go to http://localhost:4200
