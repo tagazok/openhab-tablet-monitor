@@ -1,3 +1,14 @@
+:host {
+  height: 100%;
+  display: block;
+}
+
+.alerts {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
 .alert {
   padding: 1em 1em 1em 0;
   border-bottom: solid 1px rgba(105, 159, 174, .5);
@@ -5,7 +16,6 @@
 
 .alert i {
   padding: 0 1em;
-  /* color: red; */
   color: rgba(105, 159, 174, .8);
   filter: drop-shadow(0px 0px 7px #72abbb);
 }

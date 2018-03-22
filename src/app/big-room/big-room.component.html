@@ -17,7 +17,7 @@
       </app-widget-outlet>
     </div>
   </div>
-  <div fxLayout="row" class="row" class="bottom">
+  <div fxLayout="row" class="row">
     <div class="area area-bottom area-C" fxFlex fxLayoutAlign="start center" fxLayout="column">
       <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaC" [device]="cs.devices[widget.device]" [widget]="widget.widget"
         [config]="widget.config">

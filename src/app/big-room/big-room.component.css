@@ -1,5 +1,5 @@
 :host {
-  height: calc(100vh - 130px);
+  height: 100%;
   display: block;
 }
 
@@ -29,7 +29,6 @@
 }
 
 .area {
-  /* height: 100%; */
   overflow-y: auto;
   padding: 1em;
 }
@@ -49,14 +48,3 @@
 .area-D {
   padding-left: 110px;
 }
-
-.area>div {
-  /* background: red; */
-  /* width: 100%;
-  height: 100%; */
-}
-
-/* .room .label {
-  margin-bottom: 1em;
-  font-size: 1.17em;
-} */
