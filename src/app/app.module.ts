@@ -22,7 +22,6 @@ import { LightAdvancedComponent } from './light-advanced/light-advanced.componen
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { LightSmallComponent } from './light-small/light-small.component';
-import { LiteService } from './lite.service';
 import { BigRoomComponent } from './big-room/big-room.component';
 import { WidgetOutletComponent } from './widget-outlet/widget-outlet.component';
 import { ScreenLightComponent } from './screen-light/screen-light.component';
@@ -88,7 +87,6 @@ const routes: Routes = [
     ToasterService,
     ApiService,
     ConfigService,
-    LiteService,
     LogService
   ],
   entryComponents: [

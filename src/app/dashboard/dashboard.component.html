@@ -8,9 +8,6 @@
           <img src="/assets/images/icon_temp.png"> {{room.sensors.Sensor.properties.Temperature.value | number:'1.0-0'}} °C
         </div>
       </div>
-      <div *ngIf="ls.sharedNode.liteMode" class="lite-mode" fxLayout="row" fxLayoutAlign="space-around" [@liteAnimation]>
-        <app-light-small *ngFor="let device of getDevices(room)" [device]="device"></app-light-small>
-      </div>
     </div>
   <!-- </div> -->
 </div>

@@ -16,7 +16,8 @@ export class AlertsComponent implements OnInit {
   }
 
   getDevices() {
-    return Object.values(this.configService.devices);
+    // return Object.values(this.configService.items);
+    return [];
   }
 
   getAlerts() {

@@ -10,7 +10,6 @@ export class ConfigService {
   public itemsUrl = environment.app.items;
   public batteryLevelAlert = environment.app['batteryLevelAlert'] || 70;
   public layout = {rooms: []};
-  public devices = {};
   public items = {};
 
 

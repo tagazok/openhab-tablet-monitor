@@ -7,7 +7,6 @@ import { ConfigService } from "./config.service";
 import { ToasterConfig } from "angular2-toaster";
 
 import {sequence, trigger, stagger, animate, style, group, query as q, transition, keyframes, animateChild} from '@angular/animations';
-import { LiteService } from "./lite.service";
 import { LogService } from "./log.service";
 const query = (s,a,o={optional:true})=>q(s,a,o);
 
@@ -46,7 +45,6 @@ export class AppComponent implements OnInit {
   constructor(private api: ApiService,
               private snackBar: MatSnackBar,
               private cs: ConfigService,
-              private ls: LiteService,
               private logService: LogService) {
     this.zone = new NgZone({ enableLongStackTrace: false });
 
@@ -93,37 +91,6 @@ export class AppComponent implements OnInit {
     return outlet.activatedRouteData.state;
   }
 
-  // initValues() {
-  //   this.api.getAllItems().subscribe((items: Array<any>) => {
-  //     for(let item of items) {
-  //       const [room, device, property] = item.name.split('_');
-  //       const deviceKey = `${room}_${device}`;
-
-  //       if (property === "BatteryLevel" && item.state < this.cs.batteryLevelAlert) {
-  //         this.logService.createAlert(item.name, {
-  //           type: "battery-empty",
-  //           date: new Date().toLocaleString(),
-  //           device: deviceKey,
-  //           property: property,
-  //           value: `${item.state}%`
-  //         });
-  //       }
-
-  //       // console.log(item.name);
-  //       // console.log(this.cs.devices);
-
-  //       if (this.cs.devices[deviceKey] && this.cs.devices[deviceKey].properties[property]) {
-  //         let value = item.state;
-  //         if (item.type === "Color") {
-  //           const [h, s, b] = item.state.split(',');
-  //           value = {h, s, b};
-  //         }
-  //         this.cs.devices[deviceKey].properties[property].value = value;
-  //       }
-  //     }
-  //   });
-  // }
-
   getIndicatorsStream() {
     return Observable.create(observer => {
       let eventSource = new window['EventSource'](`${this.cs.serverUrl}${this.endpoint}`);
@@ -149,11 +116,6 @@ export class AppComponent implements OnInit {
       
     })
   }
-
-  toggleLiteMode() {
-    this.ls.sharedNode.liteMode = !this.ls.sharedNode.liteMode;
-  }
-
 
   initClock() {
     setInterval(() => { 
