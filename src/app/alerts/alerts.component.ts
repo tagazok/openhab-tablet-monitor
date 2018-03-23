@@ -18,4 +18,8 @@ export class AlertsComponent implements OnInit {
   getDevices() {
     return Object.values(this.configService.devices);
   }
+
+  getAlerts() {
+    return Object.values(this.logService.alertsLogs);
+  }
 }

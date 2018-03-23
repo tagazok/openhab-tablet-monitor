@@ -88,7 +88,7 @@ export class AppComponent implements OnInit {
         const deviceKey = `${room}_${device}`;
 
         if (property === "BatteryLevel" && item.state < this.cs.batteryLevelAlert) {
-          this.logService.alertsLogs.push({
+          this.logService.createAlert(item.name, {
             type: "battery-empty",
             date: new Date().toLocaleString(),
             device: deviceKey,
@@ -97,8 +97,8 @@ export class AppComponent implements OnInit {
           });
         }
 
-        console.log(item.name);
-        console.log(this.cs.devices);
+        // console.log(item.name);
+        // console.log(this.cs.devices);
 
         if (this.cs.devices[deviceKey] && this.cs.devices[deviceKey].properties[property]) {
           let value = item.state;
@@ -116,9 +116,13 @@ export class AppComponent implements OnInit {
     return Observable.create(observer => {
       let eventSource = new window['EventSource'](`${this.cs.serverUrl}${this.endpoint}`);
       eventSource.onmessage = event => {
-        this.zone.run(() => {
-          observer.next(JSON.parse(event.data));
-        });
+        const data = JSON.parse(event.data);
+        const match = data.topic.match("smarthome/items/.*/state");
+        if (match && match.length > 0) {
+          this.zone.run(() => {
+            observer.next(JSON.parse(event.data));
+          });
+        }
       };
       eventSource.onerror = error => observer.error(error);
     });
@@ -150,11 +154,11 @@ export class AppComponent implements OnInit {
     const [room, device, property] = item.split('_');
     const payload = JSON.parse(message.payload);
     
-    console.group(room)
-    console.log(message.topic);
-    console.log(message.payload);
-    console.log(`${room} ${device} ${property} => ${payload.value}`);
-    console.groupEnd();
+    // console.group(room)
+    // console.log(message.topic);
+    // console.log(message.payload);
+    // console.log(`${room} ${device} ${property} => ${payload.value}`);
+    // console.groupEnd();
 
     const log = {
       date: new Date().toLocaleString(),
@@ -166,7 +170,7 @@ export class AppComponent implements OnInit {
     const deviceKey = `${room}_${device}`;
 
     if (property === "BatteryLevel" && payload.value < this.cs.batteryLevelAlert) {
-      this.logService.alertsLogs.push({
+      this.logService.createAlert(message.topic, {
         type: "battery-empty",
         date: log.date,
         device: deviceKey,

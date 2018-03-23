@@ -124,6 +124,21 @@
       }
     }
   },
+  "LivingRoom_ChromeCast": {
+    "id": "LivingRoom_ChromeCast",
+    "type": "controls",
+    "label": "ChromeCast",
+    "properties": {
+      "Control" : {
+        "OHitem": "LivingRoom_ChromeCast_Control",
+        "value": ""
+      },
+      "Volume": {
+        "OHitem": "LivingRoom_ChromeCast_Volume",
+        "value": ""
+      }
+    }
+  },
   "LivingRoom_MotionSensor": {
     "id": "LivingRoom_MotionSensor",
     "type": "sensor",

@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class LogService {
   public eventSourceLogs: Array<any> = new Array<any>();
-  public alertsLogs: Array<any> = new Array<any>();
+  public alertsLogs: any = {}; //Array<any> = new Array<any>();
   private eventSourceLogsSize: number = 100;
 
   constructor() {
@@ -16,9 +16,10 @@ export class LogService {
     }
   }
 
-  // createAlert(key, log) {
-  //   if (!this.alertsLogs[key])
-  //     this.alertsLogs[key] = [];
-  //   this.alertsLogs[key].push(log);
-  // }
+  createAlert(key, log) {
+    console.log(`%c Received alert for ${key}`, 'color: red');
+    if (!this.alertsLogs[key])
+      this.alertsLogs[key] = log;
+    // this.alertsLogs[key].push(log);
+  }
 }

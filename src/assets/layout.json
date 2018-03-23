@@ -67,6 +67,10 @@
           {
             "widget": "screen-light",
             "device": "LivingRoom_MainLight"
+          },
+          {
+            "widget": "music-controls",
+            "device": "LivingRoom_ChromeCast"
           }
         ],
         "areaD": [

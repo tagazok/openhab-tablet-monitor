@@ -1,5 +1,5 @@
 <div class="alerts">
-  <div *ngFor="let alert of logService.alertsLogs" fxLayout="row" fxLayoutAlign="start center" class="alert">
+  <div *ngFor="let alert of getAlerts()" fxLayout="row" fxLayoutAlign="start center" class="alert">
     <div>
       <i class="fas fa-{{alert.type}} fa-2x"></i>
     </div>
