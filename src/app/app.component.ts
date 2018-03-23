@@ -166,7 +166,13 @@ export class AppComponent implements OnInit {
     const item = message.topic.split('/')[2];
     const payload = JSON.parse(message.payload);
     if (this.cs.items[item]) {
-      this.cs.items[item].state = payload.value;
+      let value = payload.value;
+
+      if (payload.type === "HSB") {
+      const [h, s, b] = value.split(',');
+      value = {h, s, b};
+    }
+      this.cs.items[item].state = value;
     };
     // const [room, device, property] = item.split('_');
     // const payload = JSON.parse(message.payload);
