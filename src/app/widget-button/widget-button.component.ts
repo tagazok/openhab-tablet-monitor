@@ -21,18 +21,18 @@ export class WidgetButtonComponent extends WidgetComponent {
   click() {
     const toast: Toast = {
       type: "success",
-      title: `${this.device.label}`,
+      title: `${this.config.label || ''}`,
       showCloseButton: false
     };
     this.api
-      .send(`${this.device.id}_${this.config.property}`, this.config.value)
+      .send(`${this.item.id}`, this.config.value)
       .subscribe(
         response => {
           this.toasterService.pop(toast);
         },
         error => {
           toast.type = "error";
-          toast.title = `Error in ${this.device.label}`;
+          toast.title = `Error in ${this.config.label || 'updating'}`;
           this.toasterService.pop(toast);
         }
       );

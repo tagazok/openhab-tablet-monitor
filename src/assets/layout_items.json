@@ -24,7 +24,10 @@
           },
           {
             "widget": "switch",
-            "item": "LivingRoom_SensorLightRule_OnOff"
+            "item": "LivingRoom_SensorLightRule_OnOff",
+            "config": {
+              "label": "Light rule"
+            }
           }
         ],
         "areaB": [
@@ -46,7 +49,6 @@
             "item": "LivingRoom_TemperatureHumidityAndPressureSensor_Humidity",
             "config": {
               "label": "Humidity",
-              "property": "Humidity",
               "icon": "fas fa-tint",
               "postString": "%",
               "style": {
@@ -62,6 +64,9 @@
               "OnOff": "Hallway_Light_OnOff",
               "Color": "Hallway_Light_Color",
               "Brightness": "Hallway_Light_Brightness"
+            },
+            "config": {
+              "label": "HallWay Light"
             }
           },
           {
@@ -70,12 +75,15 @@
               "OnOff": "LivingRoom_MainLight_OnOff",
               "Color": "LivingRoom_MainLight_Color",
               "Brightness": "LivingRoom_MainLight_Brightness"
+            },
+            "config": {
+              "label": "Ceiling"
             }
           },
           {
             "widget": "music-controls",
             "items": {
-              "Controls": "LivingRoom_ChromeCast_Control",
+              "Control": "LivingRoom_ChromeCast_Control",
               "Volume": "LivingRoom_ChromeCast_Volume"
             }
           }
@@ -97,14 +105,6 @@
               "label": "Turn all lights on",
               "value": "ON",
               "icon": "fas fa-sun"
-            }
-          },
-          {
-            "widget": "button",
-            "item": "LivingRoom_TVAtmosphere_OnOff",
-            "config": {
-              "value": "ON",
-              "icon": "fas fa-tv"
             }
           }
         ]

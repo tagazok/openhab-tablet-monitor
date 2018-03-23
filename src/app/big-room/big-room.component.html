@@ -1,8 +1,7 @@
 <div class="container" fxLayout="column" *ngIf="cs.layout.rooms[roomId]">
   <div fxLayout="row" class="row">
     <div class="area area-top area-A" fxFlex fxLayoutAlign="start center" fxLayout="column">
-      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaA" [device]="cs.devices[widget.device]" [widget]="widget.widget"
-        [config]="widget.config">
+      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaA" [widget]="widget">
       </app-widget-outlet>
     </div>
 
@@ -12,21 +11,18 @@
     </div>
 
     <div class="area area-top area-B" fxFlex fxLayoutAlign="start center" fxLayout="column">
-      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaB" [device]="cs.devices[widget.device]" [widget]="widget.widget"
-        [config]="widget.config">
+      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaB" [widget]="widget">
       </app-widget-outlet>
     </div>
   </div>
   <div fxLayout="row" class="row">
     <div class="area area-bottom area-C" fxFlex fxLayoutAlign="start center" fxLayout="column">
-      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaC" [device]="cs.devices[widget.device]" [widget]="widget.widget"
-        [config]="widget.config">
+      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaC" [widget]="widget">
       </app-widget-outlet>
     </div>
-    
+
     <div class="area area-bottom area-D" fxFlex fxLayoutAlign="start center" fxLayout="column">
-      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaD" [device]="cs.devices[widget.device]" [widget]="widget.widget"
-        [config]="widget.config">
+      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaD" [widget]="widget">
       </app-widget-outlet>
     </div>
   </div>

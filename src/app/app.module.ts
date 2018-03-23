@@ -35,6 +35,7 @@ import { LogService } from './log.service';
 import { WidgetSwitchComponent } from './widget-switch/widget-switch.component';
 import { WidgetMusicControlsComponent } from './widget-music-controls/widget-music-controls.component';
 import { AlertsComponent } from './alerts/alerts.component';
+import { WidgetErrorComponent } from './widget-error/widget-error.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
@@ -63,7 +64,8 @@ const routes: Routes = [
     HackerComponent,
     WidgetSwitchComponent,
     WidgetMusicControlsComponent,
-    AlertsComponent
+    AlertsComponent,
+    WidgetErrorComponent
   ],
   imports: [
     BrowserModule,

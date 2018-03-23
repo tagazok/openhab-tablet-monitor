@@ -28,7 +28,7 @@ export class WidgetSwitchComponent extends WidgetComponent {
   }
 
   isOn() {
-    return this.device.properties.OnOff.value === "ON";
+    return this.item.state === "ON";
   }
 
   toggleOnOff() {
@@ -36,16 +36,16 @@ export class WidgetSwitchComponent extends WidgetComponent {
     const state = this.isOn() ? "OFF" : "ON";
     const toast: Toast = {
       type: "success",
-      title: `${this.device.label} ${state}`,
+      title: `${this.config.label || ''} ${state}`,
       showCloseButton: false
     };
-    this.api.send(this.device.properties.OnOff.OHitem, state).subscribe(
+    this.api.send(this.item.id, state).subscribe(
       res => {
         this.toasterService.pop(toast);
       },
       error => {
         toast.type = "error";
-        toast.title = `Error turning ${this.device.label} ${state}`;
+        toast.title = `Error turning ${this.config.label || ''} ${state}`;
         this.toasterService.pop(toast);
       }
     );

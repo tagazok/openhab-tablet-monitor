@@ -21,7 +21,7 @@ export class ScreenLightComponent extends WidgetComponent {
               }
 
   isOn() {
-    return this.device.properties.OnOff.value === "ON";
+    return this.items.OnOff.state === "ON";
   }
 
   toggleOnOff() {
@@ -32,11 +32,11 @@ export class ScreenLightComponent extends WidgetComponent {
       title: `Light is now ${state}`,
       showCloseButton: false
     };
-    this.api.send(this.device.properties.OnOff.OHitem, state).subscribe(res => {
+    this.api.send(this.items.OnOff.id, state).subscribe(res => {
       this.toasterService.pop(toast);
     }, error => {
       toast.type = "error";
-      toast.title = `Error turning ${this.device.label} ${state}`;
+      toast.title = `Error turning ${this.config.label || ''} ${state}`;
       this.toasterService.pop(toast);
     });
   }
@@ -44,7 +44,7 @@ export class ScreenLightComponent extends WidgetComponent {
   openAdvanced(): void {
     let dialogRef = this.dialog.open(LightAdvancedComponent, {
       width: '50%',
-      data: { device: this.device }
+      data: { items: this.items }
     });
 
     dialogRef.afterClosed().subscribe(result => {

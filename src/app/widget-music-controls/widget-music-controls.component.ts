@@ -18,13 +18,13 @@ export class WidgetMusicControlsComponent extends WidgetComponent {
 
   control(command) {
     this.api
-      .send(`${this.device.id}_Control`, command)
+      .send(`${this.items.Control.id}`, command)
       .subscribe();
   }
 
   volume() {
     this.api
-    .sendPlainText(`${this.device.id}_Volume`, this.device.properties.Volume.value)
+    .sendPlainText(`${this.items.Volume.id}`, this.items.Volume.state)
     .subscribe();
   }
 }
