@@ -1,0 +1,132 @@
+{
+  "rooms": {
+    "EntryHall": {
+      "id": "EntryHall",
+      "label": "Entry Hall",
+      "icon": "corridor",
+      "layout": {}
+    },
+    "LivingRoom": {
+      "id": "LivingRoom",
+      "label": "Living room",
+      "icon": "lounge",
+      "layout": {
+        "areaA": [
+          {
+            "widget": "value",
+            "item": "LivingRoom_OpenSensor_OpenStatus",
+            "config": {
+              "icon": "fas fa-unlock-alt",
+              "style": {
+                "border": "none"
+              }
+            }
+          },
+          {
+            "widget": "switch",
+            "item": "LivingRoom_SensorLightRule_OnOff"
+          }
+        ],
+        "areaB": [
+          {
+            "widget": "value",
+            "item": "LivingRoom_TemperatureHumidityAndPressureSensor_Temperature",
+            "config": {
+              "label": "Heat",
+              "icon": "fas fa-thermometer-three-quarters",
+              "postString": "°C",
+              "filter": "number",
+              "style": {
+                "border": "none"
+              }
+            }
+          },
+          {
+            "widget": "value",
+            "item": "LivingRoom_TemperatureHumidityAndPressureSensor_Humidity",
+            "config": {
+              "label": "Humidity",
+              "property": "Humidity",
+              "icon": "fas fa-tint",
+              "postString": "%",
+              "style": {
+                "border": "none"
+              }
+            }
+          }
+        ],
+        "areaC": [
+          {
+            "widget": "screen-light",
+            "items": {
+              "OnOff": "Hallway_Light_OnOff",
+              "Color": "Hallway_Light_Color",
+              "Brightness": "Hallway_Light_Brightness"
+            }
+          },
+          {
+            "widget": "screen-light",
+            "items": {
+              "OnOff": "LivingRoom_MainLight_OnOff",
+              "Color": "LivingRoom_MainLight_Color",
+              "Brightness": "LivingRoom_MainLight_Brightness"
+            }
+          },
+          {
+            "widget": "music-controls",
+            "items": {
+              "Controls": "LivingRoom_ChromeCast_Control",
+              "Volume": "LivingRoom_ChromeCast_Volume"
+            }
+          }
+        ],
+        "areaD": [
+          {
+            "widget": "button",
+            "item": "LivingRoom_AllLights_OnOff",
+            "config": {
+              "label": "Turn all lights off",
+              "value": "OFF",
+              "icon": "fas fa-moon"
+            }
+          },
+          {
+            "widget": "button",
+            "item": "LivingRoom_AllLights_OnOff",
+            "config": {
+              "label": "Turn all lights on",
+              "value": "ON",
+              "icon": "fas fa-sun"
+            }
+          },
+          {
+            "widget": "button",
+            "item": "LivingRoom_TVAtmosphere_OnOff",
+            "config": {
+              "value": "ON",
+              "icon": "fas fa-tv"
+            }
+          }
+        ]
+      }
+    },
+    "Kitchen": {
+      "id": "Kitchen",
+      "label": "Kitchen",
+      "icon": "kitchen",
+      "layout": {}
+    },
+    "Bedroom": {
+      "id": "Bedroom",
+      "label": "Bedroom",
+      "icon": "bedroom",
+      "layout": {}
+    },
+    "Bathroom": {
+      "id": "Bathroom",
+      "label": "Bathroom",
+      "icon": "bathroom",
+      "layout": {}
+    }
+  }
+}

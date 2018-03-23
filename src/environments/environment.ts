@@ -8,6 +8,8 @@ export const environment = {
   app: {
     openHabUrl: 'http://192.168.1.25:8080',
     layout: '/assets/layout.json',
-    devices: '/assets/devices.json'
+    layout_items: '/assets/layout_items.json',
+    devices: '/assets/devices.json',
+    items: '/assets/items.json'
   }
 };
