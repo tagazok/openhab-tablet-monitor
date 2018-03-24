@@ -35,6 +35,7 @@ import { WidgetSwitchComponent } from './widget-switch/widget-switch.component';
 import { WidgetMusicControlsComponent } from './widget-music-controls/widget-music-controls.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { WidgetErrorComponent } from './widget-error/widget-error.component';
+import { DecimalPipe } from '@angular/common';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
@@ -87,7 +88,8 @@ const routes: Routes = [
     ToasterService,
     ApiService,
     ConfigService,
-    LogService
+    LogService,
+    DecimalPipe
   ],
   entryComponents: [
     LightComponent,

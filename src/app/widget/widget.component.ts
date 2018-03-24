@@ -7,7 +7,6 @@ import { Component, OnInit, Input, ElementRef, Renderer2 } from '@angular/core';
 export class WidgetComponent implements OnInit {
   @Input() item: any;
   @Input() items: any;
-  @Input() device: any;
   @Input() config: any;
   
   constructor(protected elementRef: ElementRef,

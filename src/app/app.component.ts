@@ -60,27 +60,6 @@ export class AppComponent implements OnInit {
         console.error(error);
       });
     }))
-    // Promise.all([
-    //   fetch(this.cs.configUrl),
-    //   fetch(this.cs.devicesUrl)
-    // ]).then((response: any) => {
-    //   return Promise.all([
-    //     response[0].json(),
-    //     response[1].json()
-    //   ]);
-    // })
-    // .then((config: any) => {
-    //   this.cs.layout = config[0];
-    //   this.cs.devices = config[1];
-    //   this.initValues();
-    //   this.getIndicatorsStream()
-    //   // .filter(event => event.topic.includes('LivingRoom_GoogleHome_Control'))
-    //   .subscribe(message => {
-    //     this.updateData(message);
-    //   }, error => {
-    //     console.error(error);
-    //   });
-    // });
   }
 
   ngOnInit() {
@@ -124,7 +103,6 @@ export class AppComponent implements OnInit {
   }
 
   updateData(message) {
-    // if (this.cs.items[message])
     const item = message.topic.split('/')[2];
     const payload = JSON.parse(message.payload);
     if (this.cs.items[item]) {
@@ -152,27 +130,7 @@ export class AppComponent implements OnInit {
     };
 
     this.logService.push(log);
-    // const deviceKey = `${room}_${device}`;
 
-    // if (property === "BatteryLevel" && payload.value < this.cs.batteryLevelAlert) {
-    //   this.logService.createAlert(message.topic, {
-    //     type: "battery-empty",
-    //     date: log.date,
-    //     device: deviceKey,
-    //     property: property,
-    //     value: `${payload.value}%`
-    //   });
-    // }
-
-    // if (!this.cs.devices[deviceKey] ||
-    //     !this.cs.devices[deviceKey].properties[property])
-    //     return;
-    // let value = payload.value;
-    // if (payload.type === "HSB") {
-    //   const [h, s, b] = payload.value.split(',');
-    //   value = {h, s, b};
-    // }
-
-    // this.cs.devices[deviceKey].properties[property].value = value;
+    // TODO : Battery alerts
   }
 }
