@@ -5,10 +5,7 @@ import { LogService } from "./log.service";
 @Injectable()
 export class ConfigService {
   public serverUrl = environment.app.openHabUrl;
-  // public configUrl = environment.app.layout;
   public layoutUrl = environment.app.layout;
-  // public devicesUrl = environment.app.devices;
-  public itemsUrl = environment.app.items;
   public batteryLevelAlert = environment.app["batteryLevelAlert"] || 70;
   public layout = { rooms: [] };
   public items = {};
