@@ -61,11 +61,11 @@
         ],
         "areaC": [
           {
-            "widget": "screen-light",
+            "widget": "light",
             "device": "Hallway_Light"
           },
           {
-            "widget": "screen-light",
+            "widget": "light",
             "device": "LivingRoom_MainLight"
           },
           {

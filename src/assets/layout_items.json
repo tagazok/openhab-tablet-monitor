@@ -4,7 +4,21 @@
       "id": "EntryHall",
       "label": "Entry Hall",
       "icon": "corridor",
-      "layout": {}
+      "layout": {
+        "areaA": [
+          {
+            "widget": "light",
+            "items": {
+              "OnOff": "Hallway_Light_OnOff",
+              "Color": "Hallway_Light_Color",
+              "Brightness": "Hallway_Light_Brightness"
+            },
+            "config": {
+              "label": "HallWay Light"
+            }
+          }
+        ]
+      }
     },
     "LivingRoom": {
       "id": "LivingRoom",
@@ -75,7 +89,7 @@
             }
           },
           {
-            "widget": "screen-light",
+            "widget": "light",
             "items": {
               "OnOff": "Hallway_Light_OnOff",
               "Color": "Hallway_Light_Color",
@@ -86,7 +100,7 @@
             }
           },
           {
-            "widget": "screen-light",
+            "widget": "light",
             "items": {
               "OnOff": "LivingRoom_MainLight_OnOff",
               "Color": "LivingRoom_MainLight_Color",

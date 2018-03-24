@@ -1,6 +1,5 @@
 import { Component, OnInit, ComponentRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentFactory, Input } from "@angular/core";
 import { LightComponent } from "../light/light.component";
-import { ScreenLightComponent } from "../screen-light/screen-light.component";
 import { WidgetButtonComponent } from "../widget-button/widget-button.component";
 import { WidgetValueComponent } from "../widget-value/widget-value.component";
 import { WidgetSwitchComponent } from "../widget-switch/widget-switch.component";
@@ -29,7 +28,6 @@ export class WidgetOutletComponent implements OnInit {
   // @Input() config: any;
   private components = {
     'light': LightComponent,
-    'screen-light': ScreenLightComponent,
     'button': WidgetButtonComponent,
     'value': WidgetValueComponent,
     'switch': WidgetSwitchComponent,
@@ -91,12 +89,11 @@ export class WidgetOutletComponent implements OnInit {
   getItems() {
     let items = {}
     for(let [key, value] of Object.entries(this.widget.items)) {
-      items[key] = this.configService.items[value];
+      items[key] = this.configService.items[value.toString()];
     }
     return items;
   }
   ngOnInit() {
     this.createComponent();
   }
-
 }

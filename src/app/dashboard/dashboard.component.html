@@ -1,7 +1,7 @@
 <div fxFlex fxLayout="row wrap" fxLayoutAlign="center space-around" class="rooms">
   <!-- <div fxLayout="row wrap" fxLayoutAlign="space-around" class="rooms"> -->
     <div *ngFor="let room of getRooms()" fxFlex="33" class="room" fxLayout="column" fxLayoutAlign="start center">
-      <div class="main" fxLayout="column" fxLayoutAlign="center center" routerLink="/bigroom/{{room.id}}">
+      <div class="main" fxLayout="column" fxLayoutAlign="center center" routerLink="/room/{{room.id}}">
         <div class="label">{{room.label}}</div>
         <img src="/assets/images/rooms/{{room.icon}}.png" [class.light]="hasLight(room)">
         <div *ngIf="room.sensors?.Sensor?.properties?.Temperature" class="temperature" fxLayoutAlign="end center">

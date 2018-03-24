@@ -1,21 +1,29 @@
-<div class="container" *ngIf="cs.layout.rooms[roomId]" fxLayout="column" fxFlex>
-  <div class="header" fxLayout="row" fxLayoutAlign="space-around center">
-    <div class="sensor" *ngIf="cs.layout.rooms[roomId].sensors?.Sensor.properties.Temperature" fxLayout="row" fxLayoutAlign="center center">
-      <i class="fas fa-thermometer-three-quarters"></i>
-      <div class="value">{{cs.layout.rooms[roomId].sensors.Sensor.properties.Temperature.value | number:'1.0-1'}} °C</div>
+<div class="container" fxLayout="column" *ngIf="cs.layout.rooms[roomId]">
+  <div fxLayout="row" class="row">
+    <div class="area area-top area-A" fxFlex fxLayoutAlign="start center" fxLayout="column">
+      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaA" [widget]="widget">
+      </app-widget-outlet>
     </div>
-    <div class="sensor" *ngIf="cs.layout.rooms[roomId].sensors?.Sensor.properties.Humidity" fxLayout="row" fxLayoutAlign="center center">
-      <i class="fas fa-tint"></i>
-      <div class="value">{{cs.layout.rooms[roomId].sensors.Sensor.properties.Humidity.value | number:'1.0-0'}} %</div>
-    </div>
-    <div fxLayout="column" fxLayoutAlign="center center">
+
+    <div class="area-center infos" fxLayout="column" fxLayoutAlign="end center">
       <div class="label">{{cs.layout.rooms[roomId].label}}</div>
       <img src="/assets/images/rooms/{{cs.layout.rooms[roomId].icon}}.png">
     </div>
+
+    <div class="area area-top area-B" fxFlex fxLayoutAlign="start center" fxLayout="column">
+      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaB" [widget]="widget">
+      </app-widget-outlet>
+    </div>
   </div>
-  <div class="devices" fxLayout="row wrap" fxLayoutAlign="space-around center">
-    <div *ngFor="let device of getDevices()" class="device">
-      <app-outlet-component [device]="device"></app-outlet-component>
+  <div fxLayout="row" class="row">
+    <div class="area area-bottom area-C" fxFlex fxLayoutAlign="start center" fxLayout="column">
+      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaC" [widget]="widget">
+      </app-widget-outlet>
+    </div>
+
+    <div class="area area-bottom area-D" fxFlex fxLayoutAlign="start center" fxLayout="column">
+      <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaD" [widget]="widget">
+      </app-widget-outlet>
     </div>
   </div>
 </div>
