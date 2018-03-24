@@ -4,7 +4,21 @@
       "id": "EntryHall",
       "label": "Entry Hall",
       "icon": "corridor",
-      "layout": {}
+      "layout": {
+        "areaA": [
+          {
+            "widget": "light",
+            "items": {
+              "OnOff": "Hallway_Light_OnOff",
+              "Color": "Hallway_Light_Color",
+              "Brightness": "Hallway_Light_Brightness"
+            },
+            "config": {
+              "label": "HallWay Light"
+            }
+          }
+        ]
+      }
     },
     "LivingRoom": {
       "id": "LivingRoom",
@@ -14,9 +28,8 @@
         "areaA": [
           {
             "widget": "value",
-            "device": "LivingRoom_OpenSensor",
+            "item": "LivingRoom_OpenSensor_OpenStatus",
             "config": {
-              "property": "OpenStatus",
               "icon": "fas fa-unlock-alt",
               "style": {
                 "border": "none"
@@ -25,21 +38,24 @@
           },
           {
             "widget": "switch",
-            "device": "LivingRoom_SensorLightRule",
+            "item": "LivingRoom_SensorLightRule_OnOff",
             "config": {
-              "property": "OnOff"
+              "label": "Light rule"
             }
           }
         ],
         "areaB": [
           {
             "widget": "value",
-            "device": "LivingRoom_TemperatureHumidityAndPressureSensor",
+            "item": "LivingRoom_TemperatureHumidityAndPressureSensor_Temperature",
             "config": {
               "label": "Heat",
-              "property": "Temperature",
               "icon": "fas fa-thermometer-three-quarters",
-              "unit": "°C",
+              "postString": "°C",
+              "filter": {
+                "type": "number",
+                "arg": "1.2-2"
+              },
               "style": {
                 "border": "none"
               }
@@ -47,12 +63,15 @@
           },
           {
             "widget": "value",
-            "device": "LivingRoom_TemperatureHumidityAndPressureSensor",
+            "item": "LivingRoom_TemperatureHumidityAndPressureSensor_Humidity",
             "config": {
               "label": "Humidity",
-              "property": "Humidity",
               "icon": "fas fa-tint",
-              "unit": "%",
+              "postString": "%",
+              "filter": {
+                "type": "number",
+                "arg": "1.0-0"
+              },
               "style": {
                 "border": "none"
               }
@@ -61,46 +80,74 @@
         ],
         "areaC": [
           {
-            "widget": "screen-light",
-            "device": "Hallway_Light"
+            "widget": "label",
+            "config": {
+              "value": "Lights",
+              "style": {
+                "font-size": "1.2em"
+              }
+            }
           },
           {
-            "widget": "screen-light",
-            "device": "LivingRoom_MainLight"
+            "widget": "light",
+            "items": {
+              "OnOff": "Hallway_Light_OnOff",
+              "Color": "Hallway_Light_Color",
+              "Brightness": "Hallway_Light_Brightness"
+            },
+            "config": {
+              "label": "HallWay Light"
+            }
+          },
+          {
+            "widget": "light",
+            "items": {
+              "OnOff": "LivingRoom_MainLight_OnOff",
+              "Color": "LivingRoom_MainLight_Color",
+              "Brightness": "LivingRoom_MainLight_Brightness"
+            },
+            "config": {
+              "label": "Ceiling"
+            }
+          },
+          {
+            "widget": "separator",
+            "config": {
+              "style": {
+                "width": "35%",
+                "margin-left": "auto",
+                "margin-right": "auto"
+              }
+            }
           },
           {
             "widget": "music-controls",
-            "device": "LivingRoom_ChromeCast"
+            "items": {
+              "Control": "LivingRoom_ChromeCast_Control",
+              "Volume": "LivingRoom_ChromeCast_Volume"
+            },
+            "config": {
+              "open": true
+            }
           }
         ],
         "areaD": [
           {
             "widget": "button",
-            "device": "LivingRoom_AllLights",
+            "item": "LivingRoom_AllLights_OnOff",
             "config": {
               "label": "Turn all lights off",
-              "property": "OnOff",
               "value": "OFF",
               "icon": "fas fa-moon"
             }
           },
           {
             "widget": "button",
-            "device": "LivingRoom_AllLights",
+            "item": "LivingRoom_AllLights_OnOff",
             "config": {
               "label": "Turn all lights on",
-              "property": "OnOff",
               "value": "ON",
               "icon": "fas fa-sun"
-            }
-          },
-          {
-            "widget": "button",
-            "device": "LivingRoom_TVAtmosphere",
-            "config": {
-              "property": "OnOff",
-              "value": "ON",
-              "icon": "fas fa-tv"
             }
           }
         ]

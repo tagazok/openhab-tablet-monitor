@@ -1,16 +1,22 @@
 <div fxLayout="column" fxLayoutAlign="start center">
+  <div class="main" fxFill *ngIf="config?.label || config?.icon">
+    <div *ngIf="config.icon">
+      <i class="{{config.icon}} icon"></i>
+    </div>
+    <div *ngIf="config?.label" fxFlex>{{config.label}}</div>
+  </div>
   <div class="buttons" fxLayout="row" fxFill>
     <div class="controls" fxFlex>
       <button class="control" (click)="control('PREVIOUS')"><i class="fas fa-step-backward"></i></button>
-      <button class="control" (click)="control('PLAY')" *ngIf="device.properties.Control.value === 'PAUSE'"><i class="fas fa-play"></i></button> 
-      <button class="control" (click)="control('PAUSE')" *ngIf="device.properties.Control.value === 'PLAY'"><i class="fas fa-pause"></i></button>
+      <button class="control" (click)="control('PLAY')" *ngIf="items.Control.state === 'PAUSE'"><i class="fas fa-play"></i></button> 
+      <button class="control" (click)="control('PAUSE')" *ngIf="items.Control.state === 'PLAY'"><i class="fas fa-pause"></i></button>
       <button class="control" (click)="control('NEXT')"><i class="fas fa-step-forward"></i></button>
     </div>
-    <button class="more control" *ngIf="device.properties.Volume" (click)="showVolume = !showVolume"><i class="fas fa-volume-down"></i></button>
+    <button class="more control" *ngIf="items.Volume" (click)="showVolume = !showVolume"><i class="fas fa-volume-down"></i></button>
   </div>
-  <div class="volume" *ngIf="device.properties.Volume && showVolume" fxFill>
+  <div class="volume" *ngIf="items.Volume && showVolume" fxFill>
     <mat-slider [min]="0" [max]="100"
-      [step]="1" [(ngModel)]="device.properties.Volume.value"
+      [step]="1" [(ngModel)]="items.Volume.state"
       (change)="volume()">
     </mat-slider>
   </div>

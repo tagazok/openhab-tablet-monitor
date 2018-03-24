@@ -14,18 +14,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { RoomComponent } from './room/room.component';
 import { ConfigService } from './config.service';
 import { OutletComponentComponent } from './outlet-component/outlet-component.component';
-import { LightComponent } from './light/light.component';
 import { LightAdvancedComponent } from './light-advanced/light-advanced.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { LightSmallComponent } from './light-small/light-small.component';
-import { LiteService } from './lite.service';
-import { BigRoomComponent } from './big-room/big-room.component';
+import { RoomComponent } from './room/room.component';
 import { WidgetOutletComponent } from './widget-outlet/widget-outlet.component';
-import { ScreenLightComponent } from './screen-light/screen-light.component';
+import { LightComponent } from './light/light.component';
 import { WidgetButtonComponent } from './widget-button/widget-button.component';
 import { WidgetLabelComponent } from './widget-label/widget-label.component';
 import { WidgetValueComponent } from './widget-value/widget-value.component';
@@ -35,27 +32,27 @@ import { LogService } from './log.service';
 import { WidgetSwitchComponent } from './widget-switch/widget-switch.component';
 import { WidgetMusicControlsComponent } from './widget-music-controls/widget-music-controls.component';
 import { AlertsComponent } from './alerts/alerts.component';
+import { WidgetErrorComponent } from './widget-error/widget-error.component';
+import { DecimalPipe } from '@angular/common';
+import { WidgetSeparatorComponent } from './widget-separator/widget-separator.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
   { path: "hacker", component: HackerComponent, data: { state: 'hacker'} },
   { path: "alerts", component: AlertsComponent, data: { state: 'alerts'} },
-  { path: "room/:id", component: RoomComponent, data: { state: 'room'} },
-  { path: "bigroom/:id", component: BigRoomComponent, data: { state: 'bigroom'} }
+  { path: "room/:id", component: RoomComponent, data: { state: 'room'} }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    RoomComponent,
     OutletComponentComponent,
-    LightComponent,
     LightAdvancedComponent,
     LightSmallComponent,
-    BigRoomComponent,
+    RoomComponent,
     WidgetOutletComponent,
-    ScreenLightComponent,
+    LightComponent,
     WidgetButtonComponent,
     WidgetLabelComponent,
     WidgetValueComponent,
@@ -63,7 +60,9 @@ const routes: Routes = [
     HackerComponent,
     WidgetSwitchComponent,
     WidgetMusicControlsComponent,
-    AlertsComponent
+    AlertsComponent,
+    WidgetErrorComponent,
+    WidgetSeparatorComponent
   ],
   imports: [
     BrowserModule,
@@ -86,17 +85,18 @@ const routes: Routes = [
     ToasterService,
     ApiService,
     ConfigService,
-    LiteService,
-    LogService
+    LogService,
+    DecimalPipe
   ],
   entryComponents: [
-    LightComponent,
     LightAdvancedComponent,
-    ScreenLightComponent,
+    LightComponent,
     WidgetButtonComponent,
     WidgetValueComponent,
     WidgetSwitchComponent,
-    WidgetMusicControlsComponent
+    WidgetMusicControlsComponent,
+    WidgetLabelComponent,
+    WidgetSeparatorComponent
   ],
   bootstrap: [AppComponent]
 })

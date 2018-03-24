@@ -19,6 +19,12 @@
 
 .main {
   font-size: 1.2em;
+  padding-bottom: .7em;
+}
+
+.main i {
+  padding: 0 .5em;
+  margin-right: .5em;
 }
 
 .control {

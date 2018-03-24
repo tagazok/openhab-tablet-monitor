@@ -36,7 +36,7 @@ export class LightAdvancedComponent implements OnInit {
   }
   
   updateValue() {
-    this.api.send(this.data.device.properties.Color.OHitem, Object.values(this.data.device.properties.Color.value).join()).subscribe(res => {
+    this.api.send(this.data.items.Color.id, Object.values(this.data.items.Color.state).join()).subscribe(res => {
 
     });
   }

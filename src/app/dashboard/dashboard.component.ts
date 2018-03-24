@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../config.service';
 import {trigger, stagger, animate, style, group, query as q, transition, keyframes} from '@angular/animations';
-import { LiteService } from '../lite.service';
 const query = (s,a,o={optional:true})=>q(s,a,o);
 
 export const homeTransition = trigger('homeTransition',
@@ -21,35 +20,19 @@ export const homeTransition = trigger('homeTransition',
   ])
 ]);
 
-export const liteAnimation = trigger('liteAnimation',
-  [
-    transition(
-    ':enter', [
-      style({transform: 'translateY(-30%)', opacity: 0}),
-      animate('.2s', style({transform: 'translateY(0)', 'opacity': 1}))
-    ]
-  ),
-  transition(
-    ':leave', [
-      style({transform: 'translateY(0%)'}),
-      animate('.2s', style({transform: 'translateY(-30%)', 'opacity': 0})),
-    ]
-  )]
-)
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  animations: [ homeTransition, liteAnimation ],
+  animations: [ homeTransition ],
   host: {
     '[@homeTransition]': '',
   }
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public cs: ConfigService,
-              private ls: LiteService) { }
+  constructor(public cs: ConfigService) { }
 
   ngOnInit() {
   }

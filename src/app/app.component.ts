@@ -7,7 +7,6 @@ import { ConfigService } from "./config.service";
 import { ToasterConfig } from "angular2-toaster";
 
 import {sequence, trigger, stagger, animate, style, group, query as q, transition, keyframes, animateChild} from '@angular/animations';
-import { LiteService } from "./lite.service";
 import { LogService } from "./log.service";
 const query = (s,a,o={optional:true})=>q(s,a,o);
 
@@ -46,23 +45,13 @@ export class AppComponent implements OnInit {
   constructor(private api: ApiService,
               private snackBar: MatSnackBar,
               private cs: ConfigService,
-              private ls: LiteService,
               private logService: LogService) {
     this.zone = new NgZone({ enableLongStackTrace: false });
 
     Promise.all([
-      fetch(this.cs.configUrl),
-      fetch(this.cs.devicesUrl)
-    ]).then((response: any) => {
-      return Promise.all([
-        response[0].json(),
-        response[1].json()
-      ]);
-    })
-    .then((config: any) => {
-      this.cs.layout = config[0];
-      this.cs.devices = config[1];
-      this.initValues();
+      this.cs.getLayout(),
+      this.cs.getItems()
+    ]).then((response => {
       this.getIndicatorsStream()
       // .filter(event => event.topic.includes('LivingRoom_GoogleHome_Control'))
       .subscribe(message => {
@@ -70,7 +59,7 @@ export class AppComponent implements OnInit {
       }, error => {
         console.error(error);
       });
-    });
+    }))
   }
 
   ngOnInit() {
@@ -79,37 +68,6 @@ export class AppComponent implements OnInit {
 
   getState(outlet) {
     return outlet.activatedRouteData.state;
-  }
-
-  initValues() {
-    this.api.getAllItems().subscribe((items: Array<any>) => {
-      for(let item of items) {
-        const [room, device, property] = item.name.split('_');
-        const deviceKey = `${room}_${device}`;
-
-        if (property === "BatteryLevel" && item.state < this.cs.batteryLevelAlert) {
-          this.logService.createAlert(item.name, {
-            type: "battery-empty",
-            date: new Date().toLocaleString(),
-            device: deviceKey,
-            property: property,
-            value: `${item.state}%`
-          });
-        }
-
-        // console.log(item.name);
-        // console.log(this.cs.devices);
-
-        if (this.cs.devices[deviceKey] && this.cs.devices[deviceKey].properties[property]) {
-          let value = item.state;
-          if (item.type === "Color") {
-            const [h, s, b] = item.state.split(',');
-            value = {h, s, b};
-          }
-          this.cs.devices[deviceKey].properties[property].value = value;
-        }
-      }
-    });
   }
 
   getIndicatorsStream() {
@@ -138,11 +96,6 @@ export class AppComponent implements OnInit {
     })
   }
 
-  toggleLiteMode() {
-    this.ls.sharedNode.liteMode = !this.ls.sharedNode.liteMode;
-  }
-
-
   initClock() {
     setInterval(() => { 
       this.date = new Date();
@@ -150,9 +103,19 @@ export class AppComponent implements OnInit {
   }
 
   updateData(message) {
-    const item = message.topic.split('/')[2]
-    const [room, device, property] = item.split('_');
+    const item = message.topic.split('/')[2];
     const payload = JSON.parse(message.payload);
+    if (this.cs.items[item]) {
+      let value = payload.value;
+
+      if (payload.type === "HSB") {
+      const [h, s, b] = value.split(',');
+      value = {h, s, b};
+    }
+      this.cs.items[item].state = value;
+    };
+    // const [room, device, property] = item.split('_');
+    // const payload = JSON.parse(message.payload);
     
     // console.group(room)
     // console.log(message.topic);
@@ -167,27 +130,7 @@ export class AppComponent implements OnInit {
     };
 
     this.logService.push(log);
-    const deviceKey = `${room}_${device}`;
 
-    if (property === "BatteryLevel" && payload.value < this.cs.batteryLevelAlert) {
-      this.logService.createAlert(message.topic, {
-        type: "battery-empty",
-        date: log.date,
-        device: deviceKey,
-        property: property,
-        value: `${payload.value}%`
-      });
-    }
-
-    if (!this.cs.devices[deviceKey] ||
-        !this.cs.devices[deviceKey].properties[property])
-        return;
-    let value = payload.value;
-    if (payload.type === "HSB") {
-      const [h, s, b] = payload.value.split(',');
-      value = {h, s, b};
-    }
-
-    this.cs.devices[deviceKey].properties[property].value = value;
+    // TODO : Battery alerts
   }
 }

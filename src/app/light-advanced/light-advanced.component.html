@@ -2,14 +2,14 @@
   <div class="metric">
     <label>Color</label>
     <mat-slider class="slider slider-color" [max]="configColor.max" [min]="configColor.min" [step]="configColor.step" [thumb-label]="configColor.thumbLabel"
-      [(ngModel)]="data.device.properties.Color.value.h" (change)="updateValue()">
+      [(ngModel)]="data.items.Color.state.h" (change)="updateValue()">
     </mat-slider>
   </div>
 
   <div class="metric">
     <label>Saturation</label>
     <mat-slider class="slider slider-saturation" [max]="configBrightnessSaturation.max" [min]="configBrightnessSaturation.min"
-      [step]="configBrightnessSaturation.step" [thumb-label]="configBrightnessSaturation.thumbLabel" [(ngModel)]="data.device.properties.Color.value.s"
+      [step]="configBrightnessSaturation.step" [thumb-label]="configBrightnessSaturation.thumbLabel" [(ngModel)]="data.items.Color.state.s"
       (change)="updateValue()">
     </mat-slider>
   </div>
@@ -17,7 +17,7 @@
   <div class="metric">
     <label>Brightness</label>
     <mat-slider class="slider slider-brightness" [max]="configBrightnessSaturation.max" [min]="configBrightnessSaturation.min"
-      [step]="configBrightnessSaturation.step" [thumb-label]="configBrightnessSaturation.thumbLabel" [(ngModel)]="data.device.properties.Color.value.b"
+      [step]="configBrightnessSaturation.step" [thumb-label]="configBrightnessSaturation.thumbLabel" [(ngModel)]="data.items.Color.state.b"
       (change)="updateValue()">
     </mat-slider>
   </div>

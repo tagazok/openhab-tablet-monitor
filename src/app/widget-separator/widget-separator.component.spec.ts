@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScreenLightComponent } from './screen-light.component';
+import { WidgetSeparatorComponent } from './widget-separator.component';
 
-describe('ScreenLightComponent', () => {
-  let component: ScreenLightComponent;
-  let fixture: ComponentFixture<ScreenLightComponent>;
+describe('WidgetSeparatorComponent', () => {
+  let component: WidgetSeparatorComponent;
+  let fixture: ComponentFixture<WidgetSeparatorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScreenLightComponent ]
+      declarations: [ WidgetSeparatorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ScreenLightComponent);
+    fixture = TestBed.createComponent(WidgetSeparatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BigRoomComponent } from './big-room.component';
+import { WidgetErrorComponent } from './widget-error.component';
 
-describe('BigRoomComponent', () => {
-  let component: BigRoomComponent;
-  let fixture: ComponentFixture<BigRoomComponent>;
+describe('WidgetErrorComponent', () => {
+  let component: WidgetErrorComponent;
+  let fixture: ComponentFixture<WidgetErrorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BigRoomComponent ]
+      declarations: [ WidgetErrorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BigRoomComponent);
+    fixture = TestBed.createComponent(WidgetErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
