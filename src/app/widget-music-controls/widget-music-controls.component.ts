@@ -7,13 +7,23 @@ import { WidgetComponent } from "../widget/widget.component";
   templateUrl: "./widget-music-controls.component.html",
   styleUrls: ["./widget-music-controls.component.css"]
 })
-export class WidgetMusicControlsComponent extends WidgetComponent {
+export class WidgetMusicControlsComponent extends WidgetComponent implements OnInit {
+  showVolume: boolean;
   constructor(
     private api: ApiService,
     protected elementRef: ElementRef,
     protected renderer: Renderer2
   ) {
     super(elementRef, renderer);
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
+    if (this.config && this.config.open) {
+      this.showVolume = this.config.open;
+    } else {
+      this.showVolume = false;
+    }
   }
 
   control(command) {

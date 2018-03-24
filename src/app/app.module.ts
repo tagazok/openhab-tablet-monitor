@@ -98,7 +98,8 @@ const routes: Routes = [
     WidgetButtonComponent,
     WidgetValueComponent,
     WidgetSwitchComponent,
-    WidgetMusicControlsComponent
+    WidgetMusicControlsComponent,
+    WidgetLabelComponent
   ],
   bootstrap: [AppComponent]
 })

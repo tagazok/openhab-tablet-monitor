@@ -7,6 +7,7 @@ import { WidgetSwitchComponent } from "../widget-switch/widget-switch.component"
 import { WidgetMusicControlsComponent } from "../widget-music-controls/widget-music-controls.component";
 import { ConfigService } from "../config.service";
 import { WidgetErrorComponent } from "../widget-error/widget-error.component";
+import { WidgetLabelComponent } from "../widget-label/widget-label.component";
 
 @Component({
   selector: 'app-widget-outlet',
@@ -31,7 +32,8 @@ export class WidgetOutletComponent implements OnInit {
     'button': WidgetButtonComponent,
     'value': WidgetValueComponent,
     'switch': WidgetSwitchComponent,
-    'music-controls': WidgetMusicControlsComponent
+    'music-controls': WidgetMusicControlsComponent,
+    'label': WidgetLabelComponent
   };
 
   @ViewChild("container", { read: ViewContainerRef })
@@ -57,7 +59,7 @@ export class WidgetOutletComponent implements OnInit {
     if (this.widget.items) {
       const items = this.getItems();
       this.componentRef.instance.items = items;
-    } else {
+    } else if (this.widget.item) {
       const itemRef = this.configService.items[this.widget.item];
       // if (itemRef === undefined) {
       //   this.itemError("item", this.widget);
