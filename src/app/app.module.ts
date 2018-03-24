@@ -36,6 +36,7 @@ import { WidgetMusicControlsComponent } from './widget-music-controls/widget-mus
 import { AlertsComponent } from './alerts/alerts.component';
 import { WidgetErrorComponent } from './widget-error/widget-error.component';
 import { DecimalPipe } from '@angular/common';
+import { WidgetSeparatorComponent } from './widget-separator/widget-separator.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
@@ -65,7 +66,8 @@ const routes: Routes = [
     WidgetSwitchComponent,
     WidgetMusicControlsComponent,
     AlertsComponent,
-    WidgetErrorComponent
+    WidgetErrorComponent,
+    WidgetSeparatorComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,8 @@ const routes: Routes = [
     WidgetValueComponent,
     WidgetSwitchComponent,
     WidgetMusicControlsComponent,
-    WidgetLabelComponent
+    WidgetLabelComponent,
+    WidgetSeparatorComponent
   ],
   bootstrap: [AppComponent]
 })
