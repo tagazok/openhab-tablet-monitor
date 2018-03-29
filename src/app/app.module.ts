@@ -35,12 +35,19 @@ import { AlertsComponent } from './alerts/alerts.component';
 import { WidgetErrorComponent } from './widget-error/widget-error.component';
 import { DecimalPipe } from '@angular/common';
 import { WidgetSeparatorComponent } from './widget-separator/widget-separator.component';
+// import { VideoChatComponent } from './video-chat/video-chat.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
   { path: "hacker", component: HackerComponent, data: { state: 'hacker'} },
   { path: "alerts", component: AlertsComponent, data: { state: 'alerts'} },
-  { path: "room/:id", component: RoomComponent, data: { state: 'room'} }
+  { path: "room/:id", component: RoomComponent, data: { state: 'room'} },
+  {
+    path: 'settings',
+    loadChildren: './settings/settings.module#SettingsModule',
+    // canLoad: [AuthGuard]
+  },
+  // { path: "video-chat", component: VideoChatComponent, data: { state: 'videochat'} }
 ];
 
 @NgModule({
@@ -63,6 +70,7 @@ const routes: Routes = [
     AlertsComponent,
     WidgetErrorComponent,
     WidgetSeparatorComponent
+    // VideoChatComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +89,7 @@ const routes: Routes = [
     MatSliderModule,
     FormsModule
   ],
+  exports: [],
   providers: [
     ToasterService,
     ApiService,

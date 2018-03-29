@@ -7,14 +7,17 @@
       "layout": {
         "areaA": [
           {
-            "widget": "light",
-            "items": {
-              "OnOff": "Hallway_Light_OnOff",
-              "Color": "Hallway_Light_Color",
-              "Brightness": "Hallway_Light_Brightness"
-            },
+            "widget": "value",
+            "item": "Beacon_Olivier",
             "config": {
-              "label": "HallWay Light"
+              "label": "Olivier"
+            }
+          },
+          {
+            "widget": "value",
+            "item": "Beacon_Tiffany",
+            "config": {
+              "label": "Tiffany"
             }
           }
         ]
@@ -167,9 +170,10 @@
     },
     "Bathroom": {
       "id": "Bathroom",
-      "label": "Bathroom",
+      "label": "Bathroom & Toilets",
       "icon": "bathroom",
-      "layout": {}
+      "layout": {
+      }
     }
   }
 }
