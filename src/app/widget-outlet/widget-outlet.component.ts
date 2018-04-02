@@ -1,13 +1,14 @@
 import { Component, OnInit, ComponentRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentFactory, Input } from "@angular/core";
-import { LightComponent } from "../light/light.component";
-import { WidgetButtonComponent } from "../widget-button/widget-button.component";
-import { WidgetValueComponent } from "../widget-value/widget-value.component";
-import { WidgetSwitchComponent } from "../widget-switch/widget-switch.component";
-import { WidgetMusicControlsComponent } from "../widget-music-controls/widget-music-controls.component";
 import { ConfigService } from "../config.service";
-import { WidgetErrorComponent } from "../widget-error/widget-error.component";
-import { WidgetLabelComponent } from "../widget-label/widget-label.component";
-import { WidgetSeparatorComponent } from "../widget-separator/widget-separator.component";
+// import { WidgetErrorComponent } from "../widget-error/widget-error.component";
+
+import { WidgetSeparatorComponent } from "../widgets/widget-separator/widget-separator/widget-separator.component";
+import { WidgetLabelComponent } from "../widgets/widget-label/widget-label/widget-label.component";
+import { WidgetButtonComponent } from "../widgets/widget-button/widget-button/widget-button.component";
+import { WidgetValueComponent } from "../widgets/widget-value/widget-value/widget-value.component";
+import { WidgetSwitchComponent } from "../widgets/widget-switch/widget-switch/widget-switch.component";
+import { WidgetMusicControlsSimpleComponent } from "../widgets/widget-music-controls-simple/widget-music-controls-simple/widget-music-controls-simple.component";
+import { WidgetLightSimpleComponent } from "../widgets/widget-light-simple/widget-light-simple/widget-light-simple.component";
 
 @Component({
   selector: 'app-widget-outlet',
@@ -27,11 +28,11 @@ export class WidgetOutletComponent implements OnInit {
   @Input() widget: any;
   // @Input() config: any;
   private components = {
-    'light': LightComponent,
+    'light': WidgetLightSimpleComponent,
     'button': WidgetButtonComponent,
     'value': WidgetValueComponent,
     'switch': WidgetSwitchComponent,
-    'music-controls': WidgetMusicControlsComponent,
+    'music-controls': WidgetMusicControlsSimpleComponent,
     'label': WidgetLabelComponent,
     'separator': WidgetSeparatorComponent
   };

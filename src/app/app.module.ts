@@ -15,27 +15,22 @@ import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ConfigService } from './config.service';
-import { OutletComponentComponent } from './outlet-component/outlet-component.component';
-import { LightAdvancedComponent } from './light-advanced/light-advanced.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
-import { LightSmallComponent } from './light-small/light-small.component';
 import { RoomComponent } from './room/room.component';
 import { WidgetOutletComponent } from './widget-outlet/widget-outlet.component';
-import { LightComponent } from './light/light.component';
-import { WidgetButtonComponent } from './widget-button/widget-button.component';
-import { WidgetLabelComponent } from './widget-label/widget-label.component';
-import { WidgetValueComponent } from './widget-value/widget-value.component';
-import { WidgetComponent } from './widget/widget.component';
 import { HackerComponent } from './hacker/hacker.component';
 import { LogService } from './log.service';
-import { WidgetSwitchComponent } from './widget-switch/widget-switch.component';
-import { WidgetMusicControlsComponent } from './widget-music-controls/widget-music-controls.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { WidgetErrorComponent } from './widget-error/widget-error.component';
 import { DecimalPipe } from '@angular/common';
-import { WidgetSeparatorComponent } from './widget-separator/widget-separator.component';
-// import { VideoChatComponent } from './video-chat/video-chat.component';
+import { WidgetSeparatorModule } from './widgets/widget-separator/widget-separator.module';
+import { WidgetLabelModule } from './widgets/widget-label/widget-label.module';
+import { WidgetButtonModule } from './widgets/widget-button/widget-button.module';
+import { WidgetValueModule } from './widgets/widget-value/widget-value.module';
+import { WidgetSwitchModule } from './widgets/widget-switch/widget-switch.module';
+import { WidgetMusicControlsSimpleModule } from './widgets/widget-music-controls-simple/widget-music-controls-simple.module';
+import { WidgetLightSimpleModule } from './widgets/widget-light-simple/widget-light-simple.module';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
@@ -54,22 +49,11 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    OutletComponentComponent,
-    LightAdvancedComponent,
-    LightSmallComponent,
     RoomComponent,
     WidgetOutletComponent,
-    LightComponent,
-    WidgetButtonComponent,
-    WidgetLabelComponent,
-    WidgetValueComponent,
-    WidgetComponent,
     HackerComponent,
-    WidgetSwitchComponent,
-    WidgetMusicControlsComponent,
     AlertsComponent,
     WidgetErrorComponent,
-    WidgetSeparatorComponent
     // VideoChatComponent
   ],
   imports: [
@@ -87,7 +71,15 @@ const routes: Routes = [
     MatSnackBarModule,
     MatDialogModule,
     MatSliderModule,
-    FormsModule
+    FormsModule,
+
+    WidgetSeparatorModule,
+    WidgetLabelModule,
+    WidgetButtonModule,
+    WidgetValueModule,
+    WidgetSwitchModule,
+    WidgetMusicControlsSimpleModule,
+    WidgetLightSimpleModule
   ],
   exports: [],
   providers: [
@@ -96,16 +88,6 @@ const routes: Routes = [
     ConfigService,
     LogService,
     DecimalPipe
-  ],
-  entryComponents: [
-    LightAdvancedComponent,
-    LightComponent,
-    WidgetButtonComponent,
-    WidgetValueComponent,
-    WidgetSwitchComponent,
-    WidgetMusicControlsComponent,
-    WidgetLabelComponent,
-    WidgetSeparatorComponent
   ],
   bootstrap: [AppComponent]
 })

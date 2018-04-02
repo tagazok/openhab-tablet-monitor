@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../../config.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manage-room',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageRoomComponent implements OnInit {
 
-  constructor() { }
+  roomId: string;
+  constructor(private cs: ConfigService,
+              private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.roomId = this.route.snapshot.params['id'];
   }
 
 }

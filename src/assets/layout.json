@@ -20,6 +20,17 @@
               "label": "Tiffany"
             }
           }
+        ],
+        "areaD": [
+          {
+            "widget": "button",
+            "item": "LivingRoom_AllLights_OnOff",
+            "config": {
+              "label": "Turn all lights off",
+              "value": "OFF",
+              "icon": "fas fa-moon"
+            }
+          }
         ]
       }
     },
@@ -160,7 +171,19 @@
       "id": "Kitchen",
       "label": "Kitchen",
       "icon": "kitchen",
-      "layout": {}
+      "layout": {
+        "areaD": [
+          {
+            "widget": "button",
+            "item": "LivingRoom_AllLights_OnOff",
+            "config": {
+              "label": "Turn all lights off",
+              "value": "OFF",
+              "icon": "fas fa-moon"
+            }
+          }
+        ]
+      }
     },
     "Bedroom": {
       "id": "Bedroom",

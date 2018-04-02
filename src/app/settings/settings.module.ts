@@ -5,13 +5,25 @@ import { ManageLayoutComponent } from './manage-layout/manage-layout.component';
 import { ManageRoomComponent } from './manage-room/manage-room.component';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConfigService } from '../config.service';
+import { WidgetOutletSettingsComponent } from '../widget-outlet-settings/widget-outlet-settings.component';
+import { WidgetValueModule } from '../widgets/widget-value/widget-value.module';
+import { WidgetSwitchModule } from '../widgets/widget-switch/widget-switch.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FlexLayoutModule,
-    SettingsRoutingModule
+    SettingsRoutingModule,
+    WidgetValueModule,
+    WidgetSwitchModule
   ],
-  declarations: [SettingsComponent, ManageLayoutComponent, ManageRoomComponent]
+  providers: [],
+  declarations: [
+    SettingsComponent,
+    ManageLayoutComponent,
+    ManageRoomComponent,
+    WidgetOutletSettingsComponent
+  ]
 })
 export class SettingsModule { }

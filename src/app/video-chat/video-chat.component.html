@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <div *ngFor="let room of getRooms()" fxLayout="column">
+    <div>
+      <img src="/assets/images/rooms/{{room.icon}}.png" (click)="connect(room)">
+    </div>
+  </div>
+</div>
+
+<!-- <div>My id - {{targetpeer}}</div> -->
+<!-- <video #myvideo></video> -->
+
+<input type="text" [(ngModel)]="targetpeer">
+
+<button mat-raised-button color="primary" (click)="connect()">Connect</button>
+<!-- <button mat-raised-button color="primary" (click)="videoconnect()">VideoChat</button> -->
+<video #myvideo></video>
+<textarea [value]="str"></textarea>
