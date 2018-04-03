@@ -196,6 +196,18 @@
       "label": "Bathroom & Toilets",
       "icon": "bathroom",
       "layout": {
+        "areaA": [
+          {
+            "widget": "value",
+            "item": "LivingRoom_OpenSensor_OpenStatus",
+            "config": {
+              "icon": "fas fa-unlock-alt",
+              "style": {
+                "border": "none"
+              }
+            }
+          }
+        ]
       }
     }
   }

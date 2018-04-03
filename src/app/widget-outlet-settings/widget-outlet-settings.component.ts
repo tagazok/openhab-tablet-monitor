@@ -33,17 +33,17 @@ export class WidgetOutletSettingsComponent implements OnInit {
 
   createComponent() {
     
-    this.container.clear();
-    if (!this.components[this.widget.widget]) return;
+    // this.container.clear();
+    // if (!this.components[this.widget.widget]) return;
 
-    console.log(`widget type: ${this.widget.widget}`);
+    // console.log(`widget type: ${this.widget.widget}`);
 
-    const factory: ComponentFactory<any> = 
-    this.resolver.resolveComponentFactory(
-      this.components[this.widget.widget]
-    );
+    // const factory: ComponentFactory<any> = 
+    // this.resolver.resolveComponentFactory(
+    //   this.components[this.widget.widget]
+    // );
     
-    this.componentRef = this.container.createComponent(factory);
+    // this.componentRef = this.container.createComponent(factory);
     
     // if (this.widget.items) {
     //   const items = this.getItems();

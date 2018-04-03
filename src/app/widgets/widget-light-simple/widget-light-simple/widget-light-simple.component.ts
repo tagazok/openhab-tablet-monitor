@@ -50,5 +50,4 @@ export class WidgetLightSimpleComponent extends WidgetComponent {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-
 }

@@ -87,7 +87,7 @@ const routes: Routes = [
     ApiService,
     ConfigService,
     LogService,
-    DecimalPipe
+    DecimalPipe,
   ],
   bootstrap: [AppComponent]
 })
