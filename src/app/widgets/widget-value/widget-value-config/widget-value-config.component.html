@@ -1,6 +1,44 @@
-<p>
-  widget-value-config works!
-</p>
-<pre>
-  {{data.widget |json}}
-</pre>
+<div mat-dialog-content>
+  <mat-form-field fxFill>
+    <input matInput placeholder="Widget type" [value]="data.widget.widget" disabled="true">
+  </mat-form-field>
+  <form>
+    <mat-form-field fxFill>
+      <mat-select placeholder="Item">
+        <mat-option *ngFor="let item of getItems()" [value]="data.widget.item">
+          {{item.id}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFill>
+      <input matInput placeholder="Label" [value]="data.widget.label || ''">
+    </mat-form-field>
+    <mat-form-field fxFill>
+      <input matInput placeholder="Icon"  [value]="data.widget.config.icon || '' ">
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
+      <mat-form-field>
+        <input matInput placeholder="Pre-String" [value]="data.widget.config.preString || ''">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Post-String" [value]="data.widget.config.postString || ''">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
+      <mat-form-field>
+        <mat-select placeholder="Filter">
+          <mat-option *ngFor="let filter of filters">
+            {{filter}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="parameters">
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button (click)="save()">Save</button>
+</div>

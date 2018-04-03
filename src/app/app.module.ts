@@ -12,9 +12,7 @@ import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
-import { ApiService } from './api.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ConfigService } from './config.service';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { RoomComponent } from './room/room.component';
@@ -31,6 +29,7 @@ import { WidgetValueModule } from './widgets/widget-value/widget-value.module';
 import { WidgetSwitchModule } from './widgets/widget-switch/widget-switch.module';
 import { WidgetMusicControlsSimpleModule } from './widgets/widget-music-controls-simple/widget-music-controls-simple.module';
 import { WidgetLightSimpleModule } from './widgets/widget-light-simple/widget-light-simple.module';
+import { SharedModule } from './shared/shared.module';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
@@ -73,6 +72,7 @@ const routes: Routes = [
     MatSliderModule,
     FormsModule,
 
+    SharedModule.forRoot(),
     WidgetSeparatorModule,
     WidgetLabelModule,
     WidgetButtonModule,
@@ -84,8 +84,6 @@ const routes: Routes = [
   exports: [],
   providers: [
     ToasterService,
-    ApiService,
-    ConfigService,
     LogService,
     DecimalPipe,
   ],

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigService } from '../../config.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { WidgetSwitchConfigComponent } from '../../widgets/widget-switch/widget-switch-config/widget-switch-config.component';
 import { WidgetValueConfigComponent } from '../../widgets/widget-value/widget-value-config/widget-value-config.component';
+import { ConfigService } from '../../shared/config.service';
 
 @Component({
   selector: 'app-manage-room',

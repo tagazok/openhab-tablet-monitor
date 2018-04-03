@@ -5,10 +5,10 @@ import { ManageLayoutComponent } from './manage-layout/manage-layout.component';
 import { ManageRoomComponent } from './manage-room/manage-room.component';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ConfigService } from '../config.service';
 import { WidgetOutletSettingsComponent } from '../widget-outlet-settings/widget-outlet-settings.component';
 import { WidgetValueModule } from '../widgets/widget-value/widget-value.module';
 import { WidgetSwitchModule } from '../widgets/widget-switch/widget-switch.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -16,7 +16,8 @@ import { WidgetSwitchModule } from '../widgets/widget-switch/widget-switch.modul
     FlexLayoutModule,
     SettingsRoutingModule,
     WidgetValueModule,
-    WidgetSwitchModule
+    WidgetSwitchModule,
+    SharedModule
   ],
   providers: [],
   declarations: [

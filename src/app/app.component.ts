@@ -1,13 +1,13 @@
 import { Component, NgZone, OnInit } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/filter';
-import { ApiService } from "./api.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { ConfigService } from "./config.service";
 import { ToasterConfig } from "angular2-toaster";
 
 import {sequence, trigger, stagger, animate, style, group, query as q, transition, keyframes, animateChild} from '@angular/animations';
 import { LogService } from "./log.service";
+import { ApiService } from "./shared/api.service";
+import { ConfigService } from "./shared/config.service";
 const query = (s,a,o={optional:true})=>q(s,a,o);
 
 export const routerTransition = trigger('routerTransition', [

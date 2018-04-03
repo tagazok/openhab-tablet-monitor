@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from './api.service';
 import { ConfigService } from './config.service';
@@ -7,10 +7,17 @@ import { ConfigService } from './config.service';
   imports: [
     CommonModule
   ],
-  declarations: [],
-  providers: [
-    ApiService,
-    ConfigService
-  ]
+  declarations: []
+  // providers: [
+    // ApiService,
+    // ConfigService
+  // ]
 })
-export class SharedModule { }
+export class SharedModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: [ConfigService, ApiService]
+    };
+  }
+}

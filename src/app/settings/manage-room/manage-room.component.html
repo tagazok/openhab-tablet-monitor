@@ -3,7 +3,7 @@
     <div class="area area-top area-A" fxFlex fxLayoutAlign="start center" fxLayout="column">
       <!-- <app-widget-outlet-settings *ngFor="let widget of cs.layout.rooms[roomId].layout.areaA" [widget]="widget" (click)="openConfig(widget)">
       </app-widget-outlet-settings> -->
-      <div class="widget " *ngFor="let widget of cs.layout.rooms[roomId].layout.areaA" (click)="openConfig(widget)">
+      <div class="widget" *ngFor="let widget of cs.layout.rooms[roomId].layout.areaA" (click)="openConfig(widget)">
         {{widget.widget}} - {{widget.item}}
       </div>
     </div>

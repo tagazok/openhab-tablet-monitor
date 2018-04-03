@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogService } from '../log.service';
-import { ConfigService } from '../config.service';
+import { ConfigService } from '../shared/config.service';
 
 @Component({
   selector: 'app-alerts',

@@ -1,7 +1,7 @@
 import { Component, OnInit, ComponentFactory, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef, Input } from '@angular/core';
-import { ConfigService } from '../config.service';
 import { WidgetValueConfigComponent } from '../widgets/widget-value/widget-value-config/widget-value-config.component';
 import { WidgetSwitchConfigComponent } from '../widgets/widget-switch/widget-switch-config/widget-switch-config.component';
+import { ConfigService } from '../shared/config.service';
 
 @Component({
   selector: 'app-widget-outlet-settings',

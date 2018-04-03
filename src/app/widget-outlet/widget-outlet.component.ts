@@ -1,5 +1,4 @@
 import { Component, OnInit, ComponentRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentFactory, Input } from "@angular/core";
-import { ConfigService } from "../config.service";
 // import { WidgetErrorComponent } from "../widget-error/widget-error.component";
 
 import { WidgetSeparatorComponent } from "../widgets/widget-separator/widget-separator/widget-separator.component";
@@ -9,6 +8,7 @@ import { WidgetValueComponent } from "../widgets/widget-value/widget-value/widge
 import { WidgetSwitchComponent } from "../widgets/widget-switch/widget-switch/widget-switch.component";
 import { WidgetMusicControlsSimpleComponent } from "../widgets/widget-music-controls-simple/widget-music-controls-simple/widget-music-controls-simple.component";
 import { WidgetLightSimpleComponent } from "../widgets/widget-light-simple/widget-light-simple/widget-light-simple.component";
+import { ConfigService } from "../shared/config.service";
 
 @Component({
   selector: 'app-widget-outlet',
