@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedModule } from '../../shared/shared.module';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -17,7 +18,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    SharedModule
+    SharedModule,
+    
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     WidgetValueComponent,

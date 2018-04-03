@@ -9,6 +9,7 @@ import { WidgetOutletSettingsComponent } from '../widget-outlet-settings/widget-
 import { WidgetValueModule } from '../widgets/widget-value/widget-value.module';
 import { WidgetSwitchModule } from '../widgets/widget-switch/widget-switch.module';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     SettingsRoutingModule,
     WidgetValueModule,
     WidgetSwitchModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   declarations: [

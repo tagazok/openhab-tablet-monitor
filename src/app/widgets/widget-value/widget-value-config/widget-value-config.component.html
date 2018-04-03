@@ -1,27 +1,27 @@
-<div mat-dialog-content>
+<div>
   <mat-form-field fxFill>
     <input matInput placeholder="Widget type" [value]="data.widget.widget" disabled="true">
   </mat-form-field>
-  <form>
+  <form (ngSubmit)="save(form)" [formGroup]="form">
     <mat-form-field fxFill>
-      <mat-select placeholder="Item">
-        <mat-option *ngFor="let item of getItems()" [value]="data.widget.item">
-          {{item.id}}
+      <mat-select placeholder="Item" formControlName="item">
+        <mat-option *ngFor="let it of getItems()" [value]="it.id">
+          {{it.id}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field fxFill>
-      <input matInput placeholder="Label" [value]="data.widget.label || ''">
+      <input matInput placeholder="Label" formControlName="label">
     </mat-form-field>
     <mat-form-field fxFill>
-      <input matInput placeholder="Icon"  [value]="data.widget.config.icon || '' ">
+      <input matInput placeholder="Icon" formControlName="icon">
     </mat-form-field>
     <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
       <mat-form-field>
-        <input matInput placeholder="Pre-String" [value]="data.widget.config.preString || ''">
+        <input matInput placeholder="Pre-String" formControlName="preString">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Post-String" [value]="data.widget.config.postString || ''">
+        <input matInput placeholder="Post-String" formControlName="postString">
       </mat-form-field>
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
@@ -36,9 +36,13 @@
         <input matInput placeholder="parameters">
       </mat-form-field>
     </div>
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <button type="button" mat-raised-button (click)="cancel()">Cancel</button>
+      <button mat-raised-button type="submit">Save</button>
+    </div>
   </form>
 </div>
-<div mat-dialog-actions>
+<!-- <div mat-dialog-actions>
   <button mat-raised-button (click)="cancel()">Cancel</button>
   <button mat-raised-button (click)="save()">Save</button>
-</div>
+</div> -->
