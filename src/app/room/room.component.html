@@ -11,6 +11,7 @@
     </div>
 
     <div class="area area-top area-B" fxFlex fxLayoutAlign="start center" fxLayout="column">
+      <!-- <div [inlineSVG]="'/assets/maps/LivingRoom.svg'" [injectComponent]="true"></div> -->
       <app-widget-outlet *ngFor="let widget of cs.layout.rooms[roomId].layout.areaB" [widget]="widget">
       </app-widget-outlet>
     </div>

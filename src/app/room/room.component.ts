@@ -56,6 +56,7 @@ export const roomTransition = trigger('roomTransition', [
 export class RoomComponent implements OnInit {
   room: any;
   roomId: string;
+  strokeColor = "red";
   constructor(public cs: ConfigService,
               private route:ActivatedRoute) { }
 

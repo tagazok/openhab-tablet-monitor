@@ -30,6 +30,7 @@ import { WidgetSwitchModule } from './widgets/widget-switch/widget-switch.module
 import { WidgetMusicControlsSimpleModule } from './widgets/widget-music-controls-simple/widget-music-controls-simple.module';
 import { WidgetLightSimpleModule } from './widgets/widget-light-simple/widget-light-simple.module';
 import { SharedModule } from './shared/shared.module';
+import { InlineSVGModule } from 'ng-inline-svg';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent, data: { state: 'home'} },
@@ -62,6 +63,7 @@ const routes: Routes = [
     HttpClientModule,
 
     PrettyJsonModule,
+    InlineSVGModule,
     ToasterModule,
 
     FlexLayoutModule,
