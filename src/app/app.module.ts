@@ -33,6 +33,8 @@ import { SharedModule } from "./shared/shared.module";
 import { InlineSVGModule } from "ng-inline-svg";
 import { CanActivateAuthGuard } from "./shared/can-activate-auth-guard";
 import { LoginComponent } from './login/login.component';
+import { WidgetImageModule } from "./widgets/widget-image/widget-image.module";
+import { CameraComponent } from './camera/camera.component';
 
 const routes: Routes = [
   {
@@ -63,7 +65,14 @@ const routes: Routes = [
     path: "settings",
     loadChildren: "./settings/settings.module#SettingsModule"
   },
-  { path: "login", component: LoginComponent }
+  { 
+    path: "login",
+    component: LoginComponent
+  },
+  {
+    path: "camera/:url",
+    component: CameraComponent
+  }
   // { path: "video-chat", component: VideoChatComponent, data: { state: 'videochat'} }
 ];
 
@@ -76,7 +85,8 @@ const routes: Routes = [
     HackerComponent,
     AlertsComponent,
     WidgetErrorComponent,
-    LoginComponent
+    LoginComponent,
+    CameraComponent
     // VideoChatComponent
   ],
   imports: [
@@ -104,7 +114,8 @@ const routes: Routes = [
     WidgetValueModule,
     WidgetSwitchModule,
     WidgetMusicControlsSimpleModule,
-    WidgetLightSimpleModule
+    WidgetLightSimpleModule,
+    WidgetImageModule
   ],
   exports: [],
   providers: [ToasterService, LogService, DecimalPipe],

@@ -9,6 +9,7 @@ import { WidgetSwitchComponent } from "../widgets/widget-switch/widget-switch/wi
 import { WidgetMusicControlsSimpleComponent } from "../widgets/widget-music-controls-simple/widget-music-controls-simple/widget-music-controls-simple.component";
 import { WidgetLightSimpleComponent } from "../widgets/widget-light-simple/widget-light-simple/widget-light-simple.component";
 import { ConfigService } from "../shared/config.service";
+import { WidgetImageComponent } from "../widgets/widget-image/widget-image/widget-image.component";
 
 @Component({
   selector: 'app-widget-outlet',
@@ -34,7 +35,8 @@ export class WidgetOutletComponent implements OnInit {
     'switch': WidgetSwitchComponent,
     'music-controls': WidgetMusicControlsSimpleComponent,
     'label': WidgetLabelComponent,
-    'separator': WidgetSeparatorComponent
+    'separator': WidgetSeparatorComponent,
+    'image': WidgetImageComponent
   };
 
   @ViewChild("container", { read: ViewContainerRef })
