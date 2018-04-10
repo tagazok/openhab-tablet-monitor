@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../../shared/shared.module';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     FlexLayoutModule,
     MatSliderModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ],
   declarations: [WidgetMusicControlsSimpleComponent],
   entryComponents: [

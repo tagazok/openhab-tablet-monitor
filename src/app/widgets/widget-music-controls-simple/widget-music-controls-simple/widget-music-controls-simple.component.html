@@ -1,23 +1,27 @@
-<div fxLayout="column" fxLayoutAlign="start center">
-  <div class="main" fxFill *ngIf="config?.label || config?.icon">
-    <div *ngIf="config.icon">
-      <i class="{{config.icon}} icon"></i>
-    </div>
-    <div *ngIf="config?.label" fxFlex>{{config.label}}</div>
-  </div>
-  <div class="buttons" fxLayout="row" fxFill>
-    <div class="controls" fxFlex>
-      <button class="control" (click)="control('PREVIOUS')"><i class="fas fa-step-backward"></i></button>
-      <button class="control" (click)="control('PLAY')" *ngIf="items.Control.state === 'PAUSE'"><i class="fas fa-play"></i></button> 
-      <button class="control" (click)="control('PAUSE')" *ngIf="items.Control.state === 'PLAY'"><i class="fas fa-pause"></i></button>
-      <button class="control" (click)="control('NEXT')"><i class="fas fa-step-forward"></i></button>
-    </div>
-    <button class="more control" *ngIf="items.Volume" (click)="showVolume = !showVolume"><i class="fas fa-volume-down"></i></button>
-  </div>
-  <div class="volume" *ngIf="items.Volume && showVolume" fxFill>
+<div fxLayout="row" fxLayoutAlign="start center" *ngIf="items" [ngClass]="{'playing': items.controls.state === 'PLAY'}">
+  <!-- <div class="volume" *ngIf="items.Volume && showVolume" fxFill>
     <mat-slider [min]="0" [max]="100"
       [step]="1" [(ngModel)]="items.Volume.state"
       (change)="volume()">
     </mat-slider>
+  </div> -->
+  <div class="vinyl" [ngStyle]="{'background-image': 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/vinyl.png), url(' + items.imageUrl.state + ')'}"></div>
+  <div class="infos" fxLayout="column" fxFlex>
+    <div class="title">
+      {{items.title.state}}
+    </div>
+    <div class="artist">
+      by {{items.artist.state}}
+    </div>
+  </div>
+  <div class="panel" fxLayout="column" fxLayoutAlign="space-around center">
+    <div class="actions" fxLayoutAlign="center center">
+      <button class="control" (click)="control('PLAY')" *ngIf="items.controls.state === 'PAUSE'"><i class="fas fa-play fa-2x"></i></button> 
+      <button class="control" (click)="control('PAUSE')" *ngIf="items.controls.state === 'PLAY'"><i class="fas fa-pause fa-2x"></i></button>
+    </div>
+    <div class="duration" fxFill fxLayout="row" fxLayoutAlign="space-around center">
+      <i class="fa fa-clock"></i>
+      <div>{{items.duration.state |minuteSeconds}}</div>
+    </div>
   </div>
 </div>

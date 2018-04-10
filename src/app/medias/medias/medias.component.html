@@ -19,7 +19,7 @@
     </div>
 
     <div class="position">
-      <div fxLayoutAlign="end center" class="duration label">{{getItemState(player.items.duration)}}</div>
+      <div fxLayoutAlign="end center" class="duration label">{{getItemState(player.items.duration) | minuteSeconds}}</div>
       <mat-slider disabled="true" fxFill min="0" [max]="getItemState(player.items.duration).split('.')[0]" step="0.5" [value]="getItemState(player.items.currentTime)"></mat-slider>
     </div>
 

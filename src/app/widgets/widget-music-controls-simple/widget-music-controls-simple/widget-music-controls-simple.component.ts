@@ -28,13 +28,13 @@ export class WidgetMusicControlsSimpleComponent extends WidgetComponent implemen
 
   control(command) {
     this.api
-      .send(`${this.items.Control.id}`, command)
+      .send(`${this.items.controls.id}`, command)
       .subscribe();
   }
 
   volume() {
     this.api
-    .sendPlainText(`${this.items.Volume.id}`, this.items.Volume.state)
+    .sendPlainText(`${this.items.volume.id}`, this.items.volume.state)
     .subscribe();
   }
 }

@@ -183,11 +183,20 @@
           {
             "widget": "music-controls",
             "items": {
-              "Control": "LivingRoom_ChromeCast_Control",
-              "Volume": "LivingRoom_ChromeCast_Volume"
+              "controls": "LivingRoom_GoogleHome_Control",
+              "volume": "LivingRoom_GoogleHome_Volume",
+              "duration": "LivingRoom_GoogleHome_Duration",
+              "currentTime": "LivingRoom_GoogleHome_CurrentTime",
+              "album": "LivingRoom_GoogleHome_AlbumName",
+              "artist": "LivingRoom_GoogleHome_Artist",
+              "title": "LivingRoom_GoogleHome_Title",
+              "imageUrl": "LivingRoom_GoogleHome_ImageURL"
             },
             "config": {
-              "open": true
+              "open": true,
+              "style": {
+                "border": "none"
+              }
             }
           }
         ]
