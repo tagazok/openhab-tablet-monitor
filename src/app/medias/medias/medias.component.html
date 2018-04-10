@@ -4,9 +4,6 @@
         <i class="fas fa-music"></i>
         <div>{{player.label}}</div>
     </div>
-    <!-- <div class="cover">
-      <img [src]="getItemState(player.items.imageUrl)" />
-    </div> -->
 
     <div fxLayoutAlign="center center">
       <div class="cover">
@@ -20,15 +17,14 @@
       <button mat-fab (click)="control('PAUSE')" *ngIf="getItemState(player.items.controls) === 'PLAY'"><i class="fas fa-pause fa-2x"></i></button>
       <button mat-mini-fab (click)="control('NEXT')"><i class="fas fa-step-forward fa-2x"></i></button>
     </div>
+
     <div class="position">
       <div fxLayoutAlign="end center" class="duration label">{{getItemState(player.items.duration)}}</div>
-      <mat-slider fxFill min="0" [max]="getItemState(player.items.duration).split('.')[0]" step="0.5" [value]="getItemState(player.items.currentTime)"></mat-slider>
+      <mat-slider disabled="true" fxFill min="0" [max]="getItemState(player.items.duration).split('.')[0]" step="0.5" [value]="getItemState(player.items.currentTime)"></mat-slider>
     </div>
+
     <div class="status" fxLayoutAlign="center start">
-      <!-- <div class="vinyl"></div> -->
-      <!-- <div class="vinyl" [style.background-image]="'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/vinyl.png), url(' + getItemState(player.items.imageUrl) + ')'"></div> -->
       <div class="vinyl" [ngStyle]="{'background-image': 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/vinyl.png), url(' + getItemState(player.items.imageUrl) + ')'}"></div>
-      <!-- <div class="vinyl" [style.background]="'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/vinyl.png), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/incubus-make-yourself.jpg)'"></div> -->
     </div>
     <div class="infos">
       <table>
