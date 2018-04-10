@@ -8,6 +8,7 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { CanActivateAuthGuard } from './can-activate-auth-guard';
 import { environment } from '../../environments/environment';
+import { MinuteSecondsPipe } from './minute-seconds.pipe';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { environment } from '../../environments/environment';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  declarations: []
+  declarations: [MinuteSecondsPipe],
+  exports: [MinuteSecondsPipe]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
