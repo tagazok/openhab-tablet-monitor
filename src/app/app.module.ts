@@ -35,6 +35,7 @@ import { CanActivateAuthGuard } from "./shared/can-activate-auth-guard";
 import { LoginComponent } from './login/login.component';
 import { WidgetImageModule } from "./widgets/widget-image/widget-image.module";
 import { CameraComponent } from './camera/camera.component';
+import { MediasComponent } from "./medias/medias/medias.component";
 
 const routes: Routes = [
   {
@@ -72,6 +73,12 @@ const routes: Routes = [
   {
     path: "camera/:url",
     component: CameraComponent
+  },
+  {
+    path: "medias",
+    component: MediasComponent,
+    data: { state: "medias" },
+    canActivate: [CanActivateAuthGuard],
   }
   // { path: "video-chat", component: VideoChatComponent, data: { state: 'videochat'} }
 ];
@@ -86,7 +93,8 @@ const routes: Routes = [
     AlertsComponent,
     WidgetErrorComponent,
     LoginComponent,
-    CameraComponent
+    CameraComponent,
+    MediasComponent
     // VideoChatComponent
   ],
   imports: [

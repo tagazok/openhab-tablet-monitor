@@ -4,7 +4,9 @@ import {
   Input,
   HostBinding,
   ElementRef,
-  Renderer2
+  Renderer2,
+  OnChanges,
+  SimpleChanges
 } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { WidgetComponent } from "../../widget/widget/widget.component";
@@ -14,7 +16,10 @@ import { WidgetComponent } from "../../widget/widget/widget.component";
   templateUrl: "./widget-value.component.html",
   styleUrls: ["./widget-value.component.css"]
 })
-export class WidgetValueComponent extends WidgetComponent implements OnInit {
+export class WidgetValueComponent extends WidgetComponent implements OnInit, OnChanges {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
   constructor(protected elementRef: ElementRef, protected renderer: Renderer2, private decimalPipe: DecimalPipe) {
     super(elementRef, renderer);
   }

@@ -7,7 +7,7 @@ export class ConfigService {
   public serverUrl = environment.app.openHabUrl;
   public layoutUrl = environment.app.layout;
   public batteryLevelAlert = environment.app["batteryLevelAlert"] || 70;
-  public layout = { rooms: [] };
+  public layout = {};
   public items = {};
 
   constructor(

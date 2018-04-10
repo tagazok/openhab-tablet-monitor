@@ -1,0 +1,98 @@
+.player {
+  padding: 4em;
+}
+
+.header {
+  margin-bottom: .7em;
+}
+
+.header i {
+  margin: 0 .7em;
+}
+
+.infos {
+  margin-top: 1em;
+}
+
+.duration {
+  margin-bottom: -20px;
+}
+
+.label {
+  color: #98999c;
+  text-align: right;
+}
+
+.infos td.value {
+  color: #38adc2
+}
+
+
+.cover {
+	box-shadow: 3px 3px 15px rgba(0,0,0,0.65);
+	height: 315px;
+	position: relative;
+	width: 315px;
+	z-index: 10;
+}
+
+.cover-art {
+  background-size: cover;
+	height: 315px;
+	position: relative;
+	width: 315px;
+	z-index: 10;
+}
+
+.vinyl {
+  animation: spin 2s linear infinite;
+  transition: all 500ms;
+	background-position: center, center;
+	background-size: cover, 40% auto;
+	background-repeat: no-repeat;
+	border-radius: 100%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.8);
+	height: 200px;
+	/* left: 0;
+	position: absolute; */
+	/* top: 5px; */
+	width: 200px;
+	z-index: 5;
+  will-change: transform, left;
+  /* left: 50%; */
+}
+
+.status {
+  margin-top: 3em;
+  height: 90px;
+  overflow-y: hidden;
+  border-bottom: solid 1px rgba(54, 168, 190, .4);
+  box-shadow: inset 0 -8px 8px -7px rgba(0,0,0,.8);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.controls {
+  margin-top: 1em;
+}
+
+.control {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: solid 1px rgba(105, 159, 174, .5);
+  padding: .7em;
+  transition: .1s box-shadow linear, .1s background-color linear;
+}
+
+.control:active {
+  box-shadow: 0px 0px 20px #888;
+  background-color: rgba(255, 255, 255, .1);
+}
