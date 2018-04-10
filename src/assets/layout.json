@@ -29,6 +29,36 @@
         "title": "Bedroom_GoogleHome_Title",
         "imageUrl": "Bedroom_GoogleHome_ImageURL"
       }
+    },
+    {
+      "label":  "TV Chromecast",
+      "widget": "chromecast",
+      "items": {
+        "controls": "LivingRoom_ChromeCast_Control",
+        "volume": "LivingRoom_ChromeCast_Volume",
+        "app": "LivingRoom_ChromeCast_App",
+        "duration": "LivingRoom_ChromeCast_Duration",
+        "currentTime": "LivingRoom_ChromeCast_CurrentTime",
+        "album": "LivingRoom_ChromeCast_AlbumName",
+        "artist": "LivingRoom_ChromeCast_Artist",
+        "title": "LivingRoom_ChromeCast_Title",
+        "imageUrl": "LivingRoom_ChromeCast_ImageURL"
+      }
+    },
+    {
+      "label":  "Google Home Livingroom",
+      "widget": "chromecast",
+      "items": {
+        "controls": "LivingRoom_GoogleHome_Control",
+        "volume": "LivingRoom_GoogleHome_Volume",
+        "app": "LivingRoom_GoogleHome_App",
+        "duration": "LivingRoom_GoogleHome_Duration",
+        "currentTime": "LivingRoom_GoogleHome_CurrentTime",
+        "album": "LivingRoom_GoogleHome_AlbumName",
+        "artist": "LivingRoom_GoogleHome_Artist",
+        "title": "LivingRoom_GoogleHome_Title",
+        "imageUrl": "LivingRoom_GoogleHome_ImageURL"
+      }
     }
   ],
   "rooms": {

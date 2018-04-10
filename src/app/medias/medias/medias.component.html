@@ -1,54 +1,65 @@
-<div fxLayout="row" fxLayoutAlign="center center" *ngIf="configService.layout.medias">
-  <div class="player" *ngFor="let player of configService.layout.medias" fxFlex="33">
-    <div class="header" fxLayoutAlign="start center">
+<div fxLayout="row" *ngIf="configService.layout.medias">
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <div fxLayout="column" class="player" *ngFor="let player of configService.layout.medias">
+      <div class="header" fxLayoutAlign="start center">
         <i class="fas fa-music"></i>
         <div>{{player.label}}</div>
-    </div>
-
-    <div fxLayoutAlign="center center">
-      <div class="cover">
-        <div class="cover-art" [style.background-image]="'url(' + getItemState(player.items.imageUrl) + ')'"></div>
       </div>
-    </div>
-    
-    <div class="controls" fxLayout="row" fxLayoutAlign="space-around center">
-      <button mat-mini-fab (click)="control(player, 'PREVIOUS')"><i class="fas fa-step-backward fa-2x"></i></button>
-      <button mat-fab (click)="control(player, 'PLAY')" *ngIf="getItemState(player.items.controls) === 'PAUSE'"><i class="fas fa-play fa-2x"></i></button> 
-      <button mat-fab (click)="control(player, 'PAUSE')" *ngIf="getItemState(player.items.controls) === 'PLAY'"><i class="fas fa-pause fa-2x"></i></button>
-      <button mat-mini-fab (click)="control(player, 'NEXT')"><i class="fas fa-step-forward fa-2x"></i></button>
-    </div>
 
-    <div class="position">
-      <div fxLayoutAlign="end center" class="duration label">{{getItemState(player.items.duration) | minuteSeconds}}</div>
-      <mat-slider disabled="true" fxFill min="0" [max]="getItemState(player.items.duration).split('.')[0]" step="0.5" [value]="getItemState(player.items.currentTime)"></mat-slider>
-    </div>
+      <!-- <div fxLayoutAlign="center center" fxFlex> -->
+        <div class="cover" fxFlex>
+          <!-- <div class="cover-art" [style.background-image]="'url(' + getItemState(player.items.imageUrl) + ')'"></div> -->
+          <img [src]="getItemState(player.items.imageUrl)" onerror="this.src='assets/images/default_media.png';"/>
+        </div>
+      <!-- </div> -->
 
-    <div class="status" fxLayoutAlign="center start" [ngClass]="{'playing': getItemState(player.items.controls) === 'PLAY'}">
-      <div class="vinyl" [ngStyle]="{'background-image': 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/vinyl.png), url(' + getItemState(player.items.imageUrl) + ')'}"></div>
-    </div>
-    <div class="infos">
-      <table>
+      <div class="controls" fxLayout="row" fxLayoutAlign="space-around center">
+        <button mat-mini-fab (click)="control(player, 'PREVIOUS')">
+          <i class="fas fa-step-backward fa-2x"></i>
+        </button>
+        <button mat-fab (click)="control(player, 'PLAY')" *ngIf="getItemState(player.items.controls) === 'PAUSE'">
+          <i class="fas fa-play fa-2x"></i>
+        </button>
+        <button mat-fab (click)="control(player, 'PAUSE')" *ngIf="getItemState(player.items.controls) === 'PLAY'">
+          <i class="fas fa-pause fa-2x"></i>
+        </button>
+        <button mat-mini-fab (click)="control(player, 'NEXT')">
+          <i class="fas fa-step-forward fa-2x"></i>
+        </button>
+      </div>
+
+      <div class="position">
+        <div fxLayoutAlign="end center" class="duration label">{{getItemState(player.items.duration) | minuteSeconds}}</div>
+        <mat-slider disabled="true" fxFill min="0" [max]="getItemState(player.items.duration).split('.')[0]" step="0.5" [value]="getItemState(player.items.currentTime)"></mat-slider>
+      </div>
+
+      <div class="status" fxLayoutAlign="center start" [ngClass]="{'playing': getItemState(player.items.controls) === 'PLAY'}">
+        <div class="vinyl" [ngStyle]="{'background-image': 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/vinyl.png), url(' + getItemState(player.items.imageUrl) + ')'}"></div>
+      </div>
+      <div class="infos" fxLayoutAlign="center start">
+        <table>
           <tr>
             <td class="label">App : </td>
             <td class="value">{{getItemState(player.items.app)}}</td>
           </tr>
-        <tr>
-          <td class="label">Artist : </td>
-          <td class="value">{{getItemState(player.items.artist)}}</td>
-        </tr>
-        <tr>
-          <td class="label">Album : </td>
-          <td class="value">{{getItemState(player.items.album)}}</td>
-        </tr>
-        <tr>
-          <td class="label">Title : </td>
-          <td class="value">{{getItemState(player.items.title)}}</td>
-        </tr>
-        <tr>
-          <td class="label">Duration : </td>
-          <td class="value">{{getItemState(player.items.duration) | minuteSeconds}}</td>
-        </tr>
-      </table>
+          <tr>
+            <td class="label">Artist : </td>
+            <td class="value">{{getItemState(player.items.artist)}}</td>
+          </tr>
+          <tr>
+            <td class="label">Album : </td>
+            <td class="value">{{getItemState(player.items.album)}}</td>
+          </tr>
+          <tr>
+            <td class="label">Title : </td>
+            <td class="value">{{getItemState(player.items.title)}}</td>
+          </tr>
+          <tr>
+            <td class="label">Duration : </td>
+            <td class="value">{{getItemState(player.items.duration) | minuteSeconds}}</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </div>

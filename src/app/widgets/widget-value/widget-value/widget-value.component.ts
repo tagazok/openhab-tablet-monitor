@@ -16,10 +16,8 @@ import { WidgetComponent } from "../../widget/widget/widget.component";
   templateUrl: "./widget-value.component.html",
   styleUrls: ["./widget-value.component.css"]
 })
-export class WidgetValueComponent extends WidgetComponent implements OnInit, OnChanges {
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
+export class WidgetValueComponent extends WidgetComponent implements OnInit {
+  
   constructor(protected elementRef: ElementRef, protected renderer: Renderer2, private decimalPipe: DecimalPipe) {
     super(elementRef, renderer);
   }
