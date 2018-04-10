@@ -14,6 +14,21 @@
         "title": "LivingRoom_GoogleHome_Title",
         "imageUrl": "LivingRoom_GoogleHome_ImageURL"
       }
+    },
+    {
+      "label":  "Google Home Bedroom",
+      "widget": "chromecast",
+      "items": {
+        "controls": "Bedroom_GoogleHome_Control",
+        "volume": "Bedroom_GoogleHome_Volume",
+        "app": "Bedroom_GoogleHome_App",
+        "duration": "Bedroom_GoogleHome_Duration",
+        "currentTime": "Bedroom_GoogleHome_CurrentTime",
+        "album": "Bedroom_GoogleHome_AlbumName",
+        "artist": "Bedroom_GoogleHome_Artist",
+        "title": "Bedroom_GoogleHome_Title",
+        "imageUrl": "Bedroom_GoogleHome_ImageURL"
+      }
     }
   ],
   "rooms": {
@@ -224,7 +239,29 @@
       "id": "Bedroom",
       "label": "Bedroom",
       "icon": "bedroom",
-      "layout": {}
+      "layout": {
+        "areaD": [
+          {
+            "widget": "music-controls",
+            "items": {
+              "controls": "Bedroom_GoogleHome_Control",
+              "volume": "Bedroom_GoogleHome_Volume",
+              "duration": "Bedroom_GoogleHome_Duration",
+              "currentTime": "Bedroom_GoogleHome_CurrentTime",
+              "album": "Bedroom_GoogleHome_AlbumName",
+              "artist": "Bedroom_GoogleHome_Artist",
+              "title": "Bedroom_GoogleHome_Title",
+              "imageUrl": "Bedroom_GoogleHome_ImageURL"
+            },
+            "config": {
+              "open": true,
+              "style": {
+                "border": "none"
+              }
+            }
+          }
+        ]
+      }
     },
     "Bathroom": {
       "id": "Bathroom",

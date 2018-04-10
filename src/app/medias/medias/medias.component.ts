@@ -19,9 +19,9 @@ export class MediasComponent implements OnInit {
     return this.configService.items[item].state || ''
   }
 
-  control(command) {
-    // this.api
-    //   .send(`${this.items.Control.id}`, command)
-    //   .subscribe();
+  control(player, command) {
+    this.api
+      .send(`${this.configService.items[player.items.controls].id}`, command)
+      .subscribe();
   }
 }
