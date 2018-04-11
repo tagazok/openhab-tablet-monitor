@@ -46,7 +46,8 @@
 }
 
 .cover img {
-	box-shadow: 3px 3px 15px rgba(0,0,0,0.65);
+  /* box-shadow: 3px 3px 15px rgba(0,0,0,0.65); */
+  filter: drop-shadow(3px 3px 9px rgba(0,0,0,0.65));
   width: auto;
   height: 100%;
 }
