@@ -10,6 +10,8 @@ import { WidgetMusicControlsSimpleComponent } from "../widgets/widget-music-cont
 import { WidgetLightSimpleComponent } from "../widgets/widget-light-simple/widget-light-simple/widget-light-simple.component";
 import { ConfigService } from "../shared/config.service";
 import { WidgetImageComponent } from "../widgets/widget-image/widget-image/widget-image.component";
+import { WidgetJsonComponent } from "../widgets/widget-json/widget-json/widget-json.component";
+import { WidgetFlowercareComponent } from "../widgets/widget-flowercare/widget-flowercare/widget-flowercare.component";
 
 @Component({
   selector: 'app-widget-outlet',
@@ -29,6 +31,7 @@ export class WidgetOutletComponent implements OnInit {
   @Input() widget: any;
   // @Input() config: any;
   private components = {
+    'json': WidgetJsonComponent,
     'light': WidgetLightSimpleComponent,
     'button': WidgetButtonComponent,
     'value': WidgetValueComponent,
@@ -36,7 +39,8 @@ export class WidgetOutletComponent implements OnInit {
     'music-controls': WidgetMusicControlsSimpleComponent,
     'label': WidgetLabelComponent,
     'separator': WidgetSeparatorComponent,
-    'image': WidgetImageComponent
+    'image': WidgetImageComponent,
+    "flowercare": WidgetFlowercareComponent
   };
 
   @ViewChild("container", { read: ViewContainerRef })

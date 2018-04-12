@@ -44,21 +44,6 @@
         "title": "LivingRoom_ChromeCast_Title",
         "imageUrl": "LivingRoom_ChromeCast_ImageURL"
       }
-    },
-    {
-      "label":  "Google Home Livingroom",
-      "widget": "chromecast",
-      "items": {
-        "controls": "LivingRoom_GoogleHome_Control",
-        "volume": "LivingRoom_GoogleHome_Volume",
-        "app": "LivingRoom_GoogleHome_App",
-        "duration": "LivingRoom_GoogleHome_Duration",
-        "currentTime": "LivingRoom_GoogleHome_CurrentTime",
-        "album": "LivingRoom_GoogleHome_AlbumName",
-        "artist": "LivingRoom_GoogleHome_Artist",
-        "title": "LivingRoom_GoogleHome_Title",
-        "imageUrl": "LivingRoom_GoogleHome_ImageURL"
-      }
     }
   ],
   "rooms": {
@@ -90,6 +75,8 @@
               "url": "http://raspberrypi.local:8081/"
             }
           }
+        ],
+        "areaC": [
         ],
         "areaD": [
           {
@@ -156,6 +143,38 @@
               "filter": {
                 "type": "number",
                 "arg": "1.0-0"
+              },
+              "style": {
+                "border": "none"
+              }
+            }
+          },
+          {
+            "widget": "separator",
+            "config": {
+              "style": {
+                "width": "35%",
+                "margin-left": "auto",
+                "margin-right": "auto"
+              }
+            }
+          },
+          {
+            "widget": "flowercare",
+            "items": {
+              "temperature": "Avocado_FlowerCare_AirTemperature",
+              "fertility": "Avocado_FlowerCare_SoilConductivity",
+              "moisture": "Avocado_FlowerCare_SoilMoisture",
+              "light": "Avocado_FlowerCare_LightIntensity"
+            },
+            "config": {
+              "label": "Avocado",
+              "icon": "fas fa-leaf",
+              "limits": {
+                "temperature": { "min": 8, "max": 35},
+                "fertility": { "min": 350, "max": 3000},
+                "moisture": { "min": 15, "max": 65 },
+                "light": { "min": 4000, "max": 50000 }
               },
               "style": {
                 "border": "none"

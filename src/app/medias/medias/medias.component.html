@@ -34,7 +34,7 @@
       </div>
 
       <div class="status" fxLayoutAlign="center start" [ngClass]="{'playing': getItemState(player.items.controls) === 'PLAY'}">
-        <div class="vinyl" [ngStyle]="{'background-image': 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/vinyl.png), url(' + getItemState(player.items.imageUrl) + ')'}"></div>
+        <div class="vinyl" [ngStyle]="{'background-image': 'url(assets/images/vinyl.png), url(' + getItemState(player.items.imageUrl) + ')'}"></div>
       </div>
       <div class="infos" fxLayoutAlign="center start">
         <table>

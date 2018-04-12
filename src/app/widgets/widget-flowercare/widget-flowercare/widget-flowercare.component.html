@@ -1,0 +1,30 @@
+<div fxLayout="row" class="header" fxLayoutAlign="start center">
+    <i class="{{config?.icon}} icon"></i>
+    <div fxFlex>{{config?.label || ''}}</div>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <div class="sensor" fxLayout="column" fxLayoutAlign="center center">
+    <i class="fas fa-sun fa-2x light"></i>
+    <div class="label">Sunlight</div>
+    <app-levels [level]="items.light.state" [limits]="config.limits.light"></app-levels>
+    <!-- <div class="value">{{items.light.state}}</div> -->
+  </div>
+  <div class="sensor" fxLayout="column" fxLayoutAlign="center center">
+      <i class="fas fa-tint fa-2x moisture"></i>
+      <div class="label">Moisture</div>
+      <app-levels [level]="items.moisture.state" [limits]="config.limits.moisture"></app-levels>
+      <!-- <div class="value">{{items.moisture.state}}</div> -->
+  </div>
+  <div class="sensor" fxLayout="column" fxLayoutAlign="center center">
+    <i class="fas fa-thermometer-three-quarters fa-2x temperature"></i>
+    <div class="label">Temp.</div>
+    <app-levels [level]="items.temperature.state" [limits]="config.limits.temperature"></app-levels>
+    <!-- <div class="value">{{items.temperature.state}}</div> -->
+  </div>
+  <div class="sensor" fxLayout="column" fxLayoutAlign="center center">
+    <i class="fas fa-poo fa-2x conductivity"></i>
+    <div class="label">Fertility</div>
+    <app-levels [level]="items.fertility.state" [limits]="config.limits.fertility"></app-levels>
+    <!-- <div class="value">{{items.fertility.state}}</div> -->
+  </div>
+</div>

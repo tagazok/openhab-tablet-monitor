@@ -38,27 +38,16 @@
 	max-height: 315px;
 	position: relative;
 	max-width: 315px;
-  /* z-index: 10; */
-  /* height: 100%; */
   overflow-y: hidden;
   text-align: center;
   padding: 15px;
 }
 
 .cover img {
-  /* box-shadow: 3px 3px 15px rgba(0,0,0,0.65); */
   filter: drop-shadow(3px 3px 9px rgba(0,0,0,0.65));
   width: auto;
   height: 100%;
 }
-
-/* .cover-art {
-  background-size: cover;
-	height: 315px;
-	position: relative;
-	width: 315px;
-	z-index: 10;
-} */
 
 .playing .vinyl {
   animation: spin 2s linear infinite;

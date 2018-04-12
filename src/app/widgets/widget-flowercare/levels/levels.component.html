@@ -1,0 +1,5 @@
+<div class="levels" fxLayout="row" fxLayoutAlign="space-between center">
+  <div class="low" [ngClass]="{'active': level < limits.min}" fxFlex="20"></div>
+  <div class="good" fxFlex [ngClass]="{'active': level > limits.min && level < limits.max}"></div>
+  <div class="high" [ngClass]="{'active': level > limits.max}" fxFlex="20"></div>
+</div>

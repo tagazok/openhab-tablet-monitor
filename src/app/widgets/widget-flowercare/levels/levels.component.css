@@ -1,0 +1,22 @@
+.levels {
+  width: 100%;
+}
+
+.levels .low, .levels .good, .levels .high {
+  background-color: rgba(198,198,198,.3);
+  height: 10px;
+  height: 6px;
+  border-radius: 5px;
+}
+
+.levels .low.active, .levels .high.active {
+  background-color: red;
+}
+
+.levels .good {
+  margin: 0 2px;
+}
+
+.levels .good.active {
+  background-color: green;
+}

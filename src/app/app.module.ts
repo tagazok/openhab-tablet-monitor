@@ -36,6 +36,8 @@ import { LoginComponent } from './login/login.component';
 import { WidgetImageModule } from "./widgets/widget-image/widget-image.module";
 import { CameraComponent } from './camera/camera.component';
 import { MediasComponent } from "./medias/medias/medias.component";
+import { WidgetJsonModule } from "./widgets/widget-json/widget-json.module";
+import { WidgetFlowercareModule } from "./widgets/widget-flowercare/widget-flowercare.module";
 
 const routes: Routes = [
   {
@@ -94,7 +96,7 @@ const routes: Routes = [
     WidgetErrorComponent,
     LoginComponent,
     CameraComponent,
-    MediasComponent
+    MediasComponent,
     // VideoChatComponent
   ],
   imports: [
@@ -116,6 +118,7 @@ const routes: Routes = [
     FormsModule,
 
     SharedModule.forRoot(),
+    WidgetJsonModule,
     WidgetSeparatorModule,
     WidgetLabelModule,
     WidgetButtonModule,
@@ -123,7 +126,8 @@ const routes: Routes = [
     WidgetSwitchModule,
     WidgetMusicControlsSimpleModule,
     WidgetLightSimpleModule,
-    WidgetImageModule
+    WidgetImageModule,
+    WidgetFlowercareModule
   ],
   exports: [],
   providers: [ToasterService, LogService, DecimalPipe],
