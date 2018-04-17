@@ -1,0 +1,12 @@
+<div fxLayout="row" fxFill *ngIf="forecast">
+  <div *ngFor="let day of getNextDays()">
+    <pre>
+      {{day |json}}
+    </pre>
+  </div>
+</div>
+
+<pre>
+  {{forecast |json}}
+</pre>
+  

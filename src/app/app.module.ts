@@ -38,6 +38,7 @@ import { CameraComponent } from './camera/camera.component';
 import { MediasComponent } from "./medias/medias/medias.component";
 import { WidgetJsonModule } from "./widgets/widget-json/widget-json.module";
 import { WidgetFlowercareModule } from "./widgets/widget-flowercare/widget-flowercare.module";
+import { WeatherModule } from "./weather/weather.module";
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
     component: MediasComponent,
     data: { state: "medias" },
     canActivate: [CanActivateAuthGuard],
+  },
+  {
+    path: "weather",
+    loadChildren: "./weather/weather.module#WeatherModule"
   }
   // { path: "video-chat", component: VideoChatComponent, data: { state: 'videochat'} }
 ];
@@ -117,6 +122,7 @@ const routes: Routes = [
     MatSliderModule,
     FormsModule,
 
+    WeatherModule,
     SharedModule.forRoot(),
     WidgetJsonModule,
     WidgetSeparatorModule,
