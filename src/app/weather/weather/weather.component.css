@@ -1,8 +1,22 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.main {
+  height: 100%;
+}
+
 .forecast-small {
   flex-grow: 1;
   flex-basis: 0;
 }
 
+.forecast-small img {
+  width: 80%;
+}
+
 .general-infos {
   width: 100%;
 }
+

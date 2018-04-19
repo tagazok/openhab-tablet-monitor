@@ -16,5 +16,8 @@ export const environment = {
   app: {
     openHabUrl: 'http://192.168.1.25:8080',
     layout: '/assets/layout.json'
+  },
+  api: {
+    openweathermap: "8990b03d8abcdd434e18fad5c33734f5"
   }
 };
