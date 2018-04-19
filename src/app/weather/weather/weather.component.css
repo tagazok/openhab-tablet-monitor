@@ -1,0 +1,8 @@
+.forecast-small {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.general-infos {
+  width: 100%;
+}

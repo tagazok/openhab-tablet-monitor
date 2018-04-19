@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 const weatherRoutes: Routes = [
   {
-    path: '',
+    path: 'weather',
     component: WeatherComponent
   }
 ];

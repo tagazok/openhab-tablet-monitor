@@ -1,12 +1,31 @@
-<div fxLayout="row" fxFill *ngIf="forecast">
-  <div *ngFor="let day of getNextDays()">
-    <pre>
-      {{day |json}}
-    </pre>
+<div fxLayout="column" fxLayoutAlign="start center">
+  <div fLayout="row" fxFill>
+    <div>
+      <div>Météo : {{forecast.lastBuildDate}}</div>
+      <div>{{forecast.location.city}}, {{forecast.location.country}}</div>
+    </div>
+    <div fxFlex></div>
+    <div>
+      <div>Levé : {{forecast.astronomy.sunrise}}</div>
+      <div>Couché : {{forecast.astronomy.sunset}}</div>
+    </div>
+  </div>
+  <div>
+    <div>{{forecast.atmosphere.humidity}} %</div>
+    <div>{{forecast.item.forecast[0].low}} °C</div>
+      <div>{{forecast.item.forecast[0].high}} °C</div>
+  </div>
+  <div fxLayout="row" fxFill *ngIf="forecast" fLayoutAlign="space-around end">
+    <div fxLayout="column" fxLayoutAlign="start center" *ngFor="let day of getNextDays()" class="forecast-small">
+      <div>{{day.low}} °C</div>
+      <div>{{day.high}} °C</div>
+      <div>{{day.code}}</div>
+      <div>{{day.day}}</div>
+    </div>
   </div>
 </div>
 
-<pre>
+<!-- <pre>
   {{forecast |json}}
-</pre>
+</pre> -->
   

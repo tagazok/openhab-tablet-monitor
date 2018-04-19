@@ -26,6 +26,6 @@ export class WeatherComponent implements OnInit {
   }
 
   getNextDays() {
-    return Object.values(this.forecast.item.forecast).slice(0, 5) || [];
+    return Object.values(this.forecast.item.forecast).slice(1, 5) || [];
   }
 }
