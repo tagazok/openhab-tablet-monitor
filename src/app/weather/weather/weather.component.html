@@ -1,5 +1,5 @@
 <div class="main" fxLayout="column">
-  <div fLayout="row" *ngIf="weather" class="header">
+  <div fLayout="row" *ngIf="weather">
     <div>
       <div>Forecast : {{weather.dt * 1000 |date: 'fullDate'}}</div>
       <div>{{weather.name}}</div>
