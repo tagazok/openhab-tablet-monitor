@@ -1,37 +1,46 @@
-<div class="main">
-  <div fLayout="row" *ngIf="weather">
+<div class="main" fxLayout="column">
+  <div fLayout="row" *ngIf="weather" class="header">
     <div>
-      <div>Météo : {{weather.dt |date: 'fullDate'}}</div>
+      <div>Forecast : {{weather.dt * 1000 |date: 'fullDate'}}</div>
       <div>{{weather.name}}</div>
     </div>
     <div fxFlex></div>
     <div>
-      <div>Sunrise : {{weather.sys.sunrise |date:'HHhmm'}}</div>
-      <div>Sunset : {{weather.sys.sunset |date:'HHhmm'}}</div>
+      <div fxLayout="row" class=" sunrise light" fxLayoutAlign="start center">
+        <img class="sys" src="assets/images/weather/mini_sun.png" />
+        <div>Sunrise : {{weather.sys.sunrise * 1000 |date:'HH:mm'}}</div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <img class="sys" src="assets/images/weather/mini_moon.png" />
+        <div>Sunset : {{weather.sys.sunset * 1000 |date:'HH:mm'}}</div>
+      </div>
     </div>
   </div>
-  <div *ngIf="weather" fxLayoutAlign="start center" fxLayout="column">
-    <!-- <img src="assets/images/weather/{{weather.weather[0].icon}}.png" /> -->
-    <img src="https://res.cloudinary.com/dg6pstyla/image/upload/v1474727187/{{weather.weather[0].icon}}.png" />
-    <!-- <img src="http://download.spinetix.com/content/widgets/icons/weather/{{weather.weather[0].icon}}.png" /> -->
-    <!-- <img src="assets/images/weather/{{getIcon(day.weather[0].code)}}.png" /> -->
-    <!-- <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png" /> -->
-    <div>{{weather.main.humidity}} %</div>
-    <div>{{weather.main.temp_min |number:'1.0-0'}} °C</div>
-      <div>{{weather.main.temp_max |number:'1.0-0'}} °C</div>
+  <div *ngIf="weather" fxLayoutAlign="center center" fxFlex="auto">
+    <div fxLayout="row">
+      <div class="description">
+        <h1>{{weather.weather[0].description}}</h1>
+        <div>{{weather.main.humidity}} % humidity</div>
+      </div>
+      <img src="https://res.cloudinary.com/dg6pstyla/image/upload/v1474727187/{{weather.weather[0].icon}}.png" />
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="light" fxLayout="row" fxLayoutAlign="start end"><h1>{{weather.main.temp_min |number:'1.0-0'}}°C</h1> max</div>
+        <div fxLayout="row" fxLayoutAlign="start center"><h2>{{weather.main.temp_max |number:'1.0-0'}}°C</h2> min</div>
+      </div>
+    </div>
   </div>
+  <!-- <div fxLayout="column" fxLayoutAlign="end center"> -->
   <div fxLayout="row" *ngIf="forecast" fxLayoutAlign="space-around end">
-    <div fxLayout="column" fxLayoutAlign="start center" *ngFor="let day of getNextDays()" class="forecast-small">
-      <img src="https://res.cloudinary.com/dg6pstyla/image/upload/v1474727187/{{day.weather[0].icon}}.png" />
-      <!-- <img src="http://download.spinetix.com/content/widgets/icons/weather/{{day.weather[0].icon}}.png" />
-      <img src="assets/images/weather/{{day.weather[0].icon}}.png" /> -->
-      <!-- <img src="assets/images/weather/{{getIcon(day.weather[0].code)}}.png" /> -->
-      <!-- <img src="http://openweathermap.org/img/w/{{day.weather[0].icon}}.png" /> -->
-      <div>{{day.weather[0].icon}}</div>
-      <div>{{day.temp.min |number:'1.0-0'}} °C</div>
-      <div>{{day.temp.max |number:'1.0-0'}} °C</div>
-      <div>{{day.weather.icon}}</div>
+    <div fxLayout="column" fxLayoutAlign="start center" *ngFor="let day of getNextDays()" class="forecast-small" fxFlex="20">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <!-- <div>{{day.weather[0].icon}}</div> -->
+        <div>{{day.temp.min |number:'1.0-0'}}°C</div>
+        <img src="https://res.cloudinary.com/dg6pstyla/image/upload/v1474727187/{{day.weather[0].icon}}.png" />
+        <div class="light">{{day.temp.max |number:'1.0-0'}}°C</div>
+      </div>
+      <!-- <div>{{day.weather.icon}}</div> -->
       <div>{{day.dt * 1000 |date:'EEEE'}}</div>
     </div>
   </div>
+  <!-- </div> -->
 </div>

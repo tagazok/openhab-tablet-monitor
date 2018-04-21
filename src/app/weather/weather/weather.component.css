@@ -1,22 +1,58 @@
 :host {
   display: block;
   height: 100%;
+  padding: 3em;
+  box-sizing: border-box;
 }
 
 .main {
   height: 100%;
 }
 
+/* .header {
+  padding: 3em 3em 0 3em;
+} */
+
+.description {
+  align-self: flex-start;
+}
+
+.description h1 {
+  text-transform: capitalize;
+  margin-bottom: .6em;
+  text-shadow: 0px 0px 2px #ffffff;
+}
 .forecast-small {
-  flex-grow: 1;
-  flex-basis: 0;
+  /* flex-grow: 1;
+  flex-basis: 0; */
+  /* margin: 2em; */
+  /* width: 100%; */
+}
+
+h1, h2, h3 {
+  margin: 0 .5em 0 0;
 }
 
 .forecast-small img {
-  width: 80%;
+  width: 50%;
 }
 
 .general-infos {
   width: 100%;
+}
+
+.light {
+ color: #bfac6f;
+ margin-bottom: 1em;
+}
+
+.sunrise {
+  margin-bottom: 0em;
+}
+
+img.sys {
+  width: 5em;
+  height: auto;
+  margin-right: 1em;
 }
 
