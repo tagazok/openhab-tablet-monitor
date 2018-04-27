@@ -1,12 +1,13 @@
 :host {
   display: block;
   height: 100%;
-  padding: 3em;
-  box-sizing: border-box;
 }
 
-.main {
-  height: 100%;
+.container {
+  width: 100%;
+  height: calc(100vh - 130px);
+  padding: 3em;
+  box-sizing: border-box;
 }
 
 .description {

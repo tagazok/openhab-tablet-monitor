@@ -1,49 +1,49 @@
-<div class="main" fxLayout="column">
-  <div fLayout="row" *ngIf="weather" fxFlex>
+<div class="container" fxLayout="column">
+  <div fLayout="row" fxFlex class="area-top">
     <div>
-      <div>Forecast : {{weather.dt * 1000 |date: 'fullDate'}}</div>
-      <div>{{weather.name}}</div>
+      <div>Forecast : {{weather?.dt * 1000 |date: 'fullDate'}}</div>
+      <div>{{weather?.name}}</div>
     </div>
     <div fxFlex></div>
     <div>
       <div fxLayout="row" class=" sunrise light" fxLayoutAlign="start center">
         <img class="sys" src="assets/images/weather/mini_sun.png" />
-        <div>Sunrise : {{weather.sys.sunrise * 1000 |date:'HH:mm'}}</div>
+        <div>Sunrise : {{weather?.sys.sunrise * 1000 |date:'HH:mm'}}</div>
       </div>
       <div fxLayout="row" fxLayoutAlign="start center">
         <img class="sys" src="assets/images/weather/mini_moon.png" />
-        <div>Sunset : {{weather.sys.sunset * 1000 |date:'HH:mm'}}</div>
+        <div>Sunset : {{weather?.sys.sunset * 1000 |date:'HH:mm'}}</div>
       </div>
     </div>
   </div>
-  <div *ngIf="weather" fxLayoutAlign="center center" fxFlex="auto">
+  <div fxLayoutAlign="center center" fxFlex="auto" class="area-center">
     <div class="column" fxFill>
       <div fxLayout="row" >
         <div class="description" fxFlex fxLayoutAlign="start end" fxLayout="column">
-          <h1>{{weather.weather[0].description}}</h1>
-          <div>{{weather.main.humidity}} % humidity</div>
+          <h1>{{weather?.weather[0].description}}</h1>
+          <div>{{weather?.main.humidity}} % humidity</div>
         </div>
-        <img src="https://res.cloudinary.com/dg6pstyla/image/upload/v1474727187/{{weather.weather[0].icon}}.png" />
+        <img src="https://res.cloudinary.com/dg6pstyla/image/upload/v1474727187/{{weather?.weather[0].icon}}.png" />
         <div fxLayout="column" fxLayoutAlign="center start" fxFlex>
-          <div class="light" fxLayout="row" fxLayoutAlign="start end"><h1>{{weather.main.temp_max |number:'1.0-0'}}°C</h1> max</div>
-          <div fxLayout="row" fxLayoutAlign="start center"><h2>{{weather.main.temp_min |number:'1.0-0'}}°C</h2> min</div>
+          <div class="light" fxLayout="row" fxLayoutAlign="start end"><h1>{{weather?.main.temp_max |number:'1.0-0'}}°C</h1> max</div>
+          <div fxLayout="row" fxLayoutAlign="start center"><h2>{{weather?.main.temp_min |number:'1.0-0'}}°C</h2> min</div>
         </div>
       </div>
       <div class="row" fxLayout="row" fxLayoutGap="10em" fxLayoutAlign="center center">
         <div fxLayoutAlign="center center" fxLayout="column" class="pressure">
           <div>Pressure</div>
-          <div>{{weather.main.pressure}} mbar</div>
+          <div>{{weather?.main.pressure}} mbar</div>
         </div>
 
         <div fxLayoutAlign="center center" fxLayout="column" class="wind">
           <div>Wind</div>
-          <div>{{weather.wind.speed}} m/s</div>
+          <div>{{weather?.wind.speed}} m/s</div>
         </div>
       </div>
     </div>
   </div>
   <!-- <div fxLayout="column" fxLayoutAlign="end center"> -->
-  <div fxLayout="row" *ngIf="forecast" fxLayoutAlign="space-around center" fxFlex>
+  <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex class="area-bottom">
     <div fxLayout="column" fxLayoutAlign="start center" *ngFor="let day of getNextDays()" class="forecast-small" fxFlex="20">
       <div fxLayout="row" fxLayoutAlign="center center">
         <!-- <div>{{day.weather[0].icon}}</div> -->
