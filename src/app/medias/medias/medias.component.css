@@ -3,6 +3,10 @@
   display: flex;
 }
 
+.main {
+  width: 100%;
+}
+
 .player {
   padding: 4em;
   height: 100%;
@@ -35,9 +39,9 @@
 }
 
 .cover {
-	max-height: 315px;
+	/* max-height: 315px; */
 	position: relative;
-	max-width: 315px;
+  max-width: 100%;
   overflow-y: hidden;
   text-align: center;
   padding: 15px;
@@ -45,8 +49,8 @@
 
 .cover img {
   filter: drop-shadow(3px 3px 9px rgba(0,0,0,0.65));
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .playing .vinyl {
