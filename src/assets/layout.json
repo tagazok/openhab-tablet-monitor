@@ -271,6 +271,15 @@
       "label": "Kitchen",
       "icon": "kitchen",
       "layout": {
+        "areaA": [
+          {
+            "widget": "switch",
+            "item": "Kitchen_SensorLightRule_OnOff",
+            "config": {
+              "label": "Light rule"
+            }
+          }
+        ],
         "areaD": [
           {
             "widget": "button",

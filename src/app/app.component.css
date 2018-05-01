@@ -37,7 +37,7 @@
   line-height: 36px;
   color: rgb(198, 198, 198);
   min-width: 88px;
-  transition: .1s box-shadow linear, .1s background-color linear;
+  transition: .3s box-shadow linear, .3s background-color linear, .3s color linear;
 }
 
 .footer button:first-child {
@@ -47,4 +47,10 @@
 .footer button:active {
   box-shadow: 0px 0px 20px #888;
   background-color: rgba(255, 255, 255, .1);
+}
+
+.footer .active {
+  background-color: rgb(56, 173, 195);
+  box-shadow: 0px 0px 20px rgb(56, 173, 195);
+  color: #1e3d45;
 }
