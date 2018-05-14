@@ -114,14 +114,6 @@ export class AppComponent implements OnInit {
     }
       this.cs.items[item].state = value;
     };
-    // const [room, device, property] = item.split('_');
-    // const payload = JSON.parse(message.payload);
-    
-    // console.group(room)
-    // console.log(message.topic);
-    // console.log(message.payload);
-    // console.log(`${room} ${device} ${property} => ${payload.value}`);
-    // console.groupEnd();
 
     const log = {
       date: new Date().toLocaleString(),

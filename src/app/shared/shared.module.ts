@@ -9,6 +9,7 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 import { CanActivateAuthGuard } from './can-activate-auth-guard';
 import { environment } from '../../environments/environment';
 import { MinuteSecondsPipe } from './minute-seconds.pipe';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { MinuteSecondsPipe } from './minute-seconds.pipe';
     AngularFireModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   declarations: [MinuteSecondsPipe],

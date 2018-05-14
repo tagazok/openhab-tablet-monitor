@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
+import { AngularFirestore } from "angularfire2/firestore";
+import { AngularFireDatabase } from "angularfire2/database";
 // import { LogService } from "./log.service";
 
 @Injectable()
@@ -11,25 +13,39 @@ export class ConfigService {
   public items = {};
 
   constructor(
+    private afs: AngularFirestore,
+    private db: AngularFireDatabase,
     // private logService: LogService
   ) {}
 
   getLayout() {
     return new Promise((resolve, reject) => {
-      return fetch(`${this.layoutUrl}`)
-        .then(response => response.json())
-        .then(layout => {
-          this.layout = layout;
-          resolve(this.layout);
-        });
+      this.db.object('olivier').valueChanges().subscribe(
+      (response: any) => {
+        this.layout = JSON.parse(response.layout);
+        resolve(this.layout);
+      }, error => {
+        debugger;
+        reject(error);
+      });
     });
-
-    // fetch(`${this.layoutUrl}`)
-    // .then(response => response.json())
-    // .then(layout => {
-    //   this.layout = layout;
-    // })
+    // debugger;
+    // return new Promise((resolve, reject) => {
+    //   return fetch(`${this.layoutUrl}`)
+    //     .then(response => response.json())
+    //     .then(layout => {
+    //       this.layout = layout;
+    //       this.saveLayout();
+    //       resolve(this.layout);
+    //     });
+    // });
   }
+
+  saveLayout() {
+    let itemRef = this.db.object('olivier');
+    itemRef.set({ layout: JSON.stringify(this.layout) });
+  }
+
   getItems() {
     return new Promise((resolve, reject) => {
       return fetch(`${this.serverUrl}/rest/items`)
@@ -63,17 +79,5 @@ export class ConfigService {
           resolve(this.items);
         });
     });
-
-    // fetch(`${this.serverUrl}/rest/items`)
-    // .then(response => response.json())
-    // .then((items: any) => {
-    //   for(let item of items) {
-    //     this.items[item.name] = {
-    //       id: item.name,
-    //       type: item.type,
-    //       state: item.state
-    //     }
-    //   }
-    // })
   }
 }

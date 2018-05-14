@@ -1,7 +1,7 @@
 {
   "medias": [
     {
-      "label":  "Google Home Livingroom",
+      "label": "Google Home Livingroom",
       "widget": "chromecast",
       "items": {
         "controls": "LivingRoom_GoogleHome_Control",
@@ -16,7 +16,7 @@
       }
     },
     {
-      "label":  "Google Home Bedroom",
+      "label": "Google Home Bedroom",
       "widget": "chromecast",
       "items": {
         "controls": "Bedroom_GoogleHome_Control",
@@ -31,7 +31,7 @@
       }
     },
     {
-      "label":  "TV Chromecast",
+      "label": "TV Chromecast",
       "widget": "chromecast",
       "items": {
         "controls": "LivingRoom_ChromeCast_Control",
@@ -46,8 +46,8 @@
       }
     }
   ],
-  "rooms": {
-    "EntryHall": {
+  "rooms": [
+    {
       "id": "EntryHall",
       "label": "Entry Hall",
       "icon": "corridor",
@@ -76,8 +76,7 @@
             }
           }
         ],
-        "areaC": [
-        ],
+        "areaC": [],
         "areaD": [
           {
             "widget": "button",
@@ -91,7 +90,7 @@
         ]
       }
     },
-    "LivingRoom": {
+    {
       "id": "LivingRoom",
       "label": "Living room",
       "icon": "lounge",
@@ -119,7 +118,8 @@
         "areaB": [
           {
             "widget": "value",
-            "item": "LivingRoom_TemperatureHumidityAndPressureSensor_Temperature",
+            "item":
+              "LivingRoom_TemperatureHumidityAndPressureSensor_Temperature",
             "config": {
               "label": "Heat",
               "icon": "fas fa-thermometer-three-quarters",
@@ -171,8 +171,8 @@
               "label": "Avocado",
               "icon": "fas fa-leaf",
               "limits": {
-                "temperature": { "min": 8, "max": 35},
-                "fertility": { "min": 350, "max": 3000},
+                "temperature": { "min": 8, "max": 35 },
+                "fertility": { "min": 350, "max": 3000 },
                 "moisture": { "min": 15, "max": 65 },
                 "light": { "min": 4000, "max": 50000 }
               },
@@ -266,7 +266,7 @@
         ]
       }
     },
-    "Kitchen": {
+    {
       "id": "Kitchen",
       "label": "Kitchen",
       "icon": "kitchen",
@@ -293,7 +293,7 @@
         ]
       }
     },
-    "Bedroom": {
+    {
       "id": "Bedroom",
       "label": "Bedroom",
       "icon": "bedroom",
@@ -321,7 +321,7 @@
         ]
       }
     },
-    "Bathroom": {
+    {
       "id": "Bathroom",
       "label": "Bathroom & Toilets",
       "icon": "bathroom",
@@ -382,5 +382,5 @@
         ]
       }
     }
-  }
+  ]
 }

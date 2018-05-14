@@ -30,7 +30,6 @@ import { WidgetSwitchModule } from "./widgets/widget-switch/widget-switch.module
 import { WidgetMusicControlsSimpleModule } from "./widgets/widget-music-controls-simple/widget-music-controls-simple.module";
 import { WidgetLightSimpleModule } from "./widgets/widget-light-simple/widget-light-simple.module";
 import { SharedModule } from "./shared/shared.module";
-import { InlineSVGModule } from "ng-inline-svg";
 import { CanActivateAuthGuard } from "./shared/can-activate-auth-guard";
 import { LoginComponent } from './login/login.component';
 import { WidgetImageModule } from "./widgets/widget-image/widget-image.module";
@@ -111,7 +110,6 @@ const routes: Routes = [
     HttpClientModule,
 
     PrettyJsonModule,
-    InlineSVGModule,
     ToasterModule,
 
     FlexLayoutModule,

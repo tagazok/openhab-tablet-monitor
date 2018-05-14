@@ -55,12 +55,12 @@ export const roomTransition = trigger('roomTransition', [
 })
 export class RoomComponent implements OnInit {
   room: any;
-  roomId: string;
   strokeColor = "red";
   constructor(public cs: ConfigService,
               private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.roomId = this.route.snapshot.params['id'];
+    const roomId = this.route.snapshot.params['id'];
+    this.room = this.cs.layout['rooms'].find(room => room.id === roomId);
   }
 }
