@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { NgModule, Injectable } from "@angular/core";
+import { Routes, RouterModule, Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule } from "@angular/common/http";
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -38,6 +38,21 @@ import { MediasComponent } from "./medias/medias/medias.component";
 import { WidgetJsonModule } from "./widgets/widget-json/widget-json.module";
 import { WidgetFlowercareModule } from "./widgets/widget-flowercare/widget-flowercare.module";
 import { WeatherModule } from "./weather/weather.module";
+import { AuthService } from "./shared/auth.service";
+import { Observable } from "rxjs/Observable";
+
+@Injectable()
+class LayoutResolver implements Resolve<any> {
+  constructor(private authService: AuthService) {}
+ 
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<any>|Promise<any>|any {
+    debugger;
+    return this.authService.todo();
+  }
+}
 
 const routes: Routes = [
   {
@@ -45,6 +60,9 @@ const routes: Routes = [
     component: DashboardComponent,
     data: { state: "home" },
     canActivate: [CanActivateAuthGuard],
+    resolve: {
+      layout: LayoutResolver
+    }
   },
   {
     path: "hacker",
@@ -134,7 +152,7 @@ const routes: Routes = [
     WidgetFlowercareModule
   ],
   exports: [],
-  providers: [ToasterService, LogService, DecimalPipe],
+  providers: [ToasterService, LogService, DecimalPipe, LayoutResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

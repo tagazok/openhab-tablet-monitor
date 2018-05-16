@@ -1,4 +1,4 @@
-<div *ngIf="cs.layout.rooms" fxFlex fxLayout="row wrap" fxLayoutAlign="center space-around" class="rooms">
+<div *ngIf="cs.layout?.rooms" fxFlex fxLayout="row wrap" fxLayoutAlign="center space-around" class="rooms">
   <div *ngFor="let room of cs.layout.rooms" fxFlex="33" class="room" fxLayout="column" fxLayoutAlign="start center">
     <div class="main" fxLayout="column" fxLayoutAlign="center center" routerLink="/room/{{room.id}}">
       <div class="label">{{room.label}}</div>

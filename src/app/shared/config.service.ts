@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
 import { AngularFirestore } from "angularfire2/firestore";
 import { AngularFireDatabase } from "angularfire2/database";
+import { AuthService } from "./auth.service";
 // import { LogService } from "./log.service";
 
 @Injectable()
@@ -11,24 +12,31 @@ export class ConfigService {
   public batteryLevelAlert = environment.app["batteryLevelAlert"] || 70;
   public layout = {};
   public items = {};
+  user: any;
 
   constructor(
     private afs: AngularFirestore,
     private db: AngularFireDatabase,
+    // private as: AuthService
     // private logService: LogService
-  ) {}
+  ) {
+    debugger;
+    // this.user = as.user
+  }
 
   getLayout() {
-    return new Promise((resolve, reject) => {
-      this.db.object('olivier').valueChanges().subscribe(
-      (response: any) => {
-        this.layout = JSON.parse(response.layout);
-        resolve(this.layout);
-      }, error => {
-        debugger;
-        reject(error);
-      });
-    });
+    // get from localstorage
+
+    // return new Promise((resolve, reject) => {
+    //   this.db.object(`users/${this.user.uid}/layout`).valueChanges().subscribe(
+    //   // this.db.object('olivier').valueChanges().subscribe(
+    //   (response: any) => {
+    //     this.layout = JSON.parse(response.layout);
+    //     resolve(this.layout);
+    //   }, error => {
+    //     reject(error);
+    //   });
+    // });
     // debugger;
     // return new Promise((resolve, reject) => {
     //   return fetch(`${this.layoutUrl}`)

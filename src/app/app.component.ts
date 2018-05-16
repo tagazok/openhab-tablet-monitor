@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     this.zone = new NgZone({ enableLongStackTrace: false });
 
     Promise.all([
-      this.cs.getLayout(),
+      // this.cs.getLayout(),
       this.cs.getItems()
     ]).then((response => {
       this.getIndicatorsStream()
