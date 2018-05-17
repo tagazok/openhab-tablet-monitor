@@ -49,8 +49,7 @@ class LayoutResolver implements Resolve<any> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any>|Promise<any>|any {
-    debugger;
-    return this.authService.todo();
+    return this.authService.getUserAndConfig();
   }
 }
 

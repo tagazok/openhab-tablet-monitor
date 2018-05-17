@@ -46,19 +46,18 @@
   border-left: solid 1px #699fae;
 } */
 
-.cover {
-  width: 100px;
-  height: 100px;
+/* .cover {
+  width: 80px;
+  height: 80px;
   box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.4);
-  /* padding: 5px; */
 }
+
 .cover-art {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.25);
-  background: url("https://upload.wikimedia.org/wikipedia/en/6/67/Foo_Fighters_8LP_Sonic_Highways.jpg");
   background-size: cover;
-}
+} */
 
 .playing .vinyl {
   animation: spin 2s linear infinite;
@@ -71,8 +70,8 @@
 	background-repeat: no-repeat;
 	border-radius: 100%;
 	box-shadow: 0 0 10px rgba(0,0,0,0.8);
-	height: 100px;
-	width: 100px;
+	height: 80px;
+	width: 80px;
 	z-index: 5;
   will-change: transform, left;
 }
@@ -110,4 +109,11 @@
 
 .duration i {
   color: #bd2c2c;
+}
+
+@media screen and (min-width: 1280px){
+  .vinyl {
+    height: 100px;
+	  width: 100px;
+  }
 }

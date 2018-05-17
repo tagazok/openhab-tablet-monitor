@@ -27,10 +27,10 @@ export class AuthService {
     private configService: ConfigService
   ) {
     this.authState$ = afAuth.authState;
-    this.todo();
+    this.getUserAndConfig();
   }
 
-  todo() {
+  getUserAndConfig() {
     return new Promise((resolve, reject) => {
       this.authState$
       .pipe(
@@ -39,19 +39,18 @@ export class AuthService {
         }),
         flatMap((user: firebase.User) => {
           if (!this.user) return of(null);
-          const data = localStorage.getItem("layout");
+          // if (this.configService.layout) return of(this.configService.layout)
+          const data = this.configService.getLayoutFromLocalStorage();
           if (!data) {
-            return this.db.object(`users/${this.user.uid}/layout`).valueChanges();
+            return this.configService.getLayoutFromFirebase(this.user.uid);
           }
           return of(data);
         })
       )
       .subscribe((data: string) => {
-        debugger;
         console.log(data);
         if (data) {
-          this.configService.layout = JSON.parse(data);
-          localStorage.setItem("layout", data);
+          this.configService.setLayout(data);
         }
         resolve(data);
         console.log("authState$ changed", this.user);

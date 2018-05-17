@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-  font-size: 16px;
+  font-size: 12px;
   /* font-family: 'Roboto', sans-serif; */
   /* font-family: 'Montserrat', sans-serif; */
   font-family: 'Karla', sans-serif;
@@ -91,4 +91,10 @@ mat-dialog-container {
   height: 40px;
   top: -10px;
   background-color: #82d2e5;
+}
+
+@media screen and (min-width: 1280px){
+  body {
+    font-size: 16px;
+  }
 }

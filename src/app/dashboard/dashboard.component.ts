@@ -33,7 +33,6 @@ export const homeTransition = trigger('homeTransition',
 export class DashboardComponent implements OnInit {
 
   constructor(public cs: ConfigService) { 
-    debugger;
   }
 
   ngOnInit() {

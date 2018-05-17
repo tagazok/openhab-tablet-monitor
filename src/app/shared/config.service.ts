@@ -20,12 +20,21 @@ export class ConfigService {
     // private as: AuthService
     // private logService: LogService
   ) {
-    debugger;
     // this.user = as.user
   }
 
-  getLayout() {
-    // get from localstorage
+  getLayoutFromLocalStorage() {
+    return localStorage.getItem("layout");
+  }
+
+  setLayout(data) {
+    this.layout = JSON.parse(data);
+    localStorage.setItem("layout", data);
+  }
+
+  getLayoutFromFirebase(userId) {
+
+    return this.db.object(`users/${userId}/layout`).valueChanges();
 
     // return new Promise((resolve, reject) => {
     //   this.db.object(`users/${this.user.uid}/layout`).valueChanges().subscribe(
