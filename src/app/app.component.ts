@@ -1,13 +1,14 @@
-import { Component, NgZone, OnInit } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+import { Component, NgZone, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { ToasterConfig } from "angular2-toaster";
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToasterConfig } from 'angular2-toaster';
 
 import {sequence, trigger, stagger, animate, style, group, query as q, transition, keyframes, animateChild} from '@angular/animations';
-import { LogService } from "./log.service";
-import { ApiService } from "./shared/api.service";
-import { ConfigService } from "./shared/config.service";
+import { LogService } from './log.service';
+import { ApiService } from './shared/api.service';
+import { ConfigService } from './shared/config.service';
+import { MessageService } from './message.service';
 const query = (s,a,o={optional:true})=>q(s,a,o);
 
 export const routerTransition = trigger('routerTransition', [
@@ -31,23 +32,30 @@ export const routerTransition = trigger('routerTransition', [
 
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
   animations: [ routerTransition ]
 })
 export class AppComponent implements OnInit {
   private zone: NgZone;
   private date: Date = new Date();
-  private endpoint = "/rest/events";
+  private endpoint = '/rest/events';
   public config: ToasterConfig = new ToasterConfig({timeout: 200000000});
 
   constructor(private api: ApiService,
               private snackBar: MatSnackBar,
               private cs: ConfigService,
-              private logService: LogService) {
+              private logService: LogService,
+              private messageService: MessageService) {
     this.zone = new NgZone({ enableLongStackTrace: false });
 
+    this.messageService.messages.subscribe(msg => {
+      console.log('Response from websocket: ' + msg);
+      this.messageService.handleMessage(msg);
+    });
+
+    /*
     Promise.all([
       // this.cs.getLayout(),
       this.cs.getItems()
@@ -59,7 +67,8 @@ export class AppComponent implements OnInit {
       }, error => {
         console.error(error);
       });
-    }))
+    }));
+    */
   }
 
   ngOnInit() {
@@ -70,12 +79,13 @@ export class AppComponent implements OnInit {
     return outlet.activatedRouteData.state;
   }
 
+
   getIndicatorsStream() {
     return Observable.create(observer => {
       let eventSource = new window['EventSource'](`${this.cs.serverUrl}${this.endpoint}`);
       eventSource.onmessage = event => {
         const data = JSON.parse(event.data);
-        const match = data.topic.match("smarthome/items/.*/state");
+        const match = data.topic.match('smarthome/items/.*/state');
         if (match && match.length > 0) {
           this.zone.run(() => {
             observer.next(JSON.parse(event.data));
@@ -108,7 +118,7 @@ export class AppComponent implements OnInit {
     if (this.cs.items[item]) {
       let value = payload.value;
 
-      if (payload.type === "HSB") {
+      if (payload.type === 'HSB') {
       const [h, s, b] = value.split(',');
       value = {h, s, b};
     }

@@ -1,24 +1,24 @@
 <div fxLayout="column">
-  <div class="metric">
+  <div class="metric"  *ngIf="data.item.attributes.hs_color">
     <label>Color</label>
-    <mat-slider class="slider slider-color" [max]="configColor.max" [min]="configColor.min" [step]="configColor.step" [thumb-label]="configColor.thumbLabel"
-      [(ngModel)]="data.items.Color.state.h" (change)="updateValue()">
+    <mat-slider class="slider slider-color" [max]="configColor.max" [min]="configColor.min" [step]="configColor.step" [thumbLabel]="configColor.thumbLabel"
+      [(ngModel)]="data.item.attributes.hs_color[0]" (change)="updateValue('hs_color')">
     </mat-slider>
   </div>
 
-  <div class="metric">
+  <div class="metric" *ngIf="data.item.attributes.color_temp">
     <label>Saturation</label>
-    <mat-slider class="slider slider-saturation" [max]="configBrightnessSaturation.max" [min]="configBrightnessSaturation.min"
-      [step]="configBrightnessSaturation.step" [thumb-label]="configBrightnessSaturation.thumbLabel" [(ngModel)]="data.items.Color.state.s"
-      (change)="updateValue()">
+    <mat-slider class="slider slider-saturation" [max]="data.item.attributes.max_mireds" [min]="data.item.attributes.min_mireds"
+      [step]="configBrightnessSaturation.step" [thumbLabel]="configBrightnessSaturation.thumbLabel" [(ngModel)]="data.item.attributes.color_temp"
+      (change)="updateValue('color_temp')">
     </mat-slider>
   </div>
 
-  <div class="metric">
+  <div class="metric"  *ngIf="data.item.attributes.brightness">
     <label>Brightness</label>
     <mat-slider class="slider slider-brightness" [max]="configBrightnessSaturation.max" [min]="configBrightnessSaturation.min"
-      [step]="configBrightnessSaturation.step" [thumb-label]="configBrightnessSaturation.thumbLabel" [(ngModel)]="data.items.Color.state.b"
-      (change)="updateValue()">
+      [step]="configBrightnessSaturation.step" [thumbLabel]="configBrightnessSaturation.thumbLabel" [(ngModel)]="data.item.attributes.brightness"
+      (change)="updateValue('brightness')">
     </mat-slider>
   </div>
 </div>

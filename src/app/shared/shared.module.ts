@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ApiService } from './api.service';
 import { ConfigService } from './config.service';
 import { AuthService } from './auth.service';
-import { AngularFireModule } from "angularfire2";
-import { AngularFireDatabaseModule } from "angularfire2/database";
-import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { CanActivateAuthGuard } from './can-activate-auth-guard';
 import { environment } from '../../environments/environment';
 import { MinuteSecondsPipe } from './minute-seconds.pipe';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   imports: [

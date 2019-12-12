@@ -3,7 +3,7 @@
     <div>
       <i class="{{getIcon()}} icon"></i>
     </div>
-    <div fxFlex>{{config?.label || ''}}</div>
+    <div fxFlex>{{config?.label || item?.name || ''}}</div>
   </div>
   <div>
     {{config?.preString || ''}} {{item?.state}} {{config?.postString || ''}}

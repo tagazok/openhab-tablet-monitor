@@ -43,8 +43,8 @@ export class WidgetOutletComponent implements OnInit {
     "flowercare": WidgetFlowercareComponent
   };
 
-  @ViewChild("container", { read: ViewContainerRef })
-  container;
+  @ViewChild("container", { read: ViewContainerRef, static: true }) container;
+  // @ViewChild("container", { static: false }) container;
   componentRef: ComponentRef<any>;
 
   constructor(private resolver: ComponentFactoryResolver,

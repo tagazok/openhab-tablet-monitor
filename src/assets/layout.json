@@ -53,38 +53,27 @@
       "icon": "corridor",
       "layout": {
         "areaA": [
+          {}
+        ],
+        "areaC": [
           {
-            "widget": "value",
-            "item": "Beacon_Olivier",
+            "widget": "light",
+            "item": "light.living_room_left_corner",
             "config": {
-              "label": "Olivier"
-            }
-          },
-          {
-            "widget": "value",
-            "item": "Beacon_Tiffany",
-            "config": {
-              "label": "Tiffany"
+              "label": "Hallway Light"
             }
           }
         ],
-        "areaB": [
-          {
-            "widget": "image",
-            "config": {
-              "url": "http://raspberrypi.local:8081/"
-            }
-          }
-        ],
-        "areaC": [],
         "areaD": [
           {
-            "widget": "button",
-            "item": "LivingRoom_AllLights_OnOff",
+            "widget": "value",
+            "item": "binary_sensor.door_window_sensor_toilets",
             "config": {
-              "label": "Turn all lights off",
-              "value": "OFF",
-              "icon": "fas fa-moon"
+              "icon": "fas fa-unlock-alt",
+              "label": "Door",
+              "style": {
+                "border": "none"
+              }
             }
           }
         ]
@@ -94,293 +83,25 @@
       "id": "LivingRoom",
       "label": "Living room",
       "icon": "lounge",
-      "layout": {
-        "areaA": [
-          {
-            "widget": "value",
-            "item": "LivingRoom_OpenSensor_OpenStatus",
-            "config": {
-              "icon": "fas fa-unlock-alt",
-              "label": "Door",
-              "style": {
-                "border": "none"
-              }
-            }
-          },
-          {
-            "widget": "switch",
-            "item": "LivingRoom_SensorLightRule_OnOff",
-            "config": {
-              "label": "Light rule"
-            }
-          }
-        ],
-        "areaB": [
-          {
-            "widget": "value",
-            "item":
-              "LivingRoom_TemperatureHumidityAndPressureSensor_Temperature",
-            "config": {
-              "label": "Heat",
-              "icon": "fas fa-thermometer-three-quarters",
-              "postString": "°C",
-              "filter": {
-                "type": "number",
-                "arg": "1.2-2"
-              },
-              "style": {
-                "border": "none"
-              }
-            }
-          },
-          {
-            "widget": "value",
-            "item": "LivingRoom_TemperatureHumidityAndPressureSensor_Humidity",
-            "config": {
-              "label": "Humidity",
-              "icon": "fas fa-tint",
-              "postString": "%",
-              "filter": {
-                "type": "number",
-                "arg": "1.0-0"
-              },
-              "style": {
-                "border": "none"
-              }
-            }
-          },
-          {
-            "widget": "separator",
-            "config": {
-              "style": {
-                "width": "35%",
-                "margin-left": "auto",
-                "margin-right": "auto"
-              }
-            }
-          },
-          {
-            "widget": "flowercare",
-            "items": {
-              "temperature": "Avocado_FlowerCare_AirTemperature",
-              "fertility": "Avocado_FlowerCare_SoilConductivity",
-              "moisture": "Avocado_FlowerCare_SoilMoisture",
-              "light": "Avocado_FlowerCare_LightIntensity"
-            },
-            "config": {
-              "label": "Avocado",
-              "icon": "fas fa-leaf",
-              "limits": {
-                "temperature": { "min": 8, "max": 35 },
-                "fertility": { "min": 350, "max": 3000 },
-                "moisture": { "min": 15, "max": 65 },
-                "light": { "min": 4000, "max": 50000 }
-              },
-              "style": {
-                "border": "none"
-              }
-            }
-          }
-        ],
-        "areaC": [
-          {
-            "widget": "label",
-            "config": {
-              "value": "Lights",
-              "style": {
-                "font-size": "1.2em"
-              }
-            }
-          },
-          {
-            "widget": "light",
-            "items": {
-              "OnOff": "Hallway_Light_OnOff",
-              "Color": "Hallway_Light_Color",
-              "Brightness": "Hallway_Light_Brightness"
-            },
-            "config": {
-              "label": "HallWay Light"
-            }
-          },
-          {
-            "widget": "light",
-            "items": {
-              "OnOff": "LivingRoom_MainLight_OnOff",
-              "Color": "LivingRoom_MainLight_Color",
-              "Brightness": "LivingRoom_MainLight_Brightness"
-            },
-            "config": {
-              "label": "Ceiling"
-            }
-          },
-          {
-            "widget": "separator",
-            "config": {
-              "style": {
-                "width": "35%",
-                "margin-left": "auto",
-                "margin-right": "auto"
-              }
-            }
-          },
-          {
-            "widget": "button",
-            "item": "LivingRoom_AllLights_OnOff",
-            "config": {
-              "label": "Turn all lights off",
-              "value": "OFF",
-              "icon": "fas fa-moon"
-            }
-          },
-          {
-            "widget": "button",
-            "item": "LivingRoom_AllLights_OnOff",
-            "config": {
-              "label": "Turn all lights on",
-              "value": "ON",
-              "icon": "fas fa-sun"
-            }
-          }
-        ],
-        "areaD": [
-          {
-            "widget": "music-controls",
-            "items": {
-              "controls": "LivingRoom_GoogleHome_Control",
-              "volume": "LivingRoom_GoogleHome_Volume",
-              "duration": "LivingRoom_GoogleHome_Duration",
-              "currentTime": "LivingRoom_GoogleHome_CurrentTime",
-              "album": "LivingRoom_GoogleHome_AlbumName",
-              "artist": "LivingRoom_GoogleHome_Artist",
-              "title": "LivingRoom_GoogleHome_Title",
-              "imageUrl": "LivingRoom_GoogleHome_ImageURL"
-            },
-            "config": {
-              "open": true,
-              "style": {
-                "border": "none"
-              }
-            }
-          }
-        ]
-      }
+      "layout": {}
     },
     {
       "id": "Kitchen",
       "label": "Kitchen",
       "icon": "kitchen",
-      "layout": {
-        "areaA": [
-          {
-            "widget": "switch",
-            "item": "Kitchen_SensorLightRule_OnOff",
-            "config": {
-              "label": "Light rule"
-            }
-          }
-        ],
-        "areaD": [
-          {
-            "widget": "button",
-            "item": "LivingRoom_AllLights_OnOff",
-            "config": {
-              "label": "Turn all lights off",
-              "value": "OFF",
-              "icon": "fas fa-moon"
-            }
-          }
-        ]
-      }
+      "layout": {}
     },
     {
       "id": "Bedroom",
       "label": "Bedroom",
       "icon": "bedroom",
-      "layout": {
-        "areaD": [
-          {
-            "widget": "music-controls",
-            "items": {
-              "controls": "Bedroom_GoogleHome_Control",
-              "volume": "Bedroom_GoogleHome_Volume",
-              "duration": "Bedroom_GoogleHome_Duration",
-              "currentTime": "Bedroom_GoogleHome_CurrentTime",
-              "album": "Bedroom_GoogleHome_AlbumName",
-              "artist": "Bedroom_GoogleHome_Artist",
-              "title": "Bedroom_GoogleHome_Title",
-              "imageUrl": "Bedroom_GoogleHome_ImageURL"
-            },
-            "config": {
-              "open": true,
-              "style": {
-                "border": "none"
-              }
-            }
-          }
-        ]
-      }
+      "layout": {}
     },
     {
       "id": "Bathroom",
       "label": "Bathroom & Toilets",
       "icon": "bathroom",
-      "layout": {
-        "areaA": [
-          {
-            "widget": "value",
-            "item": "Bathroom_DoorSensor_OpenStatus",
-            "config": {
-              "icon": "fas fa-unlock-alt",
-              "label": "Door",
-              "style": {
-                "border": "none"
-              }
-            }
-          },
-          {
-            "widget": "switch",
-            "item": "Bathroom_DoorRule_OpenStatus",
-            "config": {
-              "label": "Door alarm rule"
-            }
-          }
-        ],
-        "areaB": [
-          {
-            "widget": "value",
-            "item": "BathRoom_TemperatureHumidityAndPressureSensor_Temperature",
-            "config": {
-              "label": "Heat",
-              "icon": "fas fa-thermometer-three-quarters",
-              "postString": "°C",
-              "filter": {
-                "type": "number",
-                "arg": "1.2-2"
-              },
-              "style": {
-                "border": "none"
-              }
-            }
-          },
-          {
-            "widget": "value",
-            "item": "BathRoom_TemperatureHumidityAndPressureSensor_Humidity",
-            "config": {
-              "label": "Humidity",
-              "icon": "fas fa-tint",
-              "postString": "%",
-              "filter": {
-                "type": "number",
-                "arg": "1.0-0"
-              },
-              "style": {
-                "border": "none"
-              }
-            }
-          }
-        ]
-      }
+      "layout": {}
     }
   ]
 }

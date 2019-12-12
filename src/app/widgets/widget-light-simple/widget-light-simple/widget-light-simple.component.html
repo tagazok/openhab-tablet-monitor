@@ -1,7 +1,8 @@
+
 <div fxLayout="row" [class.light]="isOn()" fxLayoutAlign="start center">
   <div fxFlex (click)="toggleOnOff()" class="main">
     <div><i class="fas fa-lightbulb icon"></i></div>
-    <div fxFlex>{{config.label || ''}}</div>
+    <div fxFlex>{{config.label || item?.name || ''}}</div>
   </div>
-  <div *ngIf="items.Color || items.Brightness" (click)="openAdvanced()" class="more">More</div>
+  <div *ngIf="item.attributes.brightness || item.attributes.color_temp || item.attributes.hs_color" (click)="openAdvanced()" class="more">More</div>
 </div>

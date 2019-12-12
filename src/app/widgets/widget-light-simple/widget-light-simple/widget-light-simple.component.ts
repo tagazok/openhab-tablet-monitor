@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from '../../../shared/api.service';
 import { WidgetComponent } from '../../widget/widget/widget.component';
 import { WidgetLightSimpleAdvancedComponent } from '../widget-light-simple-advanced/widget-light-simple-advanced.component';
+import { MessageService } from 'src/app/message.service';
 
 @Component({
   selector: 'app-light',
@@ -14,37 +15,46 @@ export class WidgetLightSimpleComponent extends WidgetComponent {
 
   constructor(private api: ApiService,
               public toasterService: ToasterService,
+              private messageService: MessageService,
               public dialog: MatDialog,
               protected elementRef: ElementRef,
-              protected renderer: Renderer2) { 
+              protected renderer: Renderer2) {
                 super(elementRef, renderer);
               }
 
   isOn() {
-    return this.items.OnOff.state === "ON";
+    return this.item.state === 'on';
   }
 
   toggleOnOff() {
     console.log('Toggle OnOff');
-    const state = this.isOn()? "OFF" : "ON";
+    const state = this.isOn() ? 'off' : 'on';
     const toast: Toast = {
       type: 'success',
       title: `Light is now ${state}`,
       showCloseButton: false
     };
-    this.api.send(this.items.OnOff.id, state).subscribe(res => {
-      this.toasterService.pop(toast);
-    }, error => {
-      toast.type = "error";
-      toast.title = `Error turning ${this.config.label || ''} ${state}`;
-      this.toasterService.pop(toast);
+    // this.api.send(this.items.OnOff.id, state).subscribe(res => {
+    //   this.toasterService.pop(toast);
+    // }, error => {
+    //   toast.type = 'error';
+    //   toast.title = `Error turning ${this.config.label || ''} ${state}`;
+    //   this.toasterService.pop(toast);
+    // });
+    this.messageService.sendMessage({
+      domain: 'light',
+      type: 'call_service',
+      service: `turn_${state}`,
+      service_data: {
+        entity_id: this.item.id
+      }
     });
   }
 
   openAdvanced(): void {
-    let dialogRef = this.dialog.open(WidgetLightSimpleAdvancedComponent, {
+    const dialogRef = this.dialog.open(WidgetLightSimpleAdvancedComponent, {
       width: '50%',
-      data: { items: this.items }
+      data: { item: this.item }
     });
 
     dialogRef.afterClosed().subscribe(result => {

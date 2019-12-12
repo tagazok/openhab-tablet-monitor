@@ -19,7 +19,7 @@ export class VideoChatComponent implements OnInit {
     }
   };
 
-  @ViewChild("myvideo") myVideo: any;
+  @ViewChild("myvideo", {static: false}) myVideo: any;
   
   
   targetpeer: any;

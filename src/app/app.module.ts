@@ -40,6 +40,8 @@ import { WidgetFlowercareModule } from "./widgets/widget-flowercare/widget-flowe
 import { WeatherModule } from "./weather/weather.module";
 import { AuthService } from "./shared/auth.service";
 import { Observable } from "rxjs/Observable";
+import { WebsocketService } from './websocket.service';
+import { MessageService } from './message.service';
 
 @Injectable()
 class LayoutResolver implements Resolve<any> {
@@ -151,7 +153,7 @@ const routes: Routes = [
     WidgetFlowercareModule
   ],
   exports: [],
-  providers: [ToasterService, LogService, DecimalPipe, LayoutResolver],
+  providers: [ToasterService, LogService, DecimalPipe, LayoutResolver, WebsocketService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

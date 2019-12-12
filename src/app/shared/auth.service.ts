@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { AngularFireAuth } from "angularfire2/auth";
+import { AngularFireAuth } from "@angular/fire/auth";
 import * as firebase from "firebase/app";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/switchMap";
@@ -12,7 +12,7 @@ import "rxjs/add/operator/take";
 import { flatMap, tap } from "rxjs/operators";
 
 import { FirebaseError } from "firebase/app";
-import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFireDatabase } from "@angular/fire/database";
 import { of } from "rxjs/observable/of";
 import { ConfigService } from "./config.service";
 

@@ -24,8 +24,7 @@ export class WidgetOutletSettingsComponent implements OnInit {
     // 'separator': WidgetSeparatorComponent
   };
 
-  @ViewChild("container", { read: ViewContainerRef })
-  container;
+  @ViewChild("container", { read: ViewContainerRef, static: false }) container;
   componentRef: ComponentRef<any>;
 
   constructor(private resolver: ComponentFactoryResolver,
