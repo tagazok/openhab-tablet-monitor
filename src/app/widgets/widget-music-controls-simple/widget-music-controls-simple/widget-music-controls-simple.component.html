@@ -1,27 +1,28 @@
-<div fxLayout="row" fxLayoutAlign="start center" *ngIf="items" [ngClass]="{'playing': items.controls.state === 'PLAY'}">
-  <!-- <div class="volume" *ngIf="items.Volume && showVolume" fxFill>
-    <mat-slider [min]="0" [max]="100"
-      [step]="1" [(ngModel)]="items.Volume.state"
+<div fxLayout="row" fxLayoutAlign="start center" *ngIf="item" [ngClass]="{'playing': item.state === 'playing'}">
+  <!-- <div class="volume" *ngIf="showVolume" fxFill>
+    <mat-slider [min]="0" [max]="1"
+      [step]=".01" [(ngModel)]="item.attributes.volume_level"
       (change)="volume()">
     </mat-slider>
   </div> -->
-  <div class="vinyl" [ngStyle]="{'background-image': 'url(assets/images/vinyl.png), url(' + items.imageUrl.state + ')'}"></div>
+  <div class="vinyl" [ngStyle]="{'background-image': 'url(assets/images/vinyl.png), url(' + item.attributes.entity_picture + ')'}"></div>
   <div class="infos" fxLayout="column" fxFlex>
     <div class="title">
-      {{items.title.state}}
+      {{item.attributes.media_artist}}
     </div>
-    <div class="artist">
-      by {{items.artist.state}}
+    <div class="artist" *ngIf="item.state !== 'off'">
+      by {{item.attributes.media_title}}
     </div>
   </div>
   <div class="panel" fxLayout="column" fxLayoutAlign="space-around center">
     <div class="actions" fxLayoutAlign="center center">
-      <button class="control" (click)="control('PLAY')" *ngIf="items.controls.state === 'PAUSE'"><i class="fas fa-play fa-2x"></i></button> 
-      <button class="control" (click)="control('PAUSE')" *ngIf="items.controls.state === 'PLAY'"><i class="fas fa-pause fa-2x"></i></button>
+      <button class="control" (click)="control('PLAY')" *ngIf="item.state === 'paused'"><i class="fas fa-play fa-2x"></i></button> 
+      <button class="control" (click)="control('pause')" *ngIf="item.state === 'playing'"><i class="fas fa-pause fa-2x"></i></button>
     </div>
-    <div class="duration" fxFill fxLayout="row" fxLayoutAlign="space-around center">
+    <!-- <div class="duration" fxFill fxLayout="row" fxLayoutAlign="space-around center">
       <i class="fa fa-clock"></i>
-      <div>{{items.duration.state |minuteSeconds}}</div>
-    </div>
+      <div>{{item.attributes.media_duration}}</div>
+    </div> -->
   </div>
 </div>
+

@@ -1,0 +1,55 @@
+<div class="header" fxLayoutAlign="start center">
+    <i class="fas fa-music"></i>
+    <div>{{player.label}}</div>
+</div>
+<div class="cover" (click)="showPlaylists()">
+    <img [src]="item.attributes.entity_picture" onerror="this.src='assets/images/default_media.png';" />
+</div>
+<div class="controls" fxLayout="row" fxLayoutAlign="space-around center">
+    <button mat-mini-fab (click)="control('media_previous_track')">
+        <i class="fas fa-step-backward fa-2x"></i>
+    </button>
+    <button mat-fab (click)="control('media_play_pause')" *ngIf="item.state === 'paused'">
+        <i class="fas fa-play fa-2x"></i>
+    </button>
+    <button mat-fab (click)="control('media_play_pause')" *ngIf="item.state === 'playing'">
+        <i class="fas fa-pause fa-2x"></i>
+    </button>
+    <button mat-mini-fab (click)="control('media_next_track')">
+        <i class="fas fa-step-forward fa-2x"></i>
+    </button>
+</div>
+<!-- <div class="position">
+    <div fxLayoutAlign="end center" class="duration label">{{getItemState(player.items.duration) | minuteSeconds}}</div>
+    <mat-slider disabled="true" fxFill min="0" [max]="getItemState(player.items.duration).split('.')[0]" step="0.5"
+        [value]="getItemState(player.items.currentTime)"></mat-slider>
+</div> -->
+<div class="status" fxLayoutAlign="center start" [ngClass]="{'playing': item.state === 'playing'}">
+    <div class="vinyl"
+        [ngStyle]="{'background-image': 'url(assets/images/vinyl.png), url(' + item.attributes.entity_picture + ')'}">
+    </div>
+</div>
+<div class="infos" fxLayoutAlign="center start">
+    <table>
+        <tr>
+            <td class="label">App : </td>
+            <td class="value">{{item.attributes?.app_name}}</td>
+        </tr>
+        <tr>
+            <td class="label">Artist : </td>
+            <td class="value">{{item.attributes?.media_artist}}</td>
+        </tr>
+        <tr>
+            <td class="label">Album : </td>
+            <td class="value">{{item.attributes?.media_album_name}}</td>
+        </tr>
+        <tr>
+            <td class="label">Title : </td>
+            <td class="value">{{item.attributes?.media_title}}</td>
+        </tr>
+        <!-- <tr>
+            <td class="label">Duration : </td>
+            <td class="value">{{getItemState(player.items.duration) | minuteSeconds}}</td>
+        </tr> -->
+    </table>
+</div>

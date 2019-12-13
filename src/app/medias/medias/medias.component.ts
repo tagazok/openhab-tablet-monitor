@@ -40,7 +40,7 @@ export class MediasComponent implements OnInit {
   }
 
   getItemState(item) {
-    return this.configService.items[item].state || ''
+    return this.configService.items[item].state || '';
   }
 
   control(player, command) {

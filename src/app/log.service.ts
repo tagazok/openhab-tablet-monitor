@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LogService {
   public eventSourceLogs: Array<any> = new Array<any>();
   public alertsLogs: any = {};
-  private eventSourceLogsSize: number = 100;
+  private eventSourceLogsSize = 100;
 
   constructor() {
   }
@@ -18,7 +18,8 @@ export class LogService {
 
   createAlert(key, log) {
     console.log(`%c Received alert for ${key.name}`, 'color: red');
-    if (!this.alertsLogs[key])
+    if (!this.alertsLogs[key]) {
       this.alertsLogs[key] = log;
+    }
   }
 }

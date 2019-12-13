@@ -1,0 +1,6 @@
+<mat-action-list>
+    <mat-list-item *ngFor="let playlist of playlists" (click)="play(playlist.uri)">
+        <img [src]="playlist.cover" mat-list-icon class="cover"/>
+        <h4 mat-line>{{playlist.name}}</h4>
+    </mat-list-item>
+</mat-action-list>

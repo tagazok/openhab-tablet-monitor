@@ -1,49 +1,61 @@
 {
+  "playlists": [
+    {
+      "name": "Bonnie Tyler - I Need A Hero (Lyrics)",
+      "uri": "spotify:playlist:3C7i8TozrW1XvTwfZImenm",
+      "cover": "https://mosaic.scdn.co/60/ab67616d0000b27393d73d10075d96b65ba04dcbab67616d0000b273d82269c40760b40fdd97599eab67616d0000b273dea3ee7b1cc820da4d091bebab67616d0000b273f4a2ccbe20d6d52f16816812"
+    },{
+      "name": "Small Bump – Ed Sheeran",
+      "uri": "spotify:playlist:5PHlSeq0bGJ7OEwxa3ETjf",
+      "cover": "https://mosaic.scdn.co/60/299b7b31f778c9c1b20878df2457f5ec986670fcab67616d0000b2731917a0f3f4152622a040913fab67616d0000b2736930babcd1f07e9def9e77b0ab67616d0000b273ed139c2e0e3681cc2d35e256"
+    },{
+      "name": "Motivational",
+      "uri":"spotify:playlist:7G0Blzp8eugWkZ128r0Q10",
+      "cover": "https://i.scdn.co/image/486839d5145916fb0b575e54ab2498fa89f086ba"
+    },{
+      "name": "Bumblebee Soundtrack 2018",
+      "uri": "spotify:playlist:7pCclUBt65xcDk3vA5EL55",
+      "cover": "https://pl.scdn.co/images/pl/default/4840d8b7ee8b3fb66541b8ee7d7d4412b2912ef7"
+    },{
+      "name": "This Is Sum 41",
+      "uri": "spotify:playlist:37i9dQZF1DX4gScoXV8KpV",
+      "cover": "https://i.scdn.co/image/ab67706f00000002733f81cf552b970ec0adf564"
+    },{
+      "name": "This Is Scott Bradlee's Postmodern Jukebox",
+      "uri": "spotify:playlist:37i9dQZF1DZ06evO3mw43S",
+      "cover": "https://thisis-images.scdn.co/37i9dQZF1DZ06evO3mw43S-default.jpg"
+    },{
+      "name": "Rock",
+      "uri": "spotify:playlist:4aEudDJKHa3c4PmTPPIQCU",
+      "cover": "https://mosaic.scdn.co/60/0da955d5e389165d5473f981b647d4b8eae2e16e9124aa5141344ef718b000b81e74e02fe06835f0946c61326e5cee11264c60a6bbc2d6877fb8efb5ab67616d0000b273d9cf309cca48a59b1c75746a"
+    },{
+      "name": "Tranquil",
+      "uri": "spotify:playlist:682MoWkX3gOuQgp3jLsW73",
+      "cover": "https://mosaic.scdn.co/60/4e1a870fccbbad40035f40be342c93612f8cb5c09c7eb5d20178445fd4a3562f108eacb4f64f2345ab67616d0000b27359f0f56a7cd13526b5b4204cab67616d0000b273c8e97cafeb2acb85b21a777e"
+    },{
+      "name": "Country",
+      "uri": "spotify:playlist:47CbBZKTMGCq9DiVEkv4Ic",
+      "cover": "https://mosaic.scdn.co/60/478934c037687f983d9c1d845b8d74c7a0f5d97c761da7cca62daeed8c02b5ed4b5209c5a0d8e5aeab67616d0000b27340182999eec31669632d692dab67616d0000b27381e61ac7940dd808a535676e"
+    },{
+      "name": "Billy Currington — People Are Crazy",
+      "uri": "spotify:playlist:2GDpHF6PieqMkJU5VeHX2u",
+      "cover": "https://mosaic.scdn.co/60/478934c037687f983d9c1d845b8d74c7a0f5d97c6d66bb3f14b4735c0cb6af5c799e7d0511feaa03ab67616d0000b2733f6f4ab78c05dfdfcc37a205ab67616d0000b2737d5420cd198c92c8ef09f978"
+    },{
+      "name": "Liked from Radio",
+      "uri": "spotify:playlist:5ziMq6phEW4Z3HH6Y9NneO",
+      "cover": "https://mosaic.scdn.co/60/9001904055eab72a3511d6b9cc86e4aab87a1774a0fa0e4cedaa165a568ce5f1267eab1fa080369cab67616d0000b27352f4fc921219a8b8ca2bb27dab67616d0000b273acee1bfde2b1a827af4abc8b"
+    },{
+      "name": "Bonnie Tyler - I Need A Hero (Lyrics)",
+      "uri": "spotify:playlist:3C7i8TozrW1XvTwfZImenm",
+      "cover": "https://mosaic.scdn.co/60/ab67616d0000b27393d73d10075d96b65ba04dcbab67616d0000b273d82269c40760b40fdd97599eab67616d0000b273dea3ee7b1cc820da4d091bebab67616d0000b273f4a2ccbe20d6d52f16816812"
+    }
+  ],
   "medias": [
     {
-      "label": "Google Home Livingroom",
+      "label": "Living Room",
       "widget": "chromecast",
-      "items": {
-        "controls": "LivingRoom_GoogleHome_Control",
-        "volume": "LivingRoom_GoogleHome_Volume",
-        "app": "LivingRoom_GoogleHome_App",
-        "duration": "LivingRoom_GoogleHome_Duration",
-        "currentTime": "LivingRoom_GoogleHome_CurrentTime",
-        "album": "LivingRoom_GoogleHome_AlbumName",
-        "artist": "LivingRoom_GoogleHome_Artist",
-        "title": "LivingRoom_GoogleHome_Title",
-        "imageUrl": "LivingRoom_GoogleHome_ImageURL"
-      }
-    },
-    {
-      "label": "Google Home Bedroom",
-      "widget": "chromecast",
-      "items": {
-        "controls": "Bedroom_GoogleHome_Control",
-        "volume": "Bedroom_GoogleHome_Volume",
-        "app": "Bedroom_GoogleHome_App",
-        "duration": "Bedroom_GoogleHome_Duration",
-        "currentTime": "Bedroom_GoogleHome_CurrentTime",
-        "album": "Bedroom_GoogleHome_AlbumName",
-        "artist": "Bedroom_GoogleHome_Artist",
-        "title": "Bedroom_GoogleHome_Title",
-        "imageUrl": "Bedroom_GoogleHome_ImageURL"
-      }
-    },
-    {
-      "label": "TV Chromecast",
-      "widget": "chromecast",
-      "items": {
-        "controls": "LivingRoom_ChromeCast_Control",
-        "volume": "LivingRoom_ChromeCast_Volume",
-        "app": "LivingRoom_ChromeCast_App",
-        "duration": "LivingRoom_ChromeCast_Duration",
-        "currentTime": "LivingRoom_ChromeCast_CurrentTime",
-        "album": "LivingRoom_ChromeCast_AlbumName",
-        "artist": "LivingRoom_ChromeCast_Artist",
-        "title": "LivingRoom_ChromeCast_Title",
-        "imageUrl": "LivingRoom_ChromeCast_ImageURL"
-      }
+      "item": "media_player.livingroom_group",
+      "device_name": "Livingroom group"
     }
   ],
   "rooms": [
@@ -53,18 +65,6 @@
       "icon": "corridor",
       "layout": {
         "areaA": [
-          {}
-        ],
-        "areaC": [
-          {
-            "widget": "light",
-            "item": "light.living_room_left_corner",
-            "config": {
-              "label": "Hallway Light"
-            }
-          }
-        ],
-        "areaD": [
           {
             "widget": "value",
             "item": "binary_sensor.door_window_sensor_toilets",
@@ -75,15 +75,91 @@
                 "border": "none"
               }
             }
+          },
+          {
+            "widget": "value",
+            "item": "person.olivier",
+            "config": {
+              "icon": "fas fa-user",
+              "label": "Olivier",
+              "style": {
+                "border": "none"
+              }
+            }
           }
-        ]
+        ],
+        "areaC": [
+          {
+            "widget": "light",
+            "item": "light.living_room_left_corner",
+            "config": {
+              "label": "Hallway Light"
+            }
+          }
+        ],
+        "areaD": []
       }
     },
     {
       "id": "LivingRoom",
       "label": "Living room",
       "icon": "lounge",
-      "layout": {}
+      "layout": {
+        "areaC": [
+          {
+            "widget": "label",
+            "config": {
+              "value": "Lights",
+              "style": {
+                "font-size": "1.2em"
+              }
+            }
+          },
+          {
+            "widget": "light",
+            "item": "light.living_room_left_corner",
+            "config": {
+              "label": "Corner left Light"
+            }
+          },
+          {
+            "widget": "light",
+            "item": "light.living_room_right_corner",
+            "config": {
+              "label": "Corner right Light"
+            }
+          },
+          {
+            "widget": "separator",
+            "config": {
+              "style": {
+                "width": "35%",
+                "margin-left": "auto",
+                "margin-right": "auto"
+              }
+            }
+          },
+          {
+            "widget": "light",
+            "item": "group.livingroom_lights",
+            "config": {
+              "label": "Toggle All Lights"
+            }
+          }
+        ],
+        "areaD": [
+          {
+            "widget": "music-controls",
+            "item": "media_player.livingroom_group",
+            "config": {
+              "open": true,
+              "style": {
+                "border": "none"
+              }
+            }
+          }
+        ]
+      }
     },
     {
       "id": "Kitchen",
@@ -96,6 +172,69 @@
       "label": "Bedroom",
       "icon": "bedroom",
       "layout": {}
+    },
+    {
+      "id": "Office",
+      "label": "Office",
+      "icon": "office",
+      "layout": {
+        "areaA": [],
+        "areaB": [
+          {
+            "widget": "value",
+            "item": "sensor.temperature_office",
+            "config": {
+              "label": "Heat",
+              "icon": "fas fa-thermometer-three-quarters",
+              "postString": "°C",
+              "filter": {
+                "type": "number",
+                "arg": "1.2-2"
+              },
+              "style": {
+                "border": "none"
+              }
+            }
+          },
+          {
+            "widget": "value",
+            "item": "sensor.humidity_office",
+            "config": {
+              "label": "Humidity",
+              "icon": "fas fa-tint",
+              "postString": "%",
+              "filter": {
+                "type": "number",
+                "arg": "1.0-0"
+              },
+              "style": {
+                "border": "none"
+              }
+            }
+          }
+        ],
+        "areaC": [
+          {
+            "widget": "light",
+            "item": "light.big_light",
+            "config": {
+              "label": "Big Light"
+            }
+          }
+        ],
+        "areaD": [
+          {
+            "widget": "music-controls",
+            "item": "media_player.office_display",
+            "config": {
+              "open": true,
+              "style": {
+                "border": "none"
+              }
+            }
+          }
+        ]
+      }
     },
     {
       "id": "Bathroom",

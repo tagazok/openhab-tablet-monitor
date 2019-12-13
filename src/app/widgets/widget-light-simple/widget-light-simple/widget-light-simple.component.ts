@@ -23,7 +23,7 @@ export class WidgetLightSimpleComponent extends WidgetComponent {
               }
 
   isOn() {
-    return this.item.state === 'on';
+    return this.item && this.item.state === 'on';
   }
 
   toggleOnOff() {

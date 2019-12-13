@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from './auth.service';
+import { LogService } from '../log.service';
 // import { LogService } from "./log.service";
 
 @Injectable()
@@ -17,6 +18,7 @@ export class ConfigService {
   constructor(
     private afs: AngularFirestore,
     private db: AngularFireDatabase,
+    private logService: LogService
     // private as: AuthService
     // private logService: LogService
   ) {
@@ -71,7 +73,7 @@ export class ConfigService {
   }
 
   saveLayout() {
-    let itemRef = this.db.object('olivier');
+    const itemRef = this.db.object('olivier');
     itemRef.set({ layout: JSON.stringify(this.layout) });
   }
 
@@ -83,10 +85,18 @@ export class ConfigService {
         name: item.attributes.friendly_name,
         state: item.state,
         attributes: item.attributes
-      }
+      };
       this.items[data.id] = data;
+      console.log(item);
+      if (item.attributes.battery_level && item.attributes.battery_level < 30) {
+         this.logService.createAlert(data.id, {
+                item: item.attributes.friendly_name,
+                type: 'battery-empty',
+                date: new Date().toLocaleString(),
+                value: `${item.attributes.battery_level}%`
+              });
+      }
     }
-    console.log(this.items);
   }
 
   updateItem(msg) {
@@ -94,6 +104,15 @@ export class ConfigService {
     if (data) {
       data.state = msg.event.data.new_state.state;
       data.attributes = msg.event.data.new_state.attributes;
+
+      if (data.attributes.battery_level && data.attributes.battery_level < 30) {
+        this.logService.createAlert(data.id, {
+               item: data.attributes.friendly_name,
+               type: 'battery-empty',
+               date: new Date().toLocaleString(),
+               value: `${data.attributes.battery_level}%`
+             });
+     }
     }
   }
 

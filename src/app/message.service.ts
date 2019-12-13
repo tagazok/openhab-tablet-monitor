@@ -13,7 +13,7 @@ export class MessageService {
 
   constructor(wsService: WebsocketService,
               private configService: ConfigService) {
-    this.id = 3;
+    this.id = 4;
     this.messages = <Subject<any>>wsService.connect(CHAT_URL).map(
       (response: MessageEvent): any => {
         let data = JSON.parse(response.data);
