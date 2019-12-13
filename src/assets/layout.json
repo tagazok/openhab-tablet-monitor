@@ -52,6 +52,12 @@
   ],
   "medias": [
     {
+      "label": "Home",
+      "widget": "chromecast",
+      "item": "media_player.home_group",
+      "device_name": "Home group"
+    },
+    {
       "label": "Living Room",
       "widget": "chromecast",
       "item": "media_player.livingroom_group",

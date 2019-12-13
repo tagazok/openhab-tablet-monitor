@@ -4,7 +4,7 @@ import { MediasComponent } from './medias/medias.component';
 
 const mediasRoutes: Routes = [
   {
-    path: '',
+    path: 'medias',
     component: MediasComponent,
   }
 ];
