@@ -14,7 +14,7 @@ export class WidgetLightSimpleAdvancedComponent implements OnInit {
 
   configBrightnessSaturation = {
     max: 255,
-    min: 0,
+    min: 1,
     step: 1,
     thumbLabel: true
   };
