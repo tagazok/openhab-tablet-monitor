@@ -23,7 +23,7 @@ export class WidgetSwitchComponent extends WidgetComponent {
     public messageService: MessageService
   ) {
     super(elementRef, renderer);
-    if(this.config && this.config.icons) {
+    if (this.config && this.config.icons) {
       this.icons.ON = this.config.icons.ON;
       this.icons.OFF = this.config.icons.OFF;
     }

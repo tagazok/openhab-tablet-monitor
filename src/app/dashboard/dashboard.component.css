@@ -19,6 +19,7 @@
 .room img {
   transition: .3s filter linear;
   max-width: 100%;
+  width: 300px;
 }
 
 .room img.light {

@@ -316,6 +316,15 @@
         ],
         "areaC": [
           {
+            "widget": "label",
+            "config": {
+              "value": "Lights",
+              "style": {
+                "font-size": "1.2em"
+              }
+            }
+          },
+          {
             "widget": "light",
             "item": "light.big_light",
             "config": {
@@ -342,6 +351,16 @@
       "label": "Living room",
       "icon": "lounge",
       "layout": {
+        "areaA": [
+          {
+            "widget": "switch",
+            "item": "group.livingroom_lights",
+            "config": {
+              "label": "Toggle All Lights",
+              "domain": "homeassistant"
+            }
+          }
+        ],
         "areaC": [
           {
             "widget": "label",
@@ -367,20 +386,17 @@
             }
           },
           {
-            "widget": "separator",
+            "widget": "switch",
+            "item": "switch.teckin_1",
             "config": {
-              "style": {
-                "width": "35%",
-                "margin-left": "auto",
-                "margin-right": "auto"
-              }
+              "label": "Corner Light"
             }
           },
           {
-            "widget": "light",
-            "item": "group.livingroom_lights",
+            "widget": "switch",
+            "item": "switch.teckin_2",
             "config": {
-              "label": "Toggle All Lights"
+              "label": "Christman tree"
             }
           }
         ],
