@@ -3,9 +3,17 @@
     <div class="main" fxLayout="column" fxLayoutAlign="center center" routerLink="/room/{{room.id}}">
       <div class="label">{{room.label}}</div>
       <img src="/assets/images/rooms/{{room.icon}}.png" [class.light]="hasLight(room)">
-      <!-- <div *ngIf="room.sensors?.Sensor?.properties?.Temperature" class="temperature" fxLayoutAlign="end center">
-          <img src="/assets/images/icon_temp.png"> {{room.sensors.Sensor.properties.Temperature.value | number:'1.0-0'}} °C
+      <div class="sensors">
+        <div *ngIf="room.sensors?.temperature" class="sensor" fxLayoutAlign="start center">
+          <i class="fas fa-thermometer-three-quarters icon temperature"></i>
+          <!-- <img class="termometer" src="/assets/images/icon_temp.png"> -->
+          {{cs.items[room.sensors.temperature]?.state | number:'1.0-0'}} °C
+        </div>
+        <!-- <div *ngIf="room.sensors?.lightsgroup" class="sensor" fxLayoutAlign="start center">
+          <i class="fas fa-lightbulb icon {{cs.items[room.sensors.lightsgroup]?.state}}"></i>
+          {{cs.items[room.sensors.lightsgroup]?.state}}
         </div> -->
+      </div>
     </div>
   </div>
 </div>

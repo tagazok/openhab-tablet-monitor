@@ -125,6 +125,9 @@
       "id": "Kitchen",
       "label": "Kitchen",
       "icon": "kitchen",
+      "sensors": {
+        "lightsgroup": "group.kitchen_lights"
+      },
       "layout": {
         "areaA": [
           {
@@ -190,33 +193,29 @@
       "id": "Bedroom",
       "label": "Bedroom",
       "icon": "bedroom",
-      "layout": {}
-    },
-    {
-      "id": "Bedroom2",
-      "label": "Bedroom 2",
-      "icon": "bedroom",
+      "sensors": {
+        "temperature": "sensor.temperature_bedroom"
+      },
       "layout": {
         "areaB": [
           {
             "widget": "value",
-            "item": "sensor.temperature_office",
+            "item": "sensor.temperature_bedroom",
             "config": {
-              "label": "Heat",
+              "label": "Temperature",
               "icon": "fas fa-thermometer-three-quarters",
               "postString": "°C",
               "filter": {
                 "type": "number",
-                "arg": "1.2-2"
+                "arg": "1.1-1"
               },
               "style": {
                 "border": "none"
               }
             }
-          },
-          {
+          }, {
             "widget": "value",
-            "item": "sensor.humidity_office",
+            "item": "sensor.humidity_bedroom",
             "config": {
               "label": "Humidity",
               "icon": "fas fa-tint",
@@ -230,7 +229,18 @@
               }
             }
           }
-        ],
+        ]
+      }
+    },
+    {
+      "id": "Bedroom2",
+      "label": "Bedroom 2",
+      "icon": "bedroom",
+      "sensors": {
+        "lightsgroup": "group.bedroom2_lights"
+      },
+      "layout": {
+        "areaB": [],
         "areaC": [
           {
             "widget": "switch",
@@ -252,6 +262,10 @@
       "id": "Office",
       "label": "Office",
       "icon": "office",
+      "sensors": {
+        "temperature": "sensor.temperature_office",
+        "lightsgroup": "group.office_lights"
+      },
       "layout": {
         "areaA": [
           {
@@ -290,7 +304,7 @@
               "postString": "°C",
               "filter": {
                 "type": "number",
-                "arg": "1.2-2"
+                "arg": "1.1-1"
               },
               "style": {
                 "border": "none"
@@ -350,6 +364,9 @@
       "id": "LivingRoom",
       "label": "Living room",
       "icon": "lounge",
+      "sensors": {
+        "lightsgroup": "group.livingroom_lights"
+      },
       "layout": {
         "areaA": [
           {

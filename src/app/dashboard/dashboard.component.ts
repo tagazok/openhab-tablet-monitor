@@ -42,9 +42,16 @@ export class DashboardComponent implements OnInit {
     return Object.values(this.cs.layout['rooms']) || [];
   }
 
+  // hasLight(room) {
+  //   if (!room.devices) { return false; }
+  //   return Object.values(room.devices).filter((device: any) => device.type === 'light' && device.properties.OnOff.value === 'ON').length > 0;
+  // }
+
   hasLight(room) {
-    if (!room.devices) { return false; }
-    return Object.values(room.devices).filter((device: any) => device.type === 'light' && device.properties.OnOff.value === 'ON').length > 0;
+    if (room.sensors && room.sensors.lightsgroup && this.cs.items[room.sensors.lightsgroup] && this.cs.items[room.sensors.lightsgroup].state && this.cs.items[room.sensors.lightsgroup].state === 'on') {
+      return true;
+    }
+    return false;
   }
 
   getDevices(room) {

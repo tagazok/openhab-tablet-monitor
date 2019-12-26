@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {trigger, stagger, animate, style, group, query as q, transition, keyframes} from '@angular/animations';
 import { ConfigService } from '../shared/config.service';
-const query = (s,a,o={optional:true})=>q(s,a,o);
+const query = (s, a, o= {optional: true}) => q(s, a, o);
 
 export const roomTransition = trigger('roomTransition', [
   transition(':enter', [
@@ -55,9 +55,9 @@ export const roomTransition = trigger('roomTransition', [
 })
 export class RoomComponent implements OnInit {
   room: any;
-  strokeColor = "red";
+  strokeColor = 'red';
   constructor(public cs: ConfigService,
-              private route:ActivatedRoute) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     const roomId = this.route.snapshot.params['id'];

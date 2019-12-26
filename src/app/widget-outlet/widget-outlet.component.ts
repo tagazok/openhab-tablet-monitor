@@ -1,24 +1,24 @@
-import { Component, OnInit, ComponentRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentFactory, Input } from "@angular/core";
+import { Component, OnInit, ComponentRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentFactory, Input } from '@angular/core';
 // import { WidgetErrorComponent } from "../widget-error/widget-error.component";
 
-import { WidgetSeparatorComponent } from "../widgets/widget-separator/widget-separator/widget-separator.component";
-import { WidgetLabelComponent } from "../widgets/widget-label/widget-label/widget-label.component";
-import { WidgetButtonComponent } from "../widgets/widget-button/widget-button/widget-button.component";
-import { WidgetValueComponent } from "../widgets/widget-value/widget-value/widget-value.component";
-import { WidgetSwitchComponent } from "../widgets/widget-switch/widget-switch/widget-switch.component";
-import { WidgetMusicControlsSimpleComponent } from "../widgets/widget-music-controls-simple/widget-music-controls-simple/widget-music-controls-simple.component";
-import { WidgetLightSimpleComponent } from "../widgets/widget-light-simple/widget-light-simple/widget-light-simple.component";
-import { ConfigService } from "../shared/config.service";
-import { WidgetImageComponent } from "../widgets/widget-image/widget-image/widget-image.component";
-import { WidgetJsonComponent } from "../widgets/widget-json/widget-json/widget-json.component";
-import { WidgetFlowercareComponent } from "../widgets/widget-flowercare/widget-flowercare/widget-flowercare.component";
+import { WidgetSeparatorComponent } from '../widgets/widget-separator/widget-separator/widget-separator.component';
+import { WidgetLabelComponent } from '../widgets/widget-label/widget-label/widget-label.component';
+import { WidgetButtonComponent } from '../widgets/widget-button/widget-button/widget-button.component';
+import { WidgetValueComponent } from '../widgets/widget-value/widget-value/widget-value.component';
+import { WidgetSwitchComponent } from '../widgets/widget-switch/widget-switch/widget-switch.component';
+import { WidgetMusicControlsSimpleComponent } from '../widgets/widget-music-controls-simple/widget-music-controls-simple/widget-music-controls-simple.component';
+import { WidgetLightSimpleComponent } from '../widgets/widget-light-simple/widget-light-simple/widget-light-simple.component';
+import { ConfigService } from '../shared/config.service';
+import { WidgetImageComponent } from '../widgets/widget-image/widget-image/widget-image.component';
+import { WidgetJsonComponent } from '../widgets/widget-json/widget-json/widget-json.component';
+import { WidgetFlowercareComponent } from '../widgets/widget-flowercare/widget-flowercare/widget-flowercare.component';
 
 @Component({
   selector: 'app-widget-outlet',
   template: `
     <template #container></template>
   `,
-  styles:[`
+  styles: [`
     :host {
       width: 100%; margin-bottom: .7em;
     }
@@ -40,10 +40,10 @@ export class WidgetOutletComponent implements OnInit {
     'label': WidgetLabelComponent,
     'separator': WidgetSeparatorComponent,
     'image': WidgetImageComponent,
-    "flowercare": WidgetFlowercareComponent
+    'flowercare': WidgetFlowercareComponent
   };
 
-  @ViewChild("container", { read: ViewContainerRef, static: true }) container;
+  @ViewChild('container', { read: ViewContainerRef, static: true }) container;
   // @ViewChild("container", { static: false }) container;
   componentRef: ComponentRef<any>;
 
@@ -52,17 +52,17 @@ export class WidgetOutletComponent implements OnInit {
 
   createComponent() {
     this.container.clear();
-    if (!this.components[this.widget.widget]) return;
+    if (!this.components[this.widget.widget]) { return; }
 
     console.log(`widget type: ${this.widget.widget}`);
 
-    const factory: ComponentFactory<any> = 
+    const factory: ComponentFactory<any> =
     this.resolver.resolveComponentFactory(
       this.components[this.widget.widget]
     );
-    
+
     this.componentRef = this.container.createComponent(factory);
-    
+
     if (this.widget.items) {
       const items = this.getItems();
       this.componentRef.instance.items = items;
@@ -81,21 +81,21 @@ export class WidgetOutletComponent implements OnInit {
   }
 
   // itemError(item, widget) {
-  //   const factory: ComponentFactory<any> = 
+  //   const factory: ComponentFactory<any> =
   //   this.resolver.resolveComponentFactory(
   //     this.components[this.widget.widget]
   //   );
-    
+
   //   this.componentRef = this.container.createComponent(factory);
 
   //   this.componentRef.instance.type = WidgetErrorComponent
-    
+
   //   this.componentRef.instance.widget = widget;
   // }
 
   getItems() {
-    let items = {}
-    for(let [key, value] of Object.entries(this.widget.items)) {
+    const items = {};
+    for (const [key, value] of Object.entries(this.widget.items)) {
       items[key] = this.configService.items[value.toString()];
     }
     return items;
