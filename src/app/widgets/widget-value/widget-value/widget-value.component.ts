@@ -34,4 +34,11 @@ export class WidgetValueComponent extends WidgetComponent implements OnInit {
     if (this.config && this.config.icon) { return this.config.icon; }
     return 'fas fa-heart';
   }
+
+  getState() {
+    if (this.config.bindings && this.config.bindings[this.item.state]) {
+      return this.config.bindings[this.item.state];
+    }
+    return this. item.state;
+  }
 }

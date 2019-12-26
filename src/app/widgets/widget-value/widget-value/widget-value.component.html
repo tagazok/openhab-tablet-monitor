@@ -6,6 +6,6 @@
     <div fxFlex>{{config?.label || item?.name || ''}}</div>
   </div>
   <div>
-    {{config?.preString || ''}} {{item?.state}} {{config?.postString || ''}}
+    {{config?.preString || ''}} {{getState()}} {{config?.postString || ''}}
   </div>
 </div>
