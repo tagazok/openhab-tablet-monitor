@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./levels.component.css']
 })
 export class LevelsComponent implements OnInit {
-  @Input() level;
-  @Input() limits;
+  @Input() level: any;
+  @Input() limits: any;
 
   constructor() { }
 

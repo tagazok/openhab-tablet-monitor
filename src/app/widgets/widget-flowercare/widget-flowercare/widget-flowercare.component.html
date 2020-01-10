@@ -6,25 +6,25 @@
   <div class="sensor" fxLayout="column" fxLayoutAlign="center center">
     <i class="fas fa-sun fa-2x light"></i>
     <div class="label">Sunlight</div>
-    <app-levels *ngIf="!displayValue" [level]="items.light.state" [limits]="config.limits.light"></app-levels>
-    <div *ngIf="displayValue" class="value">{{items.light.state}} lux</div>
+    <app-levels *ngIf="!displayValue" [level]="items?.light?.state" [limits]="config.limits.light"></app-levels>
+    <div *ngIf="displayValue" class="value">{{items?.light?.state}} lux</div>
   </div>
   <div class="sensor" fxLayout="column" fxLayoutAlign="center center">
       <i class="fas fa-tint fa-2x moisture"></i>
       <div class="label">Moisture</div>
-      <app-levels *ngIf="!displayValue" [level]="items.moisture.state" [limits]="config.limits.moisture"></app-levels>
-      <div *ngIf="displayValue" class="value">{{items.moisture.state}} %</div>
+      <app-levels *ngIf="!displayValue" [level]="items?.moisture?.state" [limits]="config.limits.moisture"></app-levels>
+      <div *ngIf="displayValue" class="value">{{items?.moisture?.state}} %</div>
   </div>
   <div class="sensor" fxLayout="column" fxLayoutAlign="center center">
     <i class="fas fa-thermometer-three-quarters fa-2x temperature"></i>
     <div class="label">Temp.</div>
-    <app-levels *ngIf="!displayValue" [level]="items.temperature.state" [limits]="config.limits.temperature"></app-levels>
-    <div *ngIf="displayValue" class="value">{{items.temperature.state}} °C</div>
+    <app-levels *ngIf="!displayValue" [level]="items?.temperature?.state" [limits]="config.limits.temperature"></app-levels>
+    <div *ngIf="displayValue" class="value">{{items?.temperature?.state}} °C</div>
   </div>
   <div class="sensor" fxLayout="column" fxLayoutAlign="center center">
     <i class="fas fa-poo fa-2x conductivity"></i>
     <div class="label">Fertility</div>
-    <app-levels *ngIf="!displayValue" [level]="items.fertility.state" [limits]="config.limits.fertility"></app-levels>
-    <div *ngIf="displayValue" class="value">{{items.fertility.state}} uS/cm</div>
+    <app-levels *ngIf="!displayValue" [level]="item?.fertility?.state" [limits]="config.limits.fertility"></app-levels>
+    <div *ngIf="displayValue" class="value">{{items?.fertility?.state}} uS/cm</div>
   </div>
 </div>

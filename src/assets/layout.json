@@ -111,6 +111,15 @@
         ],
         "areaC": [
           {
+            "widget": "label",
+            "config": {
+              "value": "Lights",
+              "style": {
+                "font-size": "1.2em"
+              }
+            }
+          },
+          {
             "widget": "light",
             "item": "light.living_room_left_corner",
             "config": {
@@ -157,7 +166,7 @@
         "areaC": [
           {
             "widget": "light",
-            "item": "light.tradfri_bulb",
+            "item": "light.kitchen_main",
             "config": {
               "label": "Ceiling"
             }
@@ -169,6 +178,9 @@
       "id": "Bathroom",
       "label": "Bathroom & Toilets",
       "icon": "bathroom",
+      "sensors": {
+        "temperature": "sensor.temperature_bathroom"
+      },
       "layout": {
         "areaA": [
           {
@@ -176,13 +188,55 @@
             "item": "binary_sensor.door_window_sensor_toilets",
             "config": {
               "icon": "fas fa-unlock-alt",
-              "label": "Door",
+              "label": "Toilets Door",
               "style": {
                 "border": "none"
               },
               "bindings": {
                 "on": "Open",
                 "off": "Closed"
+              }
+            }
+          }
+        ],
+        "areaB": [
+          {
+            "widget": "label",
+            "config": {
+              "value": "Bathroom",
+              "style": {
+                "font-size": "1.2em"
+              }
+            }
+          },
+          {
+            "widget": "value",
+            "item": "sensor.temperature_bedroom",
+            "config": {
+              "label": "Temperature",
+              "icon": "fas fa-thermometer-three-quarters",
+              "postString": "°C",
+              "filter": {
+                "type": "number",
+                "arg": "1.1-1"
+              },
+              "style": {
+                "border": "none"
+              }
+            }
+          }, {
+            "widget": "value",
+            "item": "sensor.humidity_bedroom",
+            "config": {
+              "label": "Humidity",
+              "icon": "fas fa-tint",
+              "postString": "%",
+              "filter": {
+                "type": "number",
+                "arg": "1.0-0"
+              },
+              "style": {
+                "border": "none"
               }
             }
           }
@@ -194,13 +248,13 @@
       "label": "Bedroom",
       "icon": "bedroom",
       "sensors": {
-        "temperature": "sensor.temperature_bedroom"
+        "temperature": "sensor.temperature_bedroom1"
       },
       "layout": {
         "areaB": [
           {
             "widget": "value",
-            "item": "sensor.temperature_bedroom",
+            "item": "sensor.temperature_bedroom1",
             "config": {
               "label": "Temperature",
               "icon": "fas fa-thermometer-three-quarters",
@@ -342,7 +396,7 @@
             "widget": "light",
             "item": "light.big_light",
             "config": {
-              "label": "Big Light"
+              "label": "Halogen lamp"
             }
           }
         ],
@@ -365,7 +419,8 @@
       "label": "Living room",
       "icon": "lounge",
       "sensors": {
-        "lightsgroup": "group.livingroom_lights"
+        "lightsgroup": "group.livingroom_lights",
+        "temperature": "sensor.temperature_livingroom"
       },
       "layout": {
         "areaA": [
@@ -375,6 +430,24 @@
             "config": {
               "label": "Toggle All Lights",
               "domain": "homeassistant"
+            }
+          }
+        ],
+        "areaB": [
+          {
+            "widget": "value",
+            "item": "sensor.temperature_livingroom",
+            "config": {
+              "label": "Temperature",
+              "icon": "fas fa-thermometer-three-quarters",
+              "postString": "°C",
+              "filter": {
+                "type": "number",
+                "arg": "1.1-1"
+              },
+              "style": {
+                "border": "none"
+              }
             }
           }
         ],
@@ -392,14 +465,14 @@
             "widget": "light",
             "item": "light.living_room_left_corner",
             "config": {
-              "label": "Corner left Light"
+              "label": "TV left Light"
             }
           },
           {
             "widget": "light",
             "item": "light.living_room_right_corner",
             "config": {
-              "label": "Corner right Light"
+              "label": "TV right Light"
             }
           },
           {
@@ -420,12 +493,56 @@
         "areaD": [
           {
             "widget": "music-controls",
-            "item": "media_player.livingroom_group",
+            "item": "media_player.living_room_speaker",
             "config": {
               "open": true,
               "style": {
                 "border": "none"
               }
+            }
+          },
+          {
+            "widget": "separator",
+            "config": {
+                "style": {
+                    "width": "15%",
+                    "margin-left": "auto",
+                    "margin-right": "auto"
+                }
+            }
+          },
+          {
+            "widget": "flowercare",
+            "items": {
+                "temperature": "sensor.poinsettia_temperature",
+                "fertility": "sensor.poinsettia_conductivity",
+                "moisture": "sensor.poinsettia_moisture",
+                "light": "sensor.poinsettia_light_intensity"
+            },
+            "config": {
+                "label": "Etoile de Noël",
+                "icon": "fas fa-leaf",
+                "limits": {
+                    "temperature": {
+                        "min": 8,
+                        "max": 35
+                    },
+                    "fertility": {
+                        "min": 350,
+                        "max": 2000
+                    },
+                    "moisture": {
+                        "min": 15,
+                        "max": 60
+                    },
+                    "light": {
+                        "min": 4000,
+                        "max": 30000
+                    }
+                },
+                "style": {
+                    "border": "none"
+                }
             }
           }
         ]

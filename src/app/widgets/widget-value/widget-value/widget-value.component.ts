@@ -19,8 +19,8 @@ import { WidgetComponent } from '../../widget/widget/widget.component';
 export class WidgetValueComponent extends WidgetComponent implements OnInit {
 
   constructor(
-    protected elementRef: ElementRef, 
-    protected renderer: Renderer2, 
+    protected elementRef: ElementRef,
+    protected renderer: Renderer2,
     private decimalPipe: DecimalPipe) {
     super(elementRef, renderer);
   }

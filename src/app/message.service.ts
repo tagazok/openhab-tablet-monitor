@@ -3,7 +3,8 @@ import { Observable, Subject } from 'rxjs/Rx';
 import { WebsocketService } from './websocket.service';
 import { ConfigService } from './shared/config.service';
 
-const CHAT_URL = 'wss://192.168.86.254:8123/api/websocket';
+// const CHAT_URL = 'wss://192.168.86.254:8123/api/websocket';
+const CHAT_URL = 'wss://tagahome.duckdns.org:8123/api/websocket';
 
 
 @Injectable()
@@ -27,7 +28,7 @@ export class MessageService {
     if (msg.type === 'auth_required') {
       const message =  {
         'type': 'auth',
-        'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIwYWQzMmI2MzRiNDA0ZGJiOWE4YTUxNTM0NjAxYzRjYSIsImlhdCI6MTU3NjE2OTE0OSwiZXhwIjoxODkxNTI5MTQ5fQ.Evx-TgUW8DsOZNWHYMVmEn8Gbunkvwbidj0krC3a5ws'
+        'access_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkMjkxNmM0OTg2YTY0MjY0YTNkM2FmMjVjMTYyN2M2NyIsImlhdCI6MTU3ODYxMzQ0NiwiZXhwIjoxODkzOTczNDQ2fQ.gjyET5k3nYOvP2m9rq-sFRsNHWDEy751FJ37nQZQunc'
       }
       this.messages.next(message);
     }

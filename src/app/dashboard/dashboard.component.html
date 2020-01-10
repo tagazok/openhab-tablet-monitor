@@ -6,7 +6,6 @@
       <div class="sensors">
         <div *ngIf="room.sensors?.temperature" class="sensor" fxLayoutAlign="start center">
           <i class="fas fa-thermometer-three-quarters icon temperature"></i>
-          <!-- <img class="termometer" src="/assets/images/icon_temp.png"> -->
           {{cs.items[room.sensors.temperature]?.state | number:'1.0-0'}} °C
         </div>
         <!-- <div *ngIf="room.sensors?.lightsgroup" class="sensor" fxLayoutAlign="start center">
